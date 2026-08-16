@@ -1,0 +1,248 @@
+/* ============================================
+   GALAL ACADEMY — HOME / SHARED MARKETING PAGES
+   Hero, Philosophy, Founder, Contact CTA
+   ============================================ */
+
+/* ==================== Hero ==================== */
+.hero__inner {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-code);
+  font-size: 0.85rem;
+  color: var(--color-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.hero__eyebrow-mark {
+  color: var(--color-accent);
+}
+
+.hero__title {
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 1.5rem;
+}
+
+.hero__title-dot {
+  color: var(--color-accent);
+}
+
+.hero__desc {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3.5rem;
+}
+
+/* Signature learning path in hero */
+.hero__path {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero__path-svg {
+  width: 100%;
+  height: auto;
+}
+
+.hero__path-line {
+  fill: none;
+  stroke: var(--color-border);
+  stroke-width: 2;
+  stroke-dasharray: 6 6;
+}
+
+.hero__path-node {
+  fill: var(--color-surface);
+  stroke: var(--color-border);
+  stroke-width: 2;
+}
+
+.hero__path-node--active {
+  fill: var(--color-accent);
+  stroke: var(--color-accent);
+}
+
+.hero__path-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--color-text-soft);
+  padding: 0 0.5rem;
+}
+
+/* ==================== Philosophy (Asymmetric 60/40) ==================== */
+.philosophy__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 900px) {
+  .philosophy__grid {
+    grid-template-columns: 1.5fr 1fr;
+    align-items: start;
+  }
+}
+
+.philosophy__desc {
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.philosophy__stats {
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.75rem;
+}
+
+/* ==================== Courses Preview ==================== */
+.courses-preview__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .courses-preview__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.courses-preview__footer {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+/* ==================== Founder Section ==================== */
+.founder__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .founder__grid {
+    grid-template-columns: 0.8fr 1.2fr;
+  }
+}
+
+.founder__image-wrap {
+  position: relative;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.founder__image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+}
+
+.founder__image-tag {
+  position: absolute;
+  bottom: -0.75rem;
+  right: -0.75rem;
+  background: var(--color-accent);
+  color: var(--color-primary);
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-pill);
+}
+
+.founder__role {
+  color: var(--color-secondary);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.founder__bio {
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+
+.founder__subheading {
+  font-size: 1.05rem;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.founder__quote {
+  border-right: 3px solid var(--color-accent);
+  padding-right: 1.25rem;
+  margin: 1.5rem 0;
+  font-style: normal;
+  font-size: 1.05rem;
+  color: var(--color-text);
+}
+
+/* ==================== Contact CTA ==================== */
+.contact-cta {
+  text-align: center;
+  background: var(--color-primary);
+  border-radius: var(--radius-lg);
+  max-width: var(--container-max);
+  margin: 3rem auto;
+  color: var(--color-text-on-primary);
+}
+
+.contact-cta__inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-cta__title {
+  color: var(--color-text-on-primary);
+}
+
+.contact-cta__desc {
+  opacity: 0.85;
+  margin-bottom: 1.75rem;
+}
+
+.contact-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.contact-cta .btn--outline {
+  border-color: rgba(255,255,255,0.4);
+  color: var(--color-text-on-primary);
+}
+
+.contact-cta .btn--outline:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+[data-theme="dark"] .contact-cta {
+  background: var(--color-surface-alt);
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .contact-cta__title {
+  color: var(--color-text);
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تسجيل الدخول | جلال أكاديمي</title>
+  <meta name="description" content="سجّل دخولك للوصول لكورساتك وامتحاناتك وتقدمك في جلال أكاديمي." />
+
+  <link rel="icon" type="image/png" href="assets/images/brand/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/themes.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">تخطَّ إلى المحتوى الرئيسي</a>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="navbar" aria-label="التنقل الرئيسي">
+      <a href="index.html" class="navbar__brand" aria-label="جلال أكاديمي - الرئيسية">
+        <img src="assets/images/brand/logo.png" alt="جلال أكاديمي" class="navbar__logo" width="40" height="40" />
+        <span class="navbar__name">جلال أكاديمي</span>
+      </a>
+      <div class="navbar__actions" style="display:flex;">
+        <button class="theme-toggle" id="themeToggle" aria-label="تبديل الوضع الداكن">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <div class="auth-card">
+      <span class="section-tag">// تسجيل الدخول</span>
+      <h1 class="section-title" style="font-size:1.6rem;">أهلاً بيك تاني</h1>
+      <p class="section-subtitle" style="margin-bottom: 1.75rem;">سجّل دخولك عشان تكمل من مكانك.</p>
+
+      <form id="loginForm" novalidate>
+        <div class="form-group">
+          <label for="loginEmail">البريد الإلكتروني</label>
+          <input type="email" id="loginEmail" name="email" required autocomplete="email" placeholder="example@email.com" />
+        </div>
+
+        <div class="form-group">
+          <label for="loginPassword">كلمة المرور</label>
+          <input type="password" id="loginPassword" name="password" required autocomplete="current-password" placeholder="••••••••" />
+        </div>
+
+        <p class="form-error" id="loginError" role="alert"></p>
+
+        <button type="submit" class="btn btn--primary btn--lg" style="width:100%; margin-top: 0.5rem;">
+          تسجيل الدخول
+        </button>
+
+        <p class="form-hint" style="text-align:center; margin-top: 1.5rem;">
+          لسه معملتش حساب؟ <a href="register.html" style="color: var(--color-secondary); font-weight:600;">اعمل حساب جديد</a>
+        </p>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__bottom">
+      <p>© 2026 جلال أكاديمي. كل الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>

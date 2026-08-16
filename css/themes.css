@@ -1,0 +1,30 @@
+/* ============================================
+   GALAL ACADEMY — THEMES
+   Dark mode adjustments that go beyond variable swaps
+   ============================================ */
+
+/* Images look slightly muted in dark mode so whites don't glare */
+[data-theme="dark"] img {
+  filter: brightness(0.92) contrast(1.02);
+}
+
+/* Course card images stay natural (no double-dimming with badge overlays) */
+[data-theme="dark"] .course-card__image {
+  filter: brightness(0.85);
+}
+
+/* Divider signature line adapts subtly in dark mode via variable already,
+   but code-badge elements need slightly stronger contrast */
+[data-theme="dark"] .section-tag {
+  color: var(--color-secondary);
+}
+
+/* Smooth theme transition on the elements that actually change */
+body,
+.site-header,
+.course-card,
+.faq-item,
+.contact-channel-card,
+.auth-card {
+  transition: background-color var(--transition-base), border-color var(--transition-base), color var(--transition-base);
+}

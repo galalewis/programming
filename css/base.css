@@ -1,0 +1,255 @@
+/* ============================================
+   GALAL ACADEMY — BASE / DESIGN SYSTEM
+   Variables, Reset, Typography
+   ============================================ */
+
+/* -------------------- CSS Variables — Light Mode -------------------- */
+:root {
+  --color-primary: #12233F;
+  --color-primary-light: #1D3A63;
+  --color-secondary: #0E7C6B;
+  --color-accent: #E3A008;
+  --color-accent-soft: #FBEACB;
+
+  --color-background: #FBF9F5;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F3EFE7;
+
+  --color-text: #1A1A1A;
+  --color-text-muted: #5C5C5C;
+  --color-text-soft: #8A8A8A;
+  --color-text-on-primary: #FBF9F5;
+
+  --color-success: #1B8A5A;
+  --color-warning: #C97A0C;
+  --color-error: #C0392B;
+
+  --color-border: #E5E0D5;
+  --color-border-strong: #12233F;
+
+  --font-arabic: 'IBM Plex Sans Arabic', 'Tahoma', sans-serif;
+  --font-code: 'JetBrains Mono', 'Courier New', monospace;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+
+  --shadow-soft: 0 2px 12px rgba(18, 35, 63, 0.06);
+  --shadow-strong: 0 8px 30px rgba(18, 35, 63, 0.12);
+
+  --container-max: 1200px;
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+}
+
+/* -------------------- CSS Variables — Dark Mode -------------------- */
+[data-theme="dark"] {
+  --color-primary: #E8B84B;
+  --color-primary-light: #F0CB73;
+  --color-secondary: #3DBBA0;
+  --color-accent: #E8B84B;
+  --color-accent-soft: #3A2E14;
+
+  --color-background: #0F1620;
+  --color-surface: #16202E;
+  --color-surface-alt: #1C2836;
+
+  --color-text: #F2EFE9;
+  --color-text-muted: #B7BAC0;
+  --color-text-soft: #7C838F;
+  --color-text-on-primary: #12233F;
+
+  --color-success: #3DBBA0;
+  --color-warning: #E8B84B;
+  --color-error: #E2685C;
+
+  --color-border: #26313F;
+  --color-border-strong: #E8B84B;
+
+  --shadow-soft: 0 2px 14px rgba(0, 0, 0, 0.35);
+  --shadow-strong: 0 10px 34px rgba(0, 0, 0, 0.5);
+}
+
+/* -------------------- Reset -------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-arabic);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.7;
+  font-size: 16px;
+  transition: background-color var(--transition-base), color var(--transition-base);
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+svg {
+  flex-shrink: 0;
+}
+
+/* -------------------- Typography -------------------- */
+h1, h2, h3, h4 {
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-text);
+}
+
+.section-tag {
+  display: inline-block;
+  font-family: var(--font-code);
+  font-size: 0.8rem;
+  color: var(--color-secondary);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.section-title {
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  max-width: 640px;
+}
+
+.section-heading {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+}
+
+.section-heading .section-subtitle {
+  margin: 0 auto;
+}
+
+/* -------------------- Page Header (shared across inner pages) -------------------- */
+.page-header {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 2.5rem;
+  text-align: center;
+}
+
+.page-header__title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 1rem;
+}
+
+.page-header__desc {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+}
+
+/* -------------------- Signature Section Divider -------------------- */
+.section-divider {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.section-divider svg {
+  width: 100%;
+  height: 24px;
+}
+
+.section-divider__line {
+  fill: none;
+  stroke: var(--color-border);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* -------------------- Accessibility -------------------- */
+.skip-link {
+  position: absolute;
+  right: -9999px;
+  top: 0;
+  background: var(--color-primary);
+  color: var(--color-text-on-primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  z-index: 999;
+}
+
+.skip-link:focus {
+  right: 1rem;
+  top: 1rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* -------------------- Generic State Blocks -------------------- */
+.state-block {
+  max-width: 500px;
+  margin: 5rem auto;
+  padding: 2rem;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.state-block h1 {
+  margin-bottom: 0.75rem;
+}
+
+.note-card {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  text-align: center;
+}
+
+.note-card__title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.note-card__desc {
+  color: var(--color-text-muted);
+  margin-bottom: 1.25rem;
+}

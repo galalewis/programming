@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الامتحان | جلال أكاديمي</title>
+  <meta name="description" content="حل الامتحان وشوف نتيجتك فورًا." />
+
+  <link rel="icon" type="image/png" href="assets/images/brand/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/themes.css" />
+  <link rel="stylesheet" href="css/pages/exam.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">تخطَّ إلى المحتوى الرئيسي</a>
+
+  <header class="site-header exam-header">
+    <nav class="navbar" aria-label="التنقل الرئيسي">
+      <a href="index.html" class="navbar__brand" aria-label="جلال أكاديمي - الرئيسية">
+        <img src="assets/images/brand/logo.png" alt="جلال أكاديمي" class="navbar__logo" width="40" height="40" />
+        <span class="navbar__name">جلال أكاديمي</span>
+      </a>
+      <a href="exams.html" class="btn btn--ghost btn--sm">خروج من الامتحان</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <div id="authLoading" class="state-block">
+      <p>بنتأكد من تسجيل دخولك...</p>
+    </div>
+
+    <!-- ============ Exam Not Ready State ============ -->
+    <div id="examNotReady" class="state-block" hidden>
+      <h1 class="section-title" style="font-size:1.5rem;">الامتحان ده لسه مش جاهز</h1>
+      <p>هنضيف الأسئلة قريبًا. جرّب الامتحان التجريبي في الأول.</p>
+      <a href="exams.html" class="btn btn--primary">رجوع لكل الامتحانات</a>
+    </div>
+
+    <!-- ============ Exam Taking UI ============ -->
+    <div id="examContent" hidden>
+      <div class="exam-progress-wrap">
+        <div class="exam-progress-bar">
+          <div class="exam-progress-fill" id="examProgressFill" style="width: 0%"></div>
+        </div>
+        <span class="exam-progress-label" id="examProgressLabel">سؤال 1 من ...</span>
+      </div>
+
+      <h1 id="examTitle" class="exam-title"></h1>
+
+      <form id="examForm">
+        <div id="questionsContainer" class="questions-container"></div>
+
+        <button type="submit" class="btn btn--primary btn--lg" style="width:100%; margin-top:1.5rem;">
+          سلّم الامتحان
+        </button>
+      </form>
+    </div>
+
+    <!-- ============ Exam Result (shown right after submit) ============ -->
+    <div id="examResultView" class="exam-result-view" hidden>
+      <div class="exam-result-card">
+        <span class="exam-result-card__percentage" id="resultPercentage">0%</span>
+        <p class="exam-result-card__label">نسبتك في الامتحان</p>
+
+        <div class="exam-result-card__stats">
+          <div>
+            <span id="resultCorrect">0</span>
+            <span>إجابة صح</span>
+          </div>
+          <div>
+            <span id="resultWrong">0</span>
+            <span>إجابة غلط</span>
+          </div>
+          <div>
+            <span id="resultXP">0</span>
+            <span>XP اتكسبت</span>
+          </div>
+        </div>
+
+        <p class="exam-result-card__feedback" id="resultFeedback"></p>
+
+        <div class="exam-result-card__actions">
+          <a href="exams.html" class="btn btn--outline">رجوع للامتحانات</a>
+          <a href="results.html" class="btn btn--primary">شوف كل نتائجي</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/exams.js"></script>
+</body>
+</html>

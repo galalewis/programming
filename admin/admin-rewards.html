@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الجوائز | لوحة تحكم جلال أكاديمي</title>
+
+  <link rel="icon" type="image/png" href="../assets/images/brand/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/themes.css" />
+  <link rel="stylesheet" href="../css/pages/admin.css" />
+</head>
+<body>
+
+  <div id="authLoading" class="state-block">
+    <p>بنتأكد من صلاحياتك...</p>
+  </div>
+
+  <div class="admin-shell" id="adminShell" hidden>
+    <aside class="admin-sidebar" id="adminSidebar"></aside>
+
+    <main class="admin-main">
+      <div class="admin-topbar">
+        <div>
+          <h1 class="admin-topbar__title">الجوائز</h1>
+          <p class="admin-topbar__subtitle">جوائز تحفيزية بتتفتح للطالب لما يوصل لعدد معيّن من الـ XP.</p>
+        </div>
+      </div>
+
+      <div class="admin-card" style="margin-bottom: 2rem;">
+        <h2 style="margin-bottom:1.25rem; font-size:1.1rem;">جائزة جديدة</h2>
+        <form id="rewardForm">
+          <div class="form-group">
+            <label for="rewardTitle">اسم الجائزة</label>
+            <input type="text" id="rewardTitle" required placeholder="مثال: خصم 20% على الكورس الجاي" />
+          </div>
+          <div class="form-group">
+            <label for="rewardDesc">الوصف</label>
+            <input type="text" id="rewardDesc" required placeholder="تفاصيل الجائزة" />
+          </div>
+          <div class="form-group">
+            <label for="rewardXP">XP مطلوب للفتح</label>
+            <input type="number" id="rewardXP" required min="1" placeholder="مثال: 500" />
+          </div>
+          <button type="submit" class="btn btn--primary">إضافة الجائزة</button>
+        </form>
+      </div>
+
+      <h2 style="margin-bottom:1rem; font-size:1.1rem;">الجوائز الحالية</h2>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>الجائزة</th>
+              <th>الوصف</th>
+              <th>XP مطلوب</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="rewardsTableBody"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="../js/main.js"></script>
+  <script type="module">
+    import { requireAdmin } from "../js/admin/admin-common.js";
+    import { getRewards, addReward, deleteReward } from "../firebase/firebase-firestore.js";
+
+    requireAdmin(async () => {
+      document.getElementById("authLoading").hidden = true;
+      document.getElementById("adminShell").hidden = false;
+
+      await renderRewards();
+
+      document.getElementById("rewardForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const titleAr = document.getElementById("rewardTitle").value.trim();
+        const descAr = document.getElementById("rewardDesc").value.trim();
+        const xpRequired = Number(document.getElementById("rewardXP").value);
+
+        await addReward({ titleAr, descAr, xpRequired });
+        document.getElementById("rewardForm").reset();
+        await renderRewards();
+      });
+    });
+
+    async function renderRewards() {
+      const rewards = await getRewards();
+      const tbody = document.getElementById("rewardsTableBody");
+
+      if (rewards.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="4">لسه معملتش أي جائزة.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = rewards
+        .map(
+          (r) => `
+        <tr>
+          <td><strong>${r.titleAr}</strong></td>
+          <td>${r.descAr}</td>
+          <td>${r.xpRequired} XP</td>
+          <td><button class="btn btn--danger btn--sm" data-delete="${r.id}">حذف</button></td>
+        </tr>
+      `
+        )
+        .join("");
+
+      tbody.querySelectorAll("[data-delete]").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          if (!confirm("متأكد إنك عايز تحذف الجائزة دي؟")) return;
+          await deleteReward(btn.dataset.delete);
+          await renderRewards();
+        });
+      });
+    }
+  </script>
+</body>
+</html>

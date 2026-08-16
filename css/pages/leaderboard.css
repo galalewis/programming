@@ -1,0 +1,94 @@
+/* ============================================
+   GALAL ACADEMY — LEADERBOARD & COMPETITIONS
+   ============================================ */
+
+/* ==================== Your Rank Card ==================== */
+.your-rank-card {
+  max-width: var(--container-max);
+  margin: 0 auto 2rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--color-primary);
+  color: var(--color-text-on-primary);
+  border-radius: var(--radius-lg);
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.95rem;
+}
+
+.your-rank-card strong {
+  font-family: var(--font-code);
+  font-size: 1.2rem;
+}
+
+[data-theme="dark"] .your-rank-card {
+  background: var(--color-surface-alt);
+  color: var(--color-text);
+}
+
+/* ==================== Leaderboard List ==================== */
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.leaderboard-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1.25rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.leaderboard-row--top3 {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+
+.leaderboard-row__rank {
+  font-family: var(--font-code);
+  font-weight: 700;
+  width: 2rem;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.leaderboard-row--top3 .leaderboard-row__rank {
+  color: var(--color-accent);
+}
+
+.leaderboard-row__avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.leaderboard-row__name {
+  flex: 1;
+  font-weight: 600;
+}
+
+.leaderboard-row__xp {
+  font-family: var(--font-code);
+  color: var(--color-secondary);
+  font-weight: 700;
+}
+
+/* ==================== Competition Timer ==================== */
+.competition-timer {
+  text-align: center;
+  font-family: var(--font-code);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+}
+
+.competition-timer--urgent {
+  color: var(--color-error);
+}

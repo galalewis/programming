@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الكورسات | جلال أكاديمي</title>
+  <meta name="description" content="كل كورسات جلال أكاديمي — كورس التأسيس، أولى ثانوي، ثانية ثانوي، وكورسات قادمة قريبًا." />
+
+  <link rel="icon" type="image/png" href="assets/images/brand/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/themes.css" />
+  <link rel="stylesheet" href="css/pages/courses.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">تخطَّ إلى المحتوى الرئيسي</a>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="navbar" aria-label="التنقل الرئيسي">
+      <a href="index.html" class="navbar__brand" aria-label="جلال أكاديمي - الرئيسية">
+        <img src="assets/images/brand/logo.png" alt="جلال أكاديمي" class="navbar__logo" width="40" height="40" />
+        <span class="navbar__name">جلال أكاديمي</span>
+      </a>
+
+      <button class="navbar__toggle" id="navToggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="navMenu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <ul class="navbar__menu" id="navMenu">
+        <li><a href="index.html" class="navbar__link">الرئيسية</a></li>
+        <li><a href="courses.html" class="navbar__link is-active">الكورسات</a></li>
+        <li><a href="competitions.html" class="navbar__link">المسابقات</a></li>
+        <li><a href="leaderboard.html" class="navbar__link">لوحة المتصدرين</a></li>
+        <li><a href="about.html" class="navbar__link">من نحن</a></li>
+        <li><a href="faq.html" class="navbar__link">الأسئلة الشائعة</a></li>
+        <li><a href="contact.html" class="navbar__link">تواصل معنا</a></li>
+      </ul>
+
+      <div class="navbar__actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="تبديل الوضع الداكن">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <a href="login.html" class="btn btn--ghost btn--sm">تسجيل الدخول</a>
+        <a href="register.html" class="btn btn--primary btn--sm">إنشاء حساب</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ============ Page Header ============ -->
+    <section class="page-header">
+      <span class="section-tag">// الكورسات</span>
+      <h1 class="page-header__title">اختار مرحلتك، وابدأ صح</h1>
+      <p class="page-header__desc">
+        كل كورس متبني على نظام واضح: امتحان، شرح، حل، وملف مراجعة. اختار اللي يناسب سنتك الدراسية.
+      </p>
+    </section>
+
+    <!-- ============ Grade Filter (client-side, no backend) ============ -->
+    <div class="filter-bar" role="tablist" aria-label="فلترة الكورسات حسب المرحلة">
+      <button class="filter-bar__btn is-active" data-filter="all" role="tab" aria-selected="true">كل الكورسات</button>
+      <button class="filter-bar__btn" data-filter="تأسيسي" role="tab" aria-selected="false">تأسيسي</button>
+      <button class="filter-bar__btn" data-filter="أولى ثانوي" role="tab" aria-selected="false">أولى ثانوي</button>
+      <button class="filter-bar__btn" data-filter="ثانية ثانوي" role="tab" aria-selected="false">ثانية ثانوي</button>
+    </div>
+
+    <!-- ============ Active Courses Grid ============ -->
+    <section class="courses-grid" id="coursesGrid" aria-label="الكورسات المتاحة حاليًا">
+
+      <article class="course-card" data-grade="تأسيسي">
+        <div class="course-card__image-wrap">
+          <img src="assets/images/courses/course-foundation.jpg" alt="كورس التأسيس" class="course-card__image" loading="lazy" />
+          <span class="course-card__badge">تأسيسي</span>
+        </div>
+        <div class="course-card__body">
+          <h3 class="course-card__title">كورس التأسيس</h3>
+          <p class="course-card__desc">أولى خطوة في عالم البرمجة، بأسلوب مبسّط ومنظم — 20 حصة كاملة، كل حصة فيها امتحان وفيديو شرح وحل وملفين.</p>
+          <ul class="course-card__features">
+            <li>20 حصة كاملة</li>
+            <li>امتحان قبل كل حصة</li>
+            <li>ملفات شرح وحل PDF</li>
+          </ul>
+          <div class="course-card__meta">
+            <span class="course-card__price">150 ج.م</span>
+            <a href="course-details.html?course=foundation" class="course-card__link">التفاصيل ←</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card course-card--featured" data-grade="أولى ثانوي">
+        <div class="course-card__image-wrap">
+          <img src="assets/images/courses/course-first-secondary.jpg" alt="كورس أولى ثانوي" class="course-card__image" loading="lazy" />
+          <span class="course-card__badge">أولى ثانوي</span>
+        </div>
+        <div class="course-card__body">
+          <h3 class="course-card__title">أولى ثانوي - الترم الأول</h3>
+          <p class="course-card__desc">منهج كامل: 25 فيديو شرح نظري، 20 حصة عملية، حل كتاب المدرسة والتقييمات، وحل منصة كيريو واختبارات توفاس.</p>
+          <ul class="course-card__features">
+            <li>25 فيديو شرح نظري</li>
+            <li>20 حصة شرح عملي</li>
+            <li>حل كتاب المدرسة كامل (25 فيديو + 25 ملف)</li>
+            <li>حل التقييمات (12 فيديو + 12 ملف)</li>
+            <li>حل كيريو وتوفاس (20 فيديو)</li>
+          </ul>
+          <div class="course-card__meta">
+            <span class="course-card__price">350 ج.م</span>
+            <a href="course-details.html?course=first-secondary-term1" class="course-card__link">التفاصيل ←</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card" data-grade="ثانية ثانوي">
+        <div class="course-card__image-wrap">
+          <img src="assets/images/courses/course-second-secondary.jpg" alt="كورس ثانية ثانوي" class="course-card__image" loading="lazy" />
+          <span class="course-card__badge">ثانية ثانوي</span>
+        </div>
+        <div class="course-card__body">
+          <h3 class="course-card__title">ثانية ثانوي - الترم الأول</h3>
+          <p class="course-card__desc">أشمل كورسات المنصة: شرح نظري وعملي، حل كتب مدرسية وخارجية، تقييمات، وكيريو وتوفاس.</p>
+          <ul class="course-card__features">
+            <li>25 فيديو شرح نظري</li>
+            <li>20 حصة شرح عملي</li>
+            <li>حل كتاب المدرسة (25 فيديو + 25 ملف)</li>
+            <li>حل التقييمات (12 فيديو + 12 ملف)</li>
+            <li>حل كيريو وتوفاس (20 فيديو)</li>
+            <li>حل الكتب الخارجية (25 فيديو)</li>
+          </ul>
+          <div class="course-card__meta">
+            <span class="course-card__price">500 ج.م</span>
+            <a href="course-details.html?course=second-secondary-term1" class="course-card__link">التفاصيل ←</a>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- ============ Divider ============ -->
+    <div class="section-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 24" preserveAspectRatio="none">
+        <path d="M0 12 L500 12 L515 4 L530 20 L545 12 L1200 12" class="section-divider__line" />
+      </svg>
+    </div>
+
+    <!-- ============ Coming Soon ============ -->
+    <section class="coming-soon" aria-labelledby="coming-soon-title">
+      <div class="section-heading">
+        <span class="section-tag">// قريبًا</span>
+        <h2 id="coming-soon-title" class="section-title">كورسات جاية في الطريق</h2>
+        <p class="section-subtitle">بنجهزها دلوقتي. تقدر تتابعنا على السوشيال ميديا عشان تعرف أول ما تفتح.</p>
+      </div>
+
+      <ul class="coming-soon__list">
+        <li class="coming-soon__item">أساسيات البرمجة باستخدام C++</li>
+        <li class="coming-soon__item">أساسيات البرمجة باستخدام C#</li>
+        <li class="coming-soon__item">احترف Python من الصفر</li>
+        <li class="coming-soon__item">Web Development</li>
+        <li class="coming-soon__item">Artificial Intelligence</li>
+        <li class="coming-soon__item">Cybersecurity</li>
+        <li class="coming-soon__item">
+          Front-End Development
+          <span class="coming-soon__sub">HTML · CSS · JavaScript · Responsive Design · Projects</span>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <img src="assets/images/brand/logo.png" alt="جلال أكاديمي" class="site-footer__logo" width="36" height="36" />
+        <div>
+          <p class="site-footer__name">جلال أكاديمي</p>
+          <p class="site-footer__tagline">برمج مستقبلك.. من مقاعد الدراسة.</p>
+        </div>
+      </div>
+
+      <div class="site-footer__col">
+        <h4 class="site-footer__heading">الكورسات</h4>
+        <ul class="site-footer__list">
+          <li><a href="course-details.html?course=foundation">كورس التأسيس</a></li>
+          <li><a href="course-details.html?course=first-secondary-term1">أولى ثانوي</a></li>
+          <li><a href="course-details.html?course=second-secondary-term1">ثانية ثانوي</a></li>
+          <li><a href="courses.html">كورسات قادمة قريبًا</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <h4 class="site-footer__heading">صفحات مهمة</h4>
+        <ul class="site-footer__list">
+          <li><a href="about.html">من نحن</a></li>
+          <li><a href="faq.html">الأسئلة الشائعة</a></li>
+          <li><a href="contact.html">تواصل معنا</a></li>
+          <li><a href="leaderboard.html">لوحة المتصدرين</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <h4 class="site-footer__heading">تابعنا</h4>
+        <ul class="site-footer__social">
+          <li><a href="https://youtube.com/@galalacademy" target="_blank" rel="noopener" aria-label="يوتيوب"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="6" width="20" height="12" rx="3"></rect><path d="M10 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"></path></svg></a></li>
+          <li><a href="https://www.facebook.com/share/1KyWePKFbn/" target="_blank" rel="noopener" aria-label="فيسبوك"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M15 3h-2a4 4 0 0 0-4 4v3H7v4h2v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a></li>
+          <li><a href="https://www.instagram.com/ewisgalal" target="_blank" rel="noopener" aria-label="انستجرام"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg></a></li>
+          <li><a href="https://www.tiktok.com/@galal.ewis" target="_blank" rel="noopener" aria-label="تيك توك"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M16 3v9.5a3.5 3.5 0 1 1-3-3.46V6a6 6 0 0 0 6 6"></path></svg></a></li>
+          <li><a href="https://www.linkedin.com/in/galal-ewis-2790b83a8" target="_blank" rel="noopener" aria-label="لينكدإن"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="18" height="18" rx="3"></rect><line x1="7" y1="10" x2="7" y2="17"></line><circle cx="7" cy="7" r="0.5" fill="currentColor"></circle><path d="M11 17v-4a2 2 0 0 1 4 0v4M11 10v7"></path></svg></a></li>
+          <li><a href="https://wa.me/201038637817" target="_blank" rel="noopener" aria-label="واتساب"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 12a9 9 0 1 1-4.2-7.6L21 3l-1 4.5A9 9 0 0 1 21 12z"></path></svg></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>© 2026 جلال أكاديمي. كل الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/courses.js"></script>
+</body>
+</html>

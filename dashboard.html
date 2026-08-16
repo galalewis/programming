@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>لوحتي | جلال أكاديمي</title>
+  <meta name="description" content="لوحة تحكم الطالب — كورساتك، تقدمك، نقاط الخبرة، وآخر نتائجك." />
+
+  <link rel="icon" type="image/png" href="assets/images/brand/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/themes.css" />
+  <link rel="stylesheet" href="css/pages/dashboard.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">تخطَّ إلى المحتوى الرئيسي</a>
+
+  <!-- ============ Authenticated Header ============ -->
+  <header class="site-header" id="siteHeader">
+    <nav class="navbar" aria-label="التنقل الرئيسي">
+      <a href="index.html" class="navbar__brand" aria-label="جلال أكاديمي - الرئيسية">
+        <img src="assets/images/brand/logo.png" alt="جلال أكاديمي" class="navbar__logo" width="40" height="40" />
+        <span class="navbar__name">جلال أكاديمي</span>
+      </a>
+
+      <button class="navbar__toggle" id="navToggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="navMenu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <ul class="navbar__menu" id="navMenu">
+        <li><a href="dashboard.html" class="navbar__link is-active">لوحتي</a></li>
+        <li><a href="profile.html" class="navbar__link">البروفايل</a></li>
+        <li><a href="exams.html" class="navbar__link">الامتحانات</a></li>
+        <li><a href="results.html" class="navbar__link">النتائج</a></li>
+        <li><a href="leaderboard.html" class="navbar__link">لوحة المتصدرين</a></li>
+        <li><a href="competitions.html" class="navbar__link">المسابقات</a></li>
+      </ul>
+
+      <div class="navbar__actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="تبديل الوضع الداكن">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <button id="logoutBtn" class="btn btn--ghost btn--sm">تسجيل الخروج</button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ============ Auth Guard States ============ -->
+    <div id="authLoading" class="state-block">
+      <p>بنتأكد من تسجيل دخولك...</p>
+    </div>
+
+    <div id="dashboardContent" hidden>
+
+      <!-- ============ Welcome ============ -->
+      <section class="dashboard-welcome">
+        <div class="dashboard-welcome__text">
+          <span class="section-tag">// لوحتك</span>
+          <h1 class="dashboard-welcome__title">أهلاً، <span id="welcomeName">...</span></h1>
+          <p class="dashboard-welcome__desc">كمّل من مكانك، وشوف تقدمك أول بأول.</p>
+        </div>
+        <img id="welcomeAvatar" src="assets/images/students/avatar-default.png" alt="صورتك الشخصية" class="dashboard-welcome__avatar" />
+      </section>
+
+      <!-- ============ Stats Row ============ -->
+      <section class="dashboard-stats">
+        <div class="dashboard-stat-card">
+          <span class="dashboard-stat-card__value" id="statXP">0</span>
+          <span class="dashboard-stat-card__label">نقطة خبرة (XP)</span>
+        </div>
+        <div class="dashboard-stat-card">
+          <span class="dashboard-stat-card__value" id="statRank">—</span>
+          <span class="dashboard-stat-card__label">ترتيبك العام</span>
+        </div>
+        <div class="dashboard-stat-card">
+          <span class="dashboard-stat-card__value" id="statCourses">0</span>
+          <span class="dashboard-stat-card__label">كورسات مفعّلة</span>
+        </div>
+        <div class="dashboard-stat-card">
+          <span class="dashboard-stat-card__value" id="statExams">0</span>
+          <span class="dashboard-stat-card__label">امتحانات اتحلت</span>
+        </div>
+      </section>
+
+      <!-- ============ My Courses ============ -->
+      <section class="dashboard-section">
+        <div class="dashboard-section__header">
+          <h2 class="section-title">كورساتي</h2>
+          <a href="courses.html" class="dashboard-section__link">كورسات تانية ←</a>
+        </div>
+        <div id="myCoursesList" class="my-courses-list">
+          <!-- يتملى بواسطة js/dashboard.js -->
+        </div>
+        <div id="myCoursesEmpty" class="empty-state" hidden>
+          <p>لسه معندكش كورسات مفعّلة.</p>
+          <a href="courses.html" class="btn btn--primary">اتصفح الكورسات</a>
+        </div>
+      </section>
+
+      <!-- ============ Latest Exams ============ -->
+      <section class="dashboard-section">
+        <div class="dashboard-section__header">
+          <h2 class="section-title">آخر نتائجك</h2>
+          <a href="results.html" class="dashboard-section__link">كل النتائج ←</a>
+        </div>
+        <div id="latestExamsList" class="latest-exams-list">
+          <!-- يتملى بواسطة js/dashboard.js -->
+        </div>
+        <div id="latestExamsEmpty" class="empty-state" hidden>
+          <p>لسه معملتش أي امتحان. أول امتحان هيبان نتيجته هنا فورًا.</p>
+        </div>
+      </section>
+
+      <!-- ============ Notifications ============ -->
+      <section class="dashboard-section">
+        <div class="dashboard-section__header">
+          <h2 class="section-title">إشعاراتك</h2>
+        </div>
+        <div id="notificationsList" class="notifications-list">
+          <!-- يتملى بواسطة js/dashboard.js -->
+        </div>
+        <div id="notificationsEmpty" class="empty-state" hidden>
+          <p>مفيش إشعارات جديدة دلوقتي.</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

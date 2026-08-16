@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الأسئلة الشائعة | جلال أكاديمي</title>
+  <meta name="description" content="إجابات على أكتر الأسئلة اللي بتتكرر عن الاشتراك، الدفع، والكورسات في جلال أكاديمي." />
+
+  <link rel="icon" type="image/png" href="assets/images/brand/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/themes.css" />
+  <link rel="stylesheet" href="css/pages/home.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">تخطَّ إلى المحتوى الرئيسي</a>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="navbar" aria-label="التنقل الرئيسي">
+      <a href="index.html" class="navbar__brand" aria-label="جلال أكاديمي - الرئيسية">
+        <img src="assets/images/brand/logo.png" alt="جلال أكاديمي" class="navbar__logo" width="40" height="40" />
+        <span class="navbar__name">جلال أكاديمي</span>
+      </a>
+
+      <button class="navbar__toggle" id="navToggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="navMenu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <ul class="navbar__menu" id="navMenu">
+        <li><a href="index.html" class="navbar__link">الرئيسية</a></li>
+        <li><a href="courses.html" class="navbar__link">الكورسات</a></li>
+        <li><a href="competitions.html" class="navbar__link">المسابقات</a></li>
+        <li><a href="leaderboard.html" class="navbar__link">لوحة المتصدرين</a></li>
+        <li><a href="about.html" class="navbar__link">من نحن</a></li>
+        <li><a href="faq.html" class="navbar__link is-active">الأسئلة الشائعة</a></li>
+        <li><a href="contact.html" class="navbar__link">تواصل معنا</a></li>
+      </ul>
+
+      <div class="navbar__actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="تبديل الوضع الداكن">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <a href="login.html" class="btn btn--ghost btn--sm">تسجيل الدخول</a>
+        <a href="register.html" class="btn btn--primary btn--sm">إنشاء حساب</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ============ Page Header ============ -->
+    <section class="page-header">
+      <span class="section-tag">// الأسئلة الشائعة</span>
+      <h1 class="page-header__title">أسئلة بتتكرر معانا كتير</h1>
+      <p class="page-header__desc">
+        لو سؤالك مش موجود هنا، ابعتلنا على واتساب وهنرد عليك بنفسنا.
+      </p>
+    </section>
+
+    <!-- ============ FAQ Accordion ============ -->
+    <section class="faq-list" aria-label="الأسئلة الشائعة">
+
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          <span>إزاي أشترك في كورس؟</span>
+          <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <div class="faq-item__answer">
+          <p>اعمل حساب على المنصة، افتح صفحة الكورس اللي عايزه، وادوس على "اشترك دلوقتي". هتظهرلك بيانات الدفع (فودافون كاش)، وبعد التحويل ابعت Screenshot على واتساب مع رقم الهاتف المسجل عندك، وهنفعّل الكورس بعد المراجعة.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          <span>هل الدفع بس عن طريق فودافون كاش؟</span>
+          <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <div class="faq-item__answer">
+          <p>حاليًا الدفع بيتم عن طريق فودافون كاش بس. طرق دفع تانية (زي الدفع الإلكتروني المباشر) هتتضاف في المستقبل.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          <span>خد قد إيه لحد ما الكورس يتفعّل بعد الدفع؟</span>
+          <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <div class="faq-item__answer">
+          <p>بيتم مراجعة كل طلب يدويًا، فالوقت بيختلف حسب عدد الطلبات، بس بنحاول نراجع ونفعّل بأسرع وقت ممكن بعد ما تبعت التأكيد على واتساب.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          <span>الفيديوهات فين، والملفات فين؟</span>
+          <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <div class="faq-item__answer">
+          <p>الفيديوهات على يوتيوب، والملفات (شرح وحل) على جوجل درايف. المنصة بتجمعلك كل ده منظّم في مكان واحد، والامتحانات نفسها بتتحل جوه المنصة مباشرة.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          <span>لو اشتركت في كورس، هل أقدر أدخل عليه من أي جهاز؟</span>
+          <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <div class="faq-item__answer">
+          <p>أيوه، الكورس مرتبط بحسابك مش بجهاز معين. سجّل دخول من أي موبايل أو كمبيوتر وهتلاقي كل الكورسات اللي اشتركت فيها.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          <span>إيه هو نظام الـ XP والترتيب؟</span>
+          <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <div class="faq-item__answer">
+          <p>كل ما تكمل حصة، تحل امتحان، أو تشارك في مسابقة، بتكسب نقاط خبرة (XP). النقاط دي بتحدد ترتيبك في لوحة المتصدرين، وبتوريك بشكل واضح تقدمك بمرور الوقت.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          <span>هل الكورسات مناسبة لو مبتعرفش حاجة في البرمجة خالص؟</span>
+          <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <div class="faq-item__answer">
+          <p>أيوه، كورس التأسيس مصمم بالظبط للي بيبدأ من الصفر. لو انت في أولى أو ثانية ثانوي وعايز تبدأ منظم، ابدأ بيه الأول قبل ما تدخل كورس سنتك.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          <span>عندي مشكلة تقنية أو الدفع ماتمش صح، أعمل إيه؟</span>
+          <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <div class="faq-item__answer">
+          <p>راسلنا على واتساب مباشرة (<a href="https://wa.me/201038637817" target="_blank" rel="noopener">01038637817</a>) وهنحل معاك المشكلة أول بأول.</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============ Still Have Questions ============ -->
+    <section class="contact-cta">
+      <div class="contact-cta__inner">
+        <h2 class="section-title contact-cta__title">لسه عندك سؤال؟</h2>
+        <p class="contact-cta__desc">راسلنا على واتساب، هنرد بسرعة.</p>
+        <div class="contact-cta__actions">
+          <a href="https://wa.me/201038637817" class="btn btn--primary btn--lg" target="_blank" rel="noopener">راسلنا على واتساب</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <img src="assets/images/brand/logo.png" alt="جلال أكاديمي" class="site-footer__logo" width="36" height="36" />
+        <div>
+          <p class="site-footer__name">جلال أكاديمي</p>
+          <p class="site-footer__tagline">برمج مستقبلك.. من مقاعد الدراسة.</p>
+        </div>
+      </div>
+
+      <div class="site-footer__col">
+        <h4 class="site-footer__heading">الكورسات</h4>
+        <ul class="site-footer__list">
+          <li><a href="course-details.html?course=foundation">كورس التأسيس</a></li>
+          <li><a href="course-details.html?course=first-secondary-term1">أولى ثانوي</a></li>
+          <li><a href="course-details.html?course=second-secondary-term1">ثانية ثانوي</a></li>
+          <li><a href="courses.html">كورسات قادمة قريبًا</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <h4 class="site-footer__heading">صفحات مهمة</h4>
+        <ul class="site-footer__list">
+          <li><a href="about.html">من نحن</a></li>
+          <li><a href="faq.html">الأسئلة الشائعة</a></li>
+          <li><a href="contact.html">تواصل معنا</a></li>
+          <li><a href="leaderboard.html">لوحة المتصدرين</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <h4 class="site-footer__heading">تابعنا</h4>
+        <ul class="site-footer__social">
+          <li><a href="https://youtube.com/@galalacademy" target="_blank" rel="noopener" aria-label="يوتيوب"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="6" width="20" height="12" rx="3"></rect><path d="M10 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"></path></svg></a></li>
+          <li><a href="https://www.facebook.com/share/1KyWePKFbn/" target="_blank" rel="noopener" aria-label="فيسبوك"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M15 3h-2a4 4 0 0 0-4 4v3H7v4h2v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a></li>
+          <li><a href="https://www.instagram.com/ewisgalal" target="_blank" rel="noopener" aria-label="انستجرام"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg></a></li>
+          <li><a href="https://www.tiktok.com/@galal.ewis" target="_blank" rel="noopener" aria-label="تيك توك"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M16 3v9.5a3.5 3.5 0 1 1-3-3.46V6a6 6 0 0 0 6 6"></path></svg></a></li>
+          <li><a href="https://www.linkedin.com/in/galal-ewis-2790b83a8" target="_blank" rel="noopener" aria-label="لينكدإن"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="18" height="18" rx="3"></rect><line x1="7" y1="10" x2="7" y2="17"></line><circle cx="7" cy="7" r="0.5" fill="currentColor"></circle><path d="M11 17v-4a2 2 0 0 1 4 0v4M11 10v7"></path></svg></a></li>
+          <li><a href="https://wa.me/201038637817" target="_blank" rel="noopener" aria-label="واتساب"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 12a9 9 0 1 1-4.2-7.6L21 3l-1 4.5A9 9 0 0 1 21 12z"></path></svg></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>© 2026 جلال أكاديمي. كل الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+  <script>
+    document.querySelectorAll('.faq-item__question').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('is-open');
+
+        document.querySelectorAll('.faq-item').forEach((el) => {
+          el.classList.remove('is-open');
+          el.querySelector('.faq-item__question').setAttribute('aria-expanded', 'false');
+        });
+
+        if (!isOpen) {
+          item.classList.add('is-open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الكورسات | لوحة تحكم جلال أكاديمي</title>
+
+  <link rel="icon" type="image/png" href="../assets/images/brand/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/themes.css" />
+  <link rel="stylesheet" href="../css/pages/admin.css" />
+</head>
+<body>
+
+  <div id="authLoading" class="state-block">
+    <p>بنتأكد من صلاحياتك...</p>
+  </div>
+
+  <div class="admin-shell" id="adminShell" hidden>
+    <aside class="admin-sidebar" id="adminSidebar"></aside>
+
+    <main class="admin-main">
+      <div class="admin-topbar">
+        <div>
+          <h1 class="admin-topbar__title">الكورسات</h1>
+          <p class="admin-topbar__subtitle">نظرة عامة على كورساتك واشتراكاتها الفعلية.</p>
+        </div>
+      </div>
+
+      <div class="admin-card" style="margin-bottom:1.5rem; background:var(--color-surface-alt);">
+        <p style="font-size:0.9rem; color:var(--color-text-muted); line-height:1.8;">
+          <strong>ملحوظة معمارية:</strong> محتوى الكورسات (الحصص، الفيديوهات، الملفات) بييجي من ملف
+          <code style="font-family:var(--font-code); background:var(--color-surface); padding:0.15rem 0.4rem; border-radius:4px;">data/courses.js</code>
+          مش من قاعدة بيانات — عشان كده إضافة كورس أو حصة جديدة بتتم بتعديل الملف ده مباشرة في الكود (بنفس بنية الـ Object الموجودة أصلاً)، مش من واجهة هنا.
+          الجدول تحت بيوريك بس الاشتراكات الفعلية الحقيقية من قاعدة البيانات لكل كورس.
+        </p>
+      </div>
+
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>الكورس</th>
+              <th>المرحلة</th>
+              <th>السعر</th>
+              <th>اشتراكات مفعّلة</th>
+              <th>طلبات معلّقة</th>
+            </tr>
+          </thead>
+          <tbody id="coursesTableBody"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="../js/main.js"></script>
+  <script type="module">
+    import { requireAdmin } from "../js/admin/admin-common.js";
+    import { getEnrollmentsByStatus } from "../firebase/firebase-firestore.js";
+    import { courses } from "../data/courses.js";
+
+    requireAdmin(async () => {
+      document.getElementById("authLoading").hidden = true;
+      document.getElementById("adminShell").hidden = false;
+
+      const [approved, pending] = await Promise.all([
+        getEnrollmentsByStatus("approved"),
+        getEnrollmentsByStatus("pending"),
+      ]);
+
+      const tbody = document.getElementById("coursesTableBody");
+      tbody.innerHTML = courses
+        .map((course) => {
+          const approvedCount = approved.filter((e) => e.courseId === course.id).length;
+          const pendingCount = pending.filter((e) => e.courseId === course.id).length;
+          return `
+            <tr>
+              <td><strong>${course.titleAr}</strong></td>
+              <td>${course.grade}</td>
+              <td>${course.price} ${course.currency}</td>
+              <td>${approvedCount}</td>
+              <td>${pendingCount}</td>
+            </tr>
+          `;
+        })
+        .join("");
+    });
+  </script>
+</body>
+</html>

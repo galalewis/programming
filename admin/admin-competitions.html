@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>المسابقات | لوحة تحكم جلال أكاديمي</title>
+
+  <link rel="icon" type="image/png" href="../assets/images/brand/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/themes.css" />
+  <link rel="stylesheet" href="../css/pages/admin.css" />
+</head>
+<body>
+
+  <div id="authLoading" class="state-block">
+    <p>بنتأكد من صلاحياتك...</p>
+  </div>
+
+  <div class="admin-shell" id="adminShell" hidden>
+    <aside class="admin-sidebar" id="adminSidebar"></aside>
+
+    <main class="admin-main">
+      <div class="admin-topbar">
+        <div>
+          <h1 class="admin-topbar__title">المسابقات</h1>
+          <p class="admin-topbar__subtitle">اعمل مسابقة جديدة أو راجع الموجودة.</p>
+        </div>
+      </div>
+
+      <!-- ============ Create Competition Form ============ -->
+      <div class="admin-card" style="margin-bottom: 2rem;">
+        <h2 style="margin-bottom:1.25rem; font-size:1.1rem;">مسابقة جديدة</h2>
+
+        <form id="createCompetitionForm">
+          <div class="form-group">
+            <label for="compTitle">عنوان المسابقة</label>
+            <input type="text" id="compTitle" required placeholder="مثال: مسابقة الأسبوع الأول" />
+          </div>
+
+          <div class="grid-2">
+            <div class="form-group">
+              <label for="compType">النوع</label>
+              <select id="compType" required>
+                <option value="weekly">أسبوعية</option>
+                <option value="monthly">شهرية</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="compDuration">مدة المسابقة (بالدقايق)</label>
+              <input type="number" id="compDuration" required value="5" min="1" />
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="form-group">
+              <label for="compStart">تاريخ البداية</label>
+              <input type="datetime-local" id="compStart" required />
+            </div>
+            <div class="form-group">
+              <label for="compEnd">تاريخ النهاية</label>
+              <input type="datetime-local" id="compEnd" required />
+            </div>
+          </div>
+
+          <div id="questionsBuilder" style="margin: 1.5rem 0; display:flex; flex-direction:column; gap:1rem;"></div>
+
+          <button type="button" id="addQuestionBtn" class="btn btn--outline btn--sm" style="margin-bottom:1.5rem;">+ ضيف سؤال</button>
+
+          <p class="form-error" id="compFormError" role="alert"></p>
+
+          <button type="submit" class="btn btn--primary btn--lg">إنشاء المسابقة</button>
+        </form>
+      </div>
+
+      <!-- ============ Existing Competitions ============ -->
+      <h2 style="margin-bottom:1rem; font-size:1.1rem;">المسابقات الموجودة</h2>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>العنوان</th>
+              <th>النوع</th>
+              <th>عدد الأسئلة</th>
+              <th>تنتهي في</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="competitionsTableBody"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="../js/main.js"></script>
+  <script type="module" src="../js/admin/admin-competitions.js"></script>
+</body>
+</html>

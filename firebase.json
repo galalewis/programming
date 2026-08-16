@@ -1,0 +1,14 @@
+{
+  "hosting": {
+    "site": "galal-academy-c5b46-baf3c",
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      ".firebaserc",
+      "**/.*",
+      "**/node_modules/**",
+      "README.md",
+      "galal-academy.zip"
+    ]
+  }
+}

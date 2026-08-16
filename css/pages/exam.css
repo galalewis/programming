@@ -1,0 +1,256 @@
+/* ============================================
+   GALAL ACADEMY — EXAM PAGES
+   Exams list, exam-taking UI, results
+   ============================================ */
+
+/* ==================== Exam Header (focused mode) ==================== */
+.exam-header .navbar {
+  justify-content: space-between;
+}
+
+/* ==================== Exams List ==================== */
+.exams-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.exam-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  flex-wrap: wrap;
+}
+
+.exam-list-item--demo {
+  border-color: var(--color-accent);
+}
+
+.exam-list-item__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.exam-list-item__course {
+  font-size: 0.8rem;
+  color: var(--color-text-soft);
+}
+
+.exam-list-item__badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-family: var(--font-code);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent-soft);
+  color: var(--color-warning);
+  width: fit-content;
+}
+
+.exam-list-item__score {
+  font-family: var(--font-code);
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+
+/* ==================== Exam Progress ==================== */
+.exam-progress-wrap {
+  max-width: 700px;
+  margin: 2.5rem auto 1.5rem;
+  padding: 0 1.5rem;
+}
+
+.exam-progress-bar {
+  height: 8px;
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.exam-progress-fill {
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: var(--radius-pill);
+  transition: width 300ms ease;
+}
+
+.exam-progress-label {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.exam-title {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  padding: 0 1.5rem;
+  font-size: 1.5rem;
+}
+
+/* ==================== Questions ==================== */
+.questions-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.question-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+
+.question-card__number {
+  font-family: var(--font-code);
+  color: var(--color-accent);
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.question-card__text {
+  font-size: 1.05rem;
+  margin-bottom: 1.25rem;
+}
+
+.question-card__options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.question-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.question-option:hover {
+  border-color: var(--color-accent);
+}
+
+.question-option input {
+  accent-color: var(--color-accent);
+}
+
+.question-option:has(input:checked) {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+
+/* ==================== Exam Result Card ==================== */
+.exam-result-view {
+  max-width: 500px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+}
+
+.exam-result-card {
+  text-align: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+}
+
+.exam-result-card__percentage {
+  font-family: var(--font-code);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  display: block;
+}
+
+.exam-result-card__label {
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.exam-result-card__stats {
+  display: flex;
+  justify-content: space-around;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 1.5rem;
+}
+
+.exam-result-card__stats div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.exam-result-card__stats span:first-child {
+  font-family: var(--font-code);
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.exam-result-card__stats span:last-child {
+  font-size: 0.75rem;
+  color: var(--color-text-soft);
+}
+
+.exam-result-card__feedback {
+  color: var(--color-text-muted);
+  margin-bottom: 1.75rem;
+  line-height: 1.7;
+}
+
+.exam-result-card__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ==================== Results List (results.html) ==================== */
+.results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.result-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.result-list-item__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.result-list-item__date {
+  font-size: 0.75rem;
+  color: var(--color-text-soft);
+}
+
+.result-list-item__score {
+  font-family: var(--font-code);
+  font-weight: 700;
+  color: var(--color-secondary);
+  font-size: 1.1rem;
+}

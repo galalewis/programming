@@ -1,0 +1,82 @@
+/* ============================================
+   GALAL ACADEMY — LAYOUT
+   Containers, Grids, Responsive Rules
+   ============================================ */
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+main {
+  display: block;
+  min-height: 60vh;
+}
+
+/* -------------------- Section Spacing Rhythm -------------------- */
+/* Sections don't all get equal spacing on purpose — bigger sections breathe more */
+section {
+  padding: 3.5rem 1.5rem;
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.hero {
+  padding: 5rem 1.5rem 3rem;
+}
+
+.contact-cta,
+.enroll-section {
+  padding: 4.5rem 1.5rem;
+}
+
+/* -------------------- Responsive Breakpoints -------------------- */
+/* Mobile-first: base styles target 320px, then scale up */
+
+@media (min-width: 768px) {
+  .container,
+  section {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container,
+  section {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+/* -------------------- Grid Helpers -------------------- */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

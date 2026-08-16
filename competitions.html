@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>المسابقات | جلال أكاديمي</title>
+  <meta name="description" content="مسابقات أسبوعية وشهرية — شارك واكسب XP إضافي." />
+
+  <link rel="icon" type="image/png" href="assets/images/brand/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/themes.css" />
+  <link rel="stylesheet" href="css/pages/exam.css" />
+  <link rel="stylesheet" href="css/pages/leaderboard.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">تخطَّ إلى المحتوى الرئيسي</a>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="navbar" aria-label="التنقل الرئيسي">
+      <a href="index.html" class="navbar__brand" aria-label="جلال أكاديمي - الرئيسية">
+        <img src="assets/images/brand/logo.png" alt="جلال أكاديمي" class="navbar__logo" width="40" height="40" />
+        <span class="navbar__name">جلال أكاديمي</span>
+      </a>
+
+      <button class="navbar__toggle" id="navToggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="navMenu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <ul class="navbar__menu" id="navMenu">
+        <li><a href="index.html" class="navbar__link">الرئيسية</a></li>
+        <li><a href="courses.html" class="navbar__link">الكورسات</a></li>
+        <li><a href="competitions.html" class="navbar__link is-active">المسابقات</a></li>
+        <li><a href="leaderboard.html" class="navbar__link">لوحة المتصدرين</a></li>
+        <li><a href="about.html" class="navbar__link">من نحن</a></li>
+        <li><a href="faq.html" class="navbar__link">الأسئلة الشائعة</a></li>
+        <li><a href="contact.html" class="navbar__link">تواصل معنا</a></li>
+      </ul>
+
+      <div class="navbar__actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="تبديل الوضع الداكن">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <a href="login.html" class="btn btn--ghost btn--sm" id="navLoginLink">تسجيل الدخول</a>
+        <a href="dashboard.html" class="btn btn--primary btn--sm" id="navDashboardLink" hidden>لوحتي</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ============ Competitions List (default view) ============ -->
+    <div id="competitionsListView">
+      <section class="page-header">
+        <span class="section-tag">// المسابقات</span>
+        <h1 class="page-header__title">مسابقات أسبوعية وشهرية</h1>
+        <p class="page-header__desc">شارك، اكسب XP إضافي، واطلع في لوحة المتصدرين.</p>
+      </section>
+
+      <div id="competitionsLoading" class="state-block">
+        <p>بنجهز المسابقات المتاحة...</p>
+      </div>
+
+      <div id="competitionsList" class="exams-list" hidden></div>
+
+      <div id="competitionsEmpty" class="empty-state" hidden>
+        <p>مفيش مسابقات نشطة دلوقتي. تابعنا على واتساب أو يوتيوب عشان تعرف أول ما مسابقة جديدة تفتح.</p>
+        <a href="https://wa.me/201038637817" target="_blank" rel="noopener" class="btn btn--primary">تابعنا على واتساب</a>
+      </div>
+    </div>
+
+    <!-- ============ Competition Taking UI ============ -->
+    <div id="competitionTakingView" hidden>
+
+      <div class="exam-progress-wrap">
+        <div class="competition-timer" id="competitionTimer">--:--</div>
+        <div class="exam-progress-bar">
+          <div class="exam-progress-fill" id="competitionProgressFill" style="width: 0%"></div>
+        </div>
+        <span class="exam-progress-label" id="competitionProgressLabel"></span>
+      </div>
+
+      <h1 id="competitionTitle" class="exam-title"></h1>
+
+      <form id="competitionForm">
+        <div id="competitionQuestionsContainer" class="questions-container"></div>
+        <button type="submit" class="btn btn--primary btn--lg" style="width:100%; margin-top:1.5rem;">
+          سلّم المسابقة
+        </button>
+      </form>
+    </div>
+
+    <!-- ============ Competition Result ============ -->
+    <div id="competitionResultView" class="exam-result-view" hidden>
+      <div class="exam-result-card">
+        <span class="exam-result-card__percentage" id="competitionResultPercentage">0%</span>
+        <p class="exam-result-card__label">نسبتك في المسابقة</p>
+        <div class="exam-result-card__stats">
+          <div><span id="competitionResultCorrect">0</span><span>إجابة صح</span></div>
+          <div><span id="competitionResultWrong">0</span><span>إجابة غلط</span></div>
+          <div><span id="competitionResultXP">0</span><span>XP اتكسبت</span></div>
+        </div>
+        <div class="exam-result-card__actions">
+          <a href="competitions.html" class="btn btn--outline">رجوع للمسابقات</a>
+          <a href="leaderboard.html" class="btn btn--primary">شوف الترتيب</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ Already Completed / Login Required States ============ -->
+    <div id="competitionBlockedView" class="state-block" hidden>
+      <p id="competitionBlockedMessage"></p>
+      <a href="competitions.html" class="btn btn--primary">رجوع للمسابقات</a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__bottom">
+      <p>© 2026 جلال أكاديمي. كل الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/competitions.js"></script>
+</body>
+</html>
