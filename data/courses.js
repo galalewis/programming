@@ -10,12 +10,12 @@ export const courses = [
     id: "foundation",
     titleAr: "كورس التأسيس",
     subtitleAr: "أولى خطوة في عالم البرمجة، بأسلوب مبسّط ومنظم",
-    price: 150,
+    price: 5000,
     currency: "EGP",
     status: "active", // "active" | "coming-soon"
     grade: "تأسيسي",
     image: "assets/images/courses/course-foundation.jpg",
-    description: "CONTENT_TO_BE_ADDED",
+    description: "محتوي مخصص لاول العام فقط (انتهي)",
 
     stats: {
       sessionsCount: 20,
@@ -49,12 +49,12 @@ export const courses = [
     id: "first-secondary-term1",
     titleAr: "كورس أولى ثانوي - الترم الأول",
     subtitleAr: "منهج البرمجة كامل بالشرح النظري والعملي وحل الكتاب والتقييمات",
-    price: 350,
+    price: 500,
     currency: "EGP",
     status: "active",
     grade: "أولى ثانوي",
     image: "assets/images/courses/course-first-secondary.jpg",
-    description: "CONTENT_TO_BE_ADDED",
+    description: "محتوي اربع شهور كامل للترم الاول ",
 
     parts: [
       {
@@ -130,12 +130,12 @@ export const courses = [
     id: "second-secondary-term1",
     titleAr: "كورس ثانية ثانوي - الترم الأول",
     subtitleAr: "منهج متكامل شرحًا نظريًا وعمليًا مع حل الكتب المدرسية والخارجية",
-    price: 500,
+    price: 800,
     currency: "EGP",
     status: "active",
     grade: "ثانية ثانوي",
     image: "assets/images/courses/course-second-secondary.jpg",
-    description: "CONTENT_TO_BE_ADDED",
+    description: "محتوي كااامل للترم الاول شرح اول اربع وحدات علي مدار 4 شهور ",
 
     parts: [
       {
