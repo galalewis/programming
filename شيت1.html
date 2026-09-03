@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<!--
+Galal Academy
+Question Bank
+Topic: تطور تكنولوجيا المعلومات والتحول الاجتماعي
+Total Questions: 150
+-->
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بنك أسئلة — تطور تكنولوجيا المعلومات والتحول الاجتماعي | Galal Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1E2A5E;
+  --blue:#2563EB;
+  --purple:#7C3AED;
+  --light-blue:#E0F2FE;
+  --white:#FFFFFF;
+  --text:#172033;
+  --text-soft:#64748B;
+  --line:#DCE3F0;
+  --surface:#F7F9FE;
+  --radius:14px;
+  --shadow:0 10px 30px -14px rgba(30,42,94,0.28);
+}
+
+[data-theme="dark"]{
+  --white:#0F1424;
+  --surface:#161D34;
+  --text:#EAEFFB;
+  --text-soft:#9AA6C4;
+  --line:#2A3455;
+  --light-blue:#1B2747;
+  --shadow:0 10px 30px -14px rgba(0,0,0,0.55);
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Tajawal',sans-serif;
+  background:var(--white);
+  color:var(--text);
+  line-height:1.7;
+  transition:background .25s ease,color .25s ease;
+}
+:focus-visible{outline:3px solid var(--purple);outline-offset:2px;}
+.num{font-family:'IBM Plex Mono',monospace;}
+
+/* ===== Header ===== */
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(160deg,var(--navy) 0%,#233874 55%,var(--purple) 130%);
+  color:#fff;
+  padding:52px 24px 40px;
+}
+.hero::before{
+  content:"";
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);
+  background-size:42px 42px;
+  mask-image:radial-gradient(circle at 75% 20%,#000 0%,transparent 68%);
+  pointer-events:none;
+}
+.hero-circuit{
+  position:absolute;left:-40px;bottom:-40px;width:280px;height:280px;
+  opacity:.35;pointer-events:none;
+}
+.hero-inner{position:relative;max-width:1080px;margin:0 auto;}
+.brand-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand-mark{
+  width:44px;height:44px;border-radius:12px;
+  background:linear-gradient(135deg,var(--blue),var(--purple));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:20px;flex-shrink:0;
+  box-shadow:0 6px 18px -4px rgba(37,99,235,.6);
+}
+.brand-text .name{font-weight:800;font-size:19px;letter-spacing:.2px;}
+.brand-text .tagline{font-size:12.5px;color:#C6D2F2;font-weight:500;}
+
+.tool-row{display:flex;gap:10px;flex-wrap:wrap;}
+.icon-btn{
+  border:1px solid rgba(255,255,255,.25);
+  background:rgba(255,255,255,.08);
+  color:#fff;border-radius:10px;
+  padding:9px 14px;font-family:inherit;font-size:13.5px;font-weight:600;
+  cursor:pointer;display:flex;align-items:center;gap:6px;
+  transition:background .15s ease,transform .1s ease;
+  backdrop-filter:blur(4px);
+}
+.icon-btn:hover{background:rgba(255,255,255,.18);}
+.icon-btn:active{transform:scale(.97);}
+
+.hero-title{margin-top:38px;max-width:760px;}
+.hero-title h1{
+  font-size:clamp(26px,4vw,40px);
+  font-weight:800;line-height:1.35;
+}
+.hero-title p{
+  margin-top:12px;color:#D3DCF5;font-size:15.5px;max-width:600px;
+}
+
+/* ===== Stats ===== */
+.stats-wrap{max-width:1080px;margin:-30px auto 0;padding:0 24px;position:relative;z-index:2;}
+.stats-grid{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:12px;
+  background:var(--white);border:1px solid var(--line);
+  border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);
+}
+.stat{text-align:center;padding:10px 6px;border-radius:10px;}
+.stat .n{font-size:24px;font-weight:800;color:var(--navy);}
+[data-theme="dark"] .stat .n{color:#8FB3FF;}
+.stat .l{font-size:12px;color:var(--text-soft);margin-top:4px;font-weight:500;}
+.stat.total{background:var(--light-blue);}
+.stat.total .n{color:var(--blue);}
+
+/* ===== Layout ===== */
+.container{max-width:1080px;margin:0 auto;padding:32px 24px 80px;}
+
+.toolbar{
+  position:sticky;top:0;z-index:20;
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:16px;margin-bottom:22px;
+  box-shadow:var(--shadow);
+}
+.toolbar-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+.search-box{
+  flex:1 1 260px;position:relative;
+}
+.search-box input{
+  width:100%;padding:11px 42px 11px 14px;
+  border:1.5px solid var(--line);border-radius:10px;
+  font-family:inherit;font-size:14.5px;background:var(--surface);color:var(--text);
+  transition:border-color .15s ease;
+}
+.search-box input:focus{border-color:var(--blue);}
+.search-box .icon{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--text-soft);}
+select{
+  padding:11px 14px;border:1.5px solid var(--line);border-radius:10px;
+  font-family:inherit;font-size:14px;background:var(--surface);color:var(--text);
+  cursor:pointer;min-width:150px;
+}
+.btn{
+  border:none;border-radius:10px;padding:11px 18px;font-family:inherit;
+  font-size:14px;font-weight:700;cursor:pointer;transition:transform .1s ease,opacity .15s ease;
+  white-space:nowrap;
+}
+.btn:active{transform:scale(.97);}
+.btn-primary{background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff;}
+.btn-primary:hover{opacity:.92;}
+.btn-outline{background:transparent;border:1.5px solid var(--line);color:var(--text);}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue);}
+.btn-ghost{background:var(--surface);color:var(--text);}
+
+.progress-track{
+  margin-top:14px;height:8px;border-radius:6px;background:var(--surface);
+  border:1px solid var(--line);overflow:hidden;
+}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--purple));border-radius:6px;transition:width .25s ease;}
+.progress-label{margin-top:8px;font-size:12.5px;color:var(--text-soft);font-weight:600;}
+
+/* ===== Question cards ===== */
+.qlist{display:flex;flex-direction:column;gap:16px;}
+.qcard{
+  background:var(--white);
+  border:1px solid var(--line);
+  border-inline-start:4px solid var(--blue);
+  border-radius:var(--radius);
+  padding:20px 22px;
+  transition:box-shadow .15s ease;
+}
+.qcard:hover{box-shadow:var(--shadow);}
+.qcard[data-source="أسئلة المتفوقين"]{border-inline-start-color:#7C3AED;}
+.qcard[data-source="أسئلة من موضوعنا"]{border-inline-start-color:#2563EB;}
+.qcard[data-source="الكويز"]{border-inline-start-color:#0EA5A5;}
+.qcard[data-source="كتاب المبرمج"]{border-inline-start-color:#D97706;}
+.qcard[data-source="كتاب الفائز"]{border-inline-start-color:#DB2777;}
+
+.qcard-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px;}
+.qcard-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.qnum{
+  font-weight:800;color:var(--navy);font-size:14.5px;
+  background:var(--light-blue);padding:4px 11px;border-radius:8px;
+}
+[data-theme="dark"] .qnum{color:#AFCBFF;}
+.badge{
+  font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:20px;
+  color:#fff;
+}
+.badge-src-1{background:#7C3AED;}
+.badge-src-2{background:#2563EB;}
+.badge-src-3{background:#0EA5A5;}
+.badge-src-4{background:#D97706;}
+.badge-src-5{background:#DB2777;}
+.badge-type{
+  font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:20px;
+  background:var(--surface);color:var(--text-soft);border:1px solid var(--line);
+}
+
+.qtext{font-size:16.5px;font-weight:600;color:var(--text);margin-bottom:14px;white-space:pre-line;}
+
+.options{display:flex;flex-direction:column;gap:9px;margin-bottom:12px;}
+.option{
+  display:flex;align-items:center;gap:10px;
+  border:1.5px solid var(--line);border-radius:10px;
+  padding:11px 14px;cursor:pointer;font-size:14.5px;
+  background:var(--surface);transition:border-color .12s ease,background .12s ease;
+}
+.option:hover{border-color:var(--blue);}
+.option.selected{border-color:var(--blue);background:var(--light-blue);font-weight:700;}
+.option .letter{
+  font-weight:800;color:var(--blue);flex-shrink:0;
+  width:24px;height:24px;border-radius:7px;background:var(--white);
+  display:flex;align-items:center;justify-content:center;font-size:13px;
+  border:1.5px solid var(--line);
+}
+.option.selected .letter{background:var(--blue);color:#fff;border-color:var(--blue);}
+
+.tf-row{display:flex;gap:10px;margin-bottom:12px;}
+.tf-row .option{flex:1;justify-content:center;}
+
+.open-note{
+  background:var(--surface);border:1px dashed var(--line);border-radius:10px;
+  padding:12px 14px;font-size:13.5px;color:var(--text-soft);margin-bottom:12px;
+}
+
+.qcard-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.answer-box{
+  margin-top:10px;padding:11px 14px;border-radius:10px;font-size:13.5px;
+  background:var(--light-blue);color:var(--navy);border:1px solid var(--line);display:none;font-weight:600;
+}
+[data-theme="dark"] .answer-box{color:#CFE0FF;}
+.answer-box.show{display:block;}
+.answer-box.unavailable{background:#FFF4E5;color:#92400E;border-color:#FDE1B8;}
+[data-theme="dark"] .answer-box.unavailable{background:#3A2A11;color:#FCD9A3;border-color:#5A4520;}
+
+/* ===== Empty state ===== */
+.empty-state{
+  text-align:center;padding:60px 20px;color:var(--text-soft);
+}
+.empty-state .em-title{font-size:17px;font-weight:700;color:var(--text);margin-bottom:8px;}
+.empty-state .em-sub{font-size:14px;margin-bottom:18px;}
+
+/* ===== Quiz mode ===== */
+.quiz-banner{
+  background:linear-gradient(135deg,var(--navy),var(--purple));color:#fff;
+  border-radius:var(--radius);padding:18px 22px;margin-bottom:22px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+.quiz-banner h3{font-size:16px;font-weight:800;margin-bottom:4px;}
+.quiz-banner p{font-size:13px;color:#D9E0FA;}
+
+.result-card{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px;margin-bottom:22px;box-shadow:var(--shadow);
+}
+.result-score{font-size:30px;font-weight:900;color:var(--blue);margin-bottom:6px;}
+.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0;}
+.result-grid .rbox{background:var(--surface);border-radius:10px;padding:14px;text-align:center;border:1px solid var(--line);}
+.result-grid .rbox .rn{font-size:20px;font-weight:800;}
+.result-grid .rbox .rl{font-size:12px;color:var(--text-soft);margin-top:4px;}
+.result-notice{
+  background:#FFF4E5;border:1px solid #FDE1B8;color:#92400E;border-radius:10px;
+  padding:14px 16px;font-size:13.5px;line-height:1.8;margin-top:6px;
+}
+[data-theme="dark"] .result-notice{background:#3A2A11;color:#FCD9A3;border-color:#5A4520;}
+
+/* ===== Footer ===== */
+footer{
+  text-align:center;padding:30px 20px 50px;color:var(--text-soft);font-size:13px;
+}
+footer strong{color:var(--text);}
+
+/* ===== Responsive ===== */
+@media (max-width:860px){
+  .stats-grid{grid-template-columns:repeat(3,1fr);}
+}
+@media (max-width:640px){
+  .hero{padding:36px 16px 32px;}
+  .stats-wrap{padding:0 14px;}
+  .stats-grid{grid-template-columns:repeat(2,1fr);padding:14px;gap:9px;}
+  .container{padding:26px 14px 70px;}
+  .toolbar{position:static;}
+  select{min-width:0;flex:1;}
+  .qcard{padding:16px;}
+  .result-grid{grid-template-columns:1fr;}
+  .brand-row{gap:12px;}
+  .tool-row{width:100%;}
+  .icon-btn{flex:1;justify-content:center;}
+}
+
+/* ===== Print ===== */
+@media print{
+  .hero,.toolbar,.tool-row,.quiz-banner,.qcard-actions,footer,.progress-track,.progress-label{display:none !important;}
+  .stats-wrap{margin-top:0;}
+  body{background:#fff;color:#000;}
+  .qcard{break-inside:avoid;border:1px solid #ccc;box-shadow:none;margin-bottom:10px;}
+  .option{border:1px solid #ccc;background:#fff;}
+  .container{padding:10px;}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="hero-circuit" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="30" cy="170" r="4" fill="#fff"/>
+    <circle cx="30" cy="120" r="4" fill="#fff"/>
+    <circle cx="90" cy="120" r="4" fill="#fff"/>
+    <circle cx="150" cy="60" r="4" fill="#fff"/>
+    <path d="M30 170 V120 H90 V60 H150 V20" stroke="#fff" stroke-width="2"/>
+    <path d="M10 90 H60" stroke="#fff" stroke-width="2"/>
+    <circle cx="60" cy="90" r="3" fill="#fff"/>
+  </svg>
+  <div class="hero-inner">
+    <div class="brand-row">
+      <div class="brand">
+        <div class="brand-mark">GA</div>
+        <div class="brand-text">
+          <div class="name">Galal Academy</div>
+          <div class="tagline">برمج مستقبلك من مقاعد الدراسة</div>
+        </div>
+      </div>
+      <div class="tool-row">
+        <button class="icon-btn" id="darkModeBtn" onclick="toggleDarkMode()">🌙 الوضع الليلي</button>
+        <button class="icon-btn" onclick="window.print()">🖨️ طباعة / حفظ PDF</button>
+      </div>
+    </div>
+    <div class="hero-title">
+      <h1>بنك أسئلة — تطور تكنولوجيا المعلومات والتحول الاجتماعي</h1>
+      <p>150 سؤالًا مجمّعة من خمسة مصادر تدريبية، مع بحث وفلترة فورية ووضع اختبار تفاعلي.</p>
+    </div>
+  </div>
+</header>
+
+<div class="stats-wrap">
+  <div class="stats-grid" id="statsGrid"></div>
+</div>
+
+<main class="container">
+
+  <div class="toolbar">
+    <div class="toolbar-row">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="ابحث داخل الأسئلة..." oninput="onFiltersChanged()">
+        <span class="icon">🔎</span>
+      </div>
+      <select id="sourceFilter" onchange="onFiltersChanged()">
+        <option value="all">كل المصادر</option>
+      </select>
+      <select id="typeFilter" onchange="onFiltersChanged()">
+        <option value="all">كل الأنواع</option>
+      </select>
+      <button class="btn btn-outline" onclick="resetFilters()">إعادة ضبط الفلاتر</button>
+      <button class="btn btn-primary" id="quizToggleBtn" onclick="toggleQuizMode()">🧠 وضع الاختبار</button>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:100%"></div></div>
+    <div class="progress-label" id="progressLabel">عرض 150 من 150 سؤال</div>
+  </div>
+
+  <div id="quizBanner"></div>
+  <div id="quizResult"></div>
+
+  <div class="qlist" id="qlist"></div>
+  <div class="empty-state" id="emptyState" style="display:none;">
+    <div class="em-title">لم يتم العثور على أسئلة مطابقة لبحثك.</div>
+    <div class="em-sub">جرّب كلمات مختلفة أو غيّر الفلاتر المستخدمة.</div>
+    <button class="btn btn-outline" onclick="resetFilters()">إعادة ضبط الفلاتر</button>
+  </div>
+
+</main>
+
+<footer>
+  <strong>Galal Academy</strong> — بنك أسئلة تطور تكنولوجيا المعلومات والتحول الاجتماعي · 150 سؤالًا
+</footer>
+
+<script>
+const questions = [{"id": 1, "source": "أسئلة المتفوقين", "type": "أسئلة حسابية", "question": "بناءً على قانون مور الذي ينص على تضاعف عدد الترانزستورات في الدوائر المتكاملة تقريبًا كل عامين، إذا كان عدد الترانزستورات في إحدى الرقاقات الإلكترونية عام 2005 يبلغ 500 ألف ترانزستور، فما العدد المتوقع للترانزستورات عام 2015؟", "options": []}, {"id": 2, "source": "أسئلة المتفوقين", "type": "أسئلة حسابية", "question": "على غرار الفكرة القائلة بأن تكلفة المكونات الإلكترونية تقل بنسبة 50% كل عامين، إذا كان سعر وحدة المعالجة عام 2008 يبلغ 8000 جنيه، فما السعر المتوقع للوحدة عام 2018؟", "options": []}, {"id": 3, "source": "أسئلة المتفوقين", "type": "أسئلة حسابية", "question": "وفقًا لمبدأ تضاعف عدد الترانزستورات كل عامين وفق قانون مور، إذا سجلت إحدى الدوائر المتكاملة وجود 2 مليون ترانزستور عام 2012، فكم يبلغ العدد المتوقع للترانزستورات عام 2022؟", "options": []}, {"id": 4, "source": "أسئلة المتفوقين", "type": "أسئلة حسابية", "question": "إذا افترضنا أن تكلفة إنتاج الترانزستور الواحد تنخفض بنسبة 50% كل عامين، وكانت التكلفة عام 2000 تقدر بـ 4000 جنيه، فما التكلفة المتوقعة للترانزستور عام 2012؟", "options": []}, {"id": 5, "source": "أسئلة المتفوقين", "type": "اختيار من متعدد", "question": "متى ظهر الإنترنت؟", "options": ["خلال فترة التسعينيات من القرن العشرين", "خلال فترة الثمانينيات من القرن العشرين", "خلال العقد الأول من الألفية الجديدة", "خلال فترة الخمسينيات من القرن العشرين"]}, {"id": 6, "source": "أسئلة المتفوقين", "type": "اختيار من متعدد", "question": "متى بدأ ظهور الإنترنت؟ ركز في السؤال:", "options": ["من 1990 إلى 1995", "من 1994 إلى 1997", "من 1999 إلى سنة 2000", "من سنة 1970 إلى سنة 1980"]}, {"id": 7, "source": "أسئلة المتفوقين", "type": "اختيار من متعدد", "question": "أي من التغيرات التقنية التالية يمثل النقلة النوعية الأعمق نحو اللامركزية التكتيكية؟", "options": ["الانتقال إلى الحواسيب المركزية", "ظهور الحوسبة السحابية وربط البيانات", "تفعيل الحوسبة الطرفية لمعالجة البيانات محليًا", "إطلاق شبكات الويب والتجارة الإلكترونية"]}, {"id": 8, "source": "أسئلة المتفوقين", "type": "اختيار من متعدد", "question": "أي مراحل التطور كان لها الأثر الأكثر شمولًا في إعادة هندسة الأنماط الاقتصادية اليومية؟", "options": ["الحواسيب الأولى بالصمامات المفرغة", "الحواسيب الشخصية (PCs) في السبعينيات", "ظهور الهواتف الذكية في العقد الأول من الألفية", "الحوسبة الكمومية المتقدمة"]}, {"id": 9, "source": "أسئلة المتفوقين", "type": "اختيار من متعدد", "question": "في عالم السيارات الذكية ذاتية القيادة، تواجه الشركات تحديين برمجيين مختلفين كليًا: التحدي الأول هو اتخاذ قرار تفادي مفاجئ لطفل يقطع الشارع خلال أجزاء من الثانية دون إرسال البيانات إلى خادم بعيد، وهذا يعتمد على الحوسبة الطرفية. أما التحدي الثاني فهو قيام شركة أدوية عالمية بتحليل التركيب الجزيئي لعلاج جديد ومعقد يتطلب محاكاة تفاعلات ملايين الذرات، وهذا يعتمد على الحوسبة الكمومية. في ضوء المثال، ما الفارق الجوهري بين الدور الذي تلعبه كل تقنية؟", "options": ["الحوسبة الطرفية تعالج البيانات محليًا قرب مصدرها لتقليل زمن الاستجابة الفوري، بينما الحوسبة الكمومية تعالج مسائل محددة ذات فضاءات احتمالية معقدة قد تتفوق فيها على الحواسيب التقليدية.", "الحوسبة الكمومية تستخدم في الأجهزة المنزلية البسيطة، بينما الحوسبة الطرفية مخصصة فقط لمراكز البيانات الضخمة.", "الحوسبة الطرفية تعتمد على الكيوبت، بينما الحوسبة الكمومية تعتمد على شرائح الهواتف التقليدية.", "لا يوجد فرق جوهري سوى في التكلفة المالية."]}, {"id": 10, "source": "أسئلة المتفوقين", "type": "أسئلة مقالية", "question": "وضح طريقتين رئيسيتين يعتمد عليهما مهندسو الإلكترونيات لزيادة كثافة وتضاعف أعداد الترانزستورات داخل الدوائر المتكاملة.", "options": []}, {"id": 11, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما العامل المشترك الذي يربط جميع مراحل تطور تكنولوجيا المعلومات كما يعرضها الدرس؟", "options": ["زيادة حجم الأجهزة فقط", "ظهور تقنية جديدة ثم زيادة القدرة والترابط وتغير أنماط الحياة", "تقليل عدد المستخدمين", "إلغاء الحوسبة السحابية"]}, {"id": 12, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "طالب يشتري كتابًا إلكترونيًا ويدفع عبر تطبيق على الهاتف. كم مفهومًا يظهر في هذا الموقف؟", "options": ["مفهوم واحد", "مفهومان: التجارة الإلكترونية والدفع غير النقدي", "ثلاثة مفاهيم", "لا شيء"]}, {"id": 13, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما الفرق بين التجارة الإلكترونية والدفع غير النقدي؟", "options": ["لا فرق بينهما", "التجارة الإلكترونية تتعلق بالبيع والشراء، والدفع غير النقدي يتعلق بوسيلة السداد", "التجارة الإلكترونية للشركات فقط", "الدفع غير النقدي أقدم تاريخيًا"]}, {"id": 14, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "مبرمج يعمل لشركة في محافظة أخرى دون التوجه إلى مقر الشركة. ما المفهوم الذي يصف الموقف؟", "options": ["التعلم عبر الإنترنت", "العمل عن بعد", "الواقع المعزز", "الحوسبة الطرفية"]}, {"id": 15, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما الفرق بين التعلم عبر الإنترنت والعمل عن بعد من حيث طبيعة النشاط؟", "options": ["لا اختلاف بينهما", "الأول يتعلق بالتعلم والدروس، والثاني يتعلق بأداء المهام الوظيفية", "الأول خاص بالجامعات فقط", "الثاني لا يحتاج إلى الإنترنت"]}, {"id": 16, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "لماذا تعد حواسيب المرحلة الأولى استثناءً من فكرة الاستخدام الفردي؟", "options": ["لأنها كانت رخيصة", "لأنها كانت ضخمة ومكلفة وموجهة أساسًا للأغراض العسكرية والعلمية", "لأنها كانت متصلة بالإنترنت", "لأنها كانت هواتف ذكية"]}, {"id": 17, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما وجه الشبه بين مرحلة الحواسيب الشخصية ومرحلة الهواتف الذكية من حيث الأثر الاجتماعي؟", "options": ["وسعتا الوصول إلى الحوسبة والتقنية لفئات أوسع", "أوقفتا استخدام الإنترنت", "ظهرتا في نفس العقد", "لم يكن لهما أثر اجتماعي"]}, {"id": 18, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "رتب زمنيًا: ظهور الويب – انتشار الحواسيب الشخصية – الحوسبة السحابية – ENIAC.", "options": ["ENIAC ← الحواسيب الشخصية ← الويب ← الحوسبة السحابية", "الحواسيب الشخصية ← ENIAC ← السحابية ← الويب", "الويب ← ENIAC ← الحواسيب الشخصية ← السحابية", "السحابية ← الويب ← ENIAC ← الحواسيب الشخصية"]}, {"id": 19, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما الوصف الدقيق لقانون مور وفق الدرس؟", "options": ["قانون فيزيائي ثابت", "ملاحظة تاريخية/تجريبية حول تضاعف عدد الترانزستورات تقريبًا كل عامين", "نظرية عن سرعة الإنترنت", "قانون لعدد المستخدمين"]}, {"id": 20, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "أي مما يلي لا يعد عائقًا أمام استمرار تصغير مكونات الدوائر الإلكترونية؟", "options": ["تيارات التسرب", "التأثيرات الكمومية", "النفق الكمومي", "ازدحام شبكات التواصل الاجتماعي"]}, {"id": 21, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما الأدق في وصف الحوسبة الكمومية؟", "options": ["تسرّع جميع الحسابات", "قد تتفوق في فئات محددة من المسائل", "بديل كامل للحواسيب التقليدية", "لا علاقة لها بميكانيكا الكم"]}, {"id": 22, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما الذي يميز الكيوبت عن البت التقليدي؟", "options": ["يحمل حالة واحدة فقط مثل البت", "يستفيد من مبدأ التراكب الكمومي", "لا يخزن معلومات", "يستخدم فقط في الهواتف"]}, {"id": 23, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما تقييم العبارة: «الحوسبة الكمومية ستلغي جميع الحواسيب التقليدية»؟", "options": ["صحيحة تمامًا", "غير دقيقة؛ التفوق الكمومي يكون في فئات محددة من المسائل", "صحيحة بعد 100 عام", "لا علاقة لها بالحوسبة"]}, {"id": 24, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما تصنيف مشاركة صورة مع الأصدقاء على منصة تواصل؟", "options": ["تجارة إلكترونية", "شبكات التواصل الاجتماعي", "عمل عن بعد", "حوسبة طرفية"]}, {"id": 25, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما الخاصية الأهم لشبكات التواصل الاجتماعي؟", "options": ["بطء انتشار المعلومات", "سرعة نشر المعلومات ومشاركتها", "عدم مشاركة المحتوى", "اقتصارها على النصوص"]}, {"id": 26, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "أي تسلسل يمثل يوم طالب يستخدم معظم التحولات الاجتماعية الناتجة عن تكنولوجيا المعلومات؟", "options": ["نوم – أكل – نوم", "SNS ← دفع إلكتروني ← درس أونلاين ← شراء إلكتروني", "مشاهدة التلفاز فقط", "قراءة كتاب ورقي فقط"]}, {"id": 27, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما علاقة تعدد الأنوية بقانون مور؟", "options": ["لا علاقة بينهما", "يمثل أحد البدائل لتحسين الأداء عندما تواجه فكرة التصغير عوائق", "يلغي قانون مور", "يمنع استخدام المعالجات المتوازية"]}, {"id": 28, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما سبب أهمية العقد الأول من الألفية في تطور تكنولوجيا المعلومات؟", "options": ["لم يحدث فيه تطور", "ظهور الهواتف الذكية وانتشار الإنترنت المحمول", "ظهور الحواسيب الشخصية لأول مرة", "اختفاء الإنترنت"]}, {"id": 29, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما الميزة الأساسية للدفع غير النقدي؟", "options": ["انخفاض التكلفة دائمًا", "سرعة وسهولة إجراء المعاملات", "الاستغناء عن الإنترنت دائمًا", "الاستغناء عن أي جهاز"]}, {"id": 30, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما التعريف الأدق للحوسبة الطرفية؟", "options": ["معالجة البيانات في مركز بيانات بعيد فقط", "معالجة البيانات بالقرب من مصدر توليدها لتقليل زمن الاستجابة", "تخزين البيانات فقط", "حذف البيانات تلقائيًا"]}, {"id": 31, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "لماذا لا تصلح القيادة الذاتية للاعتماد الكلي على السحابة البعيدة في القرارات الحرجة؟", "options": ["لأن السحابة لا تدعم الذكاء الاصطناعي", "لأن زمن الإرسال والاستقبال قد يهدد الاستجابة المطلوبة للسلامة", "لأن السحابة لا تخزن البيانات", "لأن الحوسبة الطرفية أبطأ دائمًا"]}, {"id": 32, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما دور الكاميرات والمستشعرات في السيارة ذاتية القيادة؟", "options": ["لا دور لها", "إدراك البيئة وجمع البيانات تمهيدًا لاتخاذ قرار القيادة", "الترفيه فقط", "قياس الحرارة فقط"]}, {"id": 33, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما علاقة زمن الاستجابة بالسلامة في المواقف الحرجة؟", "options": ["لا علاقة", "كلما قل زمن الاستجابة كان ذلك أفضل للسلامة", "زيادته تحسن السلامة", "السلامة لا تتأثر"]}, {"id": 34, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما الفرق الجوهري بين الواقع المعزز AR والواقع الافتراضي VR؟", "options": ["AR يضيف عناصر رقمية إلى الواقع، بينما VR ينقل المستخدم إلى بيئة افتراضية كاملة", "AR يلغي الواقع، بينما VR يبقيه", "لا فرق بينهما", "VR أقدم دائمًا من AR"]}, {"id": 35, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "أي عبارة تصف الواقع الافتراضي VR بدقة؟", "options": ["يضيف معلومات إلى مشهد واقعي", "يضع المستخدم داخل بيئة افتراضية كاملة", "يستخدم للألعاب فقط", "يزيد سرعة المعالج"]}, {"id": 36, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما الخطأ في العبارة: «الواقع الافتراضي يحسن سرعة معالجة الحاسب»؟", "options": ["لا خطأ فيها", "VR يختص بإنشاء بيئة افتراضية وليس بتسريع معالجة الحاسب", "VR يضاعف سرعة المعالج فعليًا", "العبارة تصف الواقع المعزز"]}, {"id": 37, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما العلاقة بين الحوسبة السحابية والبيانات الضخمة والذكاء الاصطناعي؟", "options": ["لا علاقة بينها", "تدعم الحوسبة السحابية التعامل مع كميات ضخمة من البيانات وتطبيقات الذكاء الاصطناعي", "البيانات الضخمة أقدم من ENIAC", "الذكاء الاصطناعي ألغى السحابة"]}, {"id": 38, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما تقييم العبارة: «الحوسبة الكمومية أسرع مطلقًا من الحوسبة التقليدية»؟", "options": ["دقيقة 100%", "غير دقيقة؛ التفوق يكون في فئات محددة من المسائل", "أبطأ دائمًا", "لا علاقة للسرعة بها"]}, {"id": 39, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما الخطأ في العبارة: «كل التقنيات الناشئة تنتمي إلى نفس المرحلة الزمنية»؟", "options": ["لا خطأ", "خطأ؛ التقنيات الناشئة ليست كلها مرتبطة بمرحلة زمنية واحدة", "كلها ظهرت في الأربعينيات", "الزمن لا علاقة له بالتقنيات"]}, {"id": 40, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "أي مما يلي ليس سببًا مباشرًا لتحسين أداء المعالجات؟", "options": ["تعدد الأنوية", "المعالجة المتوازية", "التصميمات المتخصصة", "زيادة مستخدمي التواصل الاجتماعي"]}, {"id": 41, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "موظف يعمل من المنزل ويشتري أدوات مكتبية إلكترونيًا. كم مفهومًا يظهر في الموقف؟", "options": ["مفهوم واحد", "مفهومان: العمل عن بعد والتجارة الإلكترونية", "خمسة مفاهيم", "لا شيء"]}, {"id": 42, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "لماذا يعد وصف «غرفة كاملة» للحواسيب الأولى مهمًا؟", "options": ["لتوضيح ضخامة حجمها مقارنة بالأجهزة الحديثة", "لأنها صنعت من الخشب", "لأنها كانت أجهزة حديثة", "لأن الحجم لا علاقة له بالتطور"]}, {"id": 43, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "أي مما يلي يمثل حوسبة طرفية وليس سحابية؟", "options": ["نسخة احتياطية على خادم بعيد", "معالجة بيانات مستشعرات السيارة فور التقاطها", "بريد إلكتروني على خادم شركة", "فيديو مستضاف سحابيًا"]}, {"id": 44, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ماذا يعني القول إن «الإنترنت أصبح في جيب الإنسان تقريبًا»؟", "options": ["ضخامة حجم الأجهزة", "انتشار الوصول إلى الإنترنت عبر الهواتف الذكية", "أصبح الإنترنت مجانيًا بالكامل", "اختفى الحاسب"]}, {"id": 45, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما المقصود بتقديم موارد تكنولوجيا المعلومات كخدمات عبر الإنترنت؟", "options": ["شراء حاسوب فعلي", "الحوسبة السحابية", "تركيب برنامج من قرص", "استخدام آلة حاسبة"]}, {"id": 46, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما وجه الشبه بين الحوسبة السحابية والدفع غير النقدي في بنية الاعتماد؟", "options": ["كلاهما يعتمد على وسيط رقمي لتقديم الخدمة", "كلاهما لا يحتاج إلى الإنترنت", "كلاهما ظهر في الأربعينيات", "لا تشابه بينهما"]}, {"id": 47, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "لماذا لم يقتصر أثر تكنولوجيا المعلومات على سرعة الحاسوب؟", "options": ["لأن السرعة لم تتغير", "لأن التطور طال التواصل والعمل والتعلم والشراء والدفع", "لأن الحاسوب لم يعد يستخدم", "لأن التكنولوجيا اقتصرت على الجيش"]}, {"id": 48, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما الفرق بين إتاحة الإنترنت تجاريًا وظهور الويب في التسعينيات؟", "options": ["لا فرق؛ هما حدث واحد", "الإتاحة التجارية فتحت الاستخدام التجاري، بينما الويب وفر أسلوبًا واسعًا لتصفح المعلومات", "الويب سبق الحواسيب الأولى", "الإتاحة التجارية أحدث من الحوسبة السحابية"]}, {"id": 49, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "لماذا كان قانون مور مهمًا رغم أنه ليس قانونًا فيزيائيًا ثابتًا؟", "options": ["لأنه يحدد عدد المستخدمين", "لأنه ارتبط تاريخيًا بزيادة قدرات الحوسبة لعقود", "لأنه يحدد سرعة الإنترنت", "لأنه ألغى التقنيات القديمة"]}, {"id": 50, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما القاسم التقني المشترك بين الواقع المعزز والقيادة الذاتية؟", "options": ["كلاهما ينقل المستخدم إلى عالم افتراضي منفصل", "كلاهما يعتمد على معالجة بيانات واقعية لإضافة قيمة أو اتخاذ قرار", "لا يحتاج أي منهما إلى معالجة بيانات", "كلاهما يعتمد على التخزين فقط"]}, {"id": 51, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما خطر الاعتماد الكلي على السحابة في سيارة ذاتية القيادة؟", "options": ["لا توجد خطورة", "تأخر القرار في المواقف الحرجة بما قد يهدد السلامة", "زيادة سرعة السيارة تلقائيًا", "انخفاض تكلفة السيارة فقط"]}, {"id": 52, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما العلاقة بين التعلم عبر الإنترنت والحوسبة السحابية؟", "options": ["لا علاقة بينهما", "السحابة يمكن أن توفر البنية التحتية لاستضافة المحتوى والخدمات التعليمية", "التعلم أقدم من الإنترنت بقرون", "السحابة تمنع التعلم عبر الإنترنت"]}, {"id": 53, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "أي مثال يجمع ثلاثة مفاهيم مختلفة من الدرس؟", "options": ["شخص يشرب الماء", "محاضرة أونلاين + دفع رسوم إلكترونيًا + مشاركة الشهادة على منصة تواصل", "شخص ينام", "مشاهدة التلفاز التقليدي"]}, {"id": 54, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما تقييم العبارة: «كل تقنية جديدة تلغي التقنية القديمة فور ظهورها»؟", "options": ["صحيحة تمامًا", "غير دقيقة؛ التطور التقني غالبًا تراكمي، وقد تستمر التقنيات القديمة بجانب الجديدة", "يثبتها قانون مور", "تنطبق على جميع المراحل"]}, {"id": 55, "source": "أسئلة من موضوعنا", "type": "أسئلة مقالية", "question": "فسر كيف يوضح مثال «يوم الطالب» الذي يتضمن شبكات التواصل والدفع الإلكتروني والتعلم والشراء الإلكتروني الفكرة المحورية للدرس.", "options": []}, {"id": 56, "source": "أسئلة من موضوعنا", "type": "أسئلة مقالية", "question": "فسر سبب اعتماد بعض تطبيقات القيادة الذاتية على الحوسبة الطرفية بدلًا من الاعتماد الكلي على السحابة.", "options": []}, {"id": 57, "source": "أسئلة من موضوعنا", "type": "أسئلة مقالية", "question": "فسر كيف ساهمت الحوسبة السحابية في تمكين انتشار البيانات الضخمة والذكاء الاصطناعي.", "options": []}, {"id": 58, "source": "أسئلة من موضوعنا", "type": "أسئلة مقالية", "question": "قارن بين التحديات الفيزيائية أمام استمرار قانون مور والتحديات الاجتماعية أمام انتشار الدفع غير النقدي.", "options": []}, {"id": 59, "source": "أسئلة من موضوعنا", "type": "أسئلة مقالية", "question": "ناقش كيف يمكن أن تتغير حياة قرية ريفية بعد إدخال الإنترنت عالي السرعة والدفع غير النقدي، موضحًا فرصتين وتحديًا واحدًا.", "options": []}, {"id": 60, "source": "أسئلة من موضوعنا", "type": "أسئلة مقالية", "question": "حلل كيف يلخص مبدأ «تطور الأجهزة ← تطور الخدمات ← تغير حياة المجتمع» المراحل المختلفة لتطور تكنولوجيا المعلومات.", "options": []}, {"id": 61, "source": "الكويز", "type": "ترتيب", "question": "رتب المراحل التالية زمنيًا: الحواسيب الأولى – الحواسيب الشخصية – الاستخدام التجاري للإنترنت والويب – الهواتف الذكية – الحوسبة السحابية.", "options": []}, {"id": 62, "source": "الكويز", "type": "اختيار من متعدد", "question": "اقرأ الموقف التالي: ظهرت الحواسيب الإلكترونية في الأربعينيات واستخدمت أولًا في الأغراض العسكرية والحسابات العلمية، ثم انتشرت الحواسيب الشخصية، ثم أتيح الإنترنت تجاريًا وظهر الويب، ثم ظهرت الهواتف الذكية. ما الذي يوضحه هذا التسلسل؟", "options": ["التطور التقني حدث في مرحلة واحدة", "انتقال التكنولوجيا تدريجيًا من الاستخدام المؤسسي إلى الاستخدام الأوسع بين الأفراد", "توقف تطور الحوسبة", "ظهور الهواتف قبل الحواسيب"]}, {"id": 63, "source": "الكويز", "type": "اختيار من متعدد", "question": "كيف يمكن تفسير العبارة: «قانون مور ليس قانونًا فيزيائيًا ثابتًا، لكنه كان ذا أهمية تاريخية»؟", "options": ["لأنه يصف اتجاهًا تاريخيًا ارتبط بزيادة قدرات الحوسبة", "لأنه يحدد سرعة الإنترنت", "لأنه يحدد عدد مستخدمي الحاسوب", "لأنه قانون من قوانين الحركة"]}, {"id": 64, "source": "الكويز", "type": "مطابقة", "question": "طابق كل وصف بالتقنية المناسبة:\n١) إضافة معلومات رقمية فوق العالم الحقيقي.\n٢) قيادة مركبة بأقل تدخل بشري وفق مستوى الأتمتة.\n٣) الانغماس في فضاء افتراضي مولد بالحاسب.\nالخيارات: القيادة الذاتية – الواقع المعزز – الواقع الافتراضي.", "options": []}, {"id": 65, "source": "الكويز", "type": "أسئلة مقالية", "question": "كيف غيّر انتشار الحوسبة السحابية من العقد الثاني من الألفية فصاعدًا طريقة استخدام تكنولوجيا المعلومات؟ أشر إلى تحليل البيانات الضخمة والذكاء الاصطناعي وتكنولوجيا المعلومات كخدمة.", "options": []}, {"id": 66, "source": "الكويز", "type": "تصنيف", "question": "صنّف الأمثلة التالية ضمن الفئة الأنسب:\n١) شراء منتجات عبر التسوق الإلكتروني.\n٢) الدفع عبر تطبيق على الهاتف الذكي.\n٣) مشاركة الصور مع الأصدقاء على شبكات التواصل الاجتماعي.\n٤) تطبيق شركة لنظام العمل من المنزل.", "options": []}, {"id": 67, "source": "الكويز", "type": "أسئلة مقالية", "question": "ينتشر الدفع غير النقدي في دول كثيرة. إذا تحقق مجتمع خالٍ تمامًا من النقد، اذكر ميزة واحدة ومصدر قلق محتمل واحد، واشرح سبب كل منهما.", "options": []}, {"id": 68, "source": "الكويز", "type": "اختيار من متعدد", "question": "شركة لديها سيارات ذاتية القيادة وتحتاج إلى اتخاذ قرارات سريعة أثناء القيادة. أي تقنية تساعدها على معالجة بعض البيانات بالقرب من مصدرها؟", "options": ["التجارة الإلكترونية", "الحوسبة الطرفية", "الواقع الافتراضي", "التعلم عبر الإنترنت"]}, {"id": 69, "source": "الكويز", "type": "أسئلة مقالية", "question": "قرية لم يكن فيها اتصال بالإنترنت من قبل، ثم اتصلت بإنترنت عالي السرعة وأصبحت خدمات الدفع غير النقدي متاحة فيها. توقع تغيرين قد يطرآن على الحياة اليومية، وحدد تحديًا محتملًا.", "options": []}, {"id": 70, "source": "الكويز", "type": "اختيار من متعدد", "question": "من بين الخيارات التالية، أي وصف لا يمثل تقنية ناشئة بصورة صحيحة؟", "options": ["القيادة الذاتية تستخدم الذكاء الاصطناعي للمساعدة على قيادة المركبة.", "الواقع المعزز يضيف معلومات رقمية فوق صور من العالم الحقيقي.", "الواقع الافتراضي يحسن سرعة معالجة الحاسب.", "الحوسبة الكمومية قد تسرّع بعض الحسابات الصعبة على الحواسيب التقليدية."]}, {"id": 71, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "من الأجهزة التي ظهرت خلال الأربعينيات والستينيات من القرن العشرين:", "options": ["الهواتف الذكية", "ENIAC", "الحوسبة السحابية", "الواقع الافتراضي"]}, {"id": 72, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "اعتمدت الحواسيب الإلكترونية الأولى على:", "options": ["الترانزستورات فقط", "الصمامات المفرغة", "الحوسبة السحابية", "الكيوبتات"]}, {"id": 73, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "كان الاستخدام الرئيسي للحواسيب في الأربعينيات والخمسينيات هو:", "options": ["التجارة الإلكترونية", "شبكات التواصل الاجتماعي", "العمليات العسكرية والحسابات العلمية", "التعليم عبر الإنترنت"]}, {"id": 74, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "ارتبط انتشار الحواسيب الشخصية PCs خلال السبعينيات والثمانينيات بـ:", "options": ["بداية استخدام الأفراد للحاسب على نطاق أوسع", "ظهور الحوسبة الكمومية", "انتشار الواقع الافتراضي", "اختفاء الحواسيب المركزية"]}, {"id": 75, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "من التطورات المرتبطة بفترة التسعينيات:", "options": ["اختفاء وسائل الاتصال", "انتشار الوصول العالمي إلى المعلومات والبريد الإلكتروني", "توقف استخدام الحاسوب الشخصي", "ظهور الحوسبة الكمومية"]}, {"id": 76, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "أدى انتشار الإنترنت والويب إلى:", "options": ["تقليل الوصول إلى المعلومات", "زيادة الوصول العالمي إلى المعلومات", "إلغاء البريد الإلكتروني", "اختفاء الحواسيب الشخصية"]}, {"id": 77, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "شهد العقد الأول من القرن الحادي والعشرين انتشار:", "options": ["الصمامات المفرغة", "الهواتف الذكية والإنترنت عالي السرعة", "الحواسيب الميكانيكية", "البطاقات المثقبة"]}, {"id": 78, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "من التقنيات التي انتشرت منذ العقد الثاني من القرن الحادي والعشرين:", "options": ["الصمامات المفرغة", "الحواسيب الأولى", "الحوسبة السحابية والبيانات الضخمة والذكاء الاصطناعي", "الآلات الكاتبة"]}, {"id": 79, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "ينص قانون مور على أن عدد الترانزستورات في الدوائر المتكاملة:", "options": ["يظل ثابتًا", "يتضاعف كل يوم", "يقل إلى النصف كل عامين", "يتضاعف تقريبًا كل عامين"]}, {"id": 80, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "أي مما يلي يمثل تحديًا ناتجًا عن تصغير الترانزستورات؟", "options": ["زيادة حجم الشاشة", "تيارات التسرب", "بطء الكتابة", "زيادة حجم الجهاز"]}, {"id": 81, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "ما الظاهرة الكمومية المرتبطة بتصغير مكونات الترانزستور؟", "options": ["النفق الكمومي", "الواقع المعزز", "الذكاء الاصطناعي", "التخزين السحابي"]}, {"id": 82, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "ما الطريقة التي يمكن استخدامها لتحسين أداء الحواسيب بدلًا من الاعتماد فقط على تصغير الترانزستورات؟", "options": ["تعدد الأنوية والمعالجة المتوازية", "زيادة حجم الشاشة", "تقليل الذاكرة", "إيقاف الشبكات"]}, {"id": 83, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "ما المقصود بشبكات التواصل الاجتماعي SNS؟", "options": ["شراء السلع", "التواصل ونشر المحتوى ومشاركته", "تخزين البيانات فقط", "تشغيل السيارات"]}, {"id": 84, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "ما المقصود بالتجارة الإلكترونية؟", "options": ["بيع وشراء السلع والخدمات عبر الإنترنت", "العمل من المنزل", "الدراسة عن بعد", "قيادة المركبات"]}, {"id": 85, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "ما المقصود بالعمل عن بعد؟", "options": ["العمل دون حاسب", "العمل من المنزل أو من موقع بعيد باستخدام الإنترنت", "العمل داخل متجر", "العمل داخل المدرسة"]}, {"id": 86, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "أي مما يلي مثال على الدفع غير النقدي؟", "options": ["العملات الورقية", "العملات المعدنية", "رموز QR", "النقود اليدوية"]}, {"id": 87, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "ما التقنية التي تستخدم الذكاء الاصطناعي للمساعدة على قيادة المركبة؟", "options": ["التجارة الإلكترونية", "الذكاء الاصطناعي في أنظمة القيادة الذاتية", "الواقع الافتراضي", "البريد الإلكتروني"]}, {"id": 88, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "لماذا تستخدم بعض المركبات ذاتية القيادة الحوسبة الطرفية؟", "options": ["لتقليل زمن الاستجابة", "لزيادة حجم السيارة", "لإيقاف المستشعرات", "لتقليل عدد الكاميرات"]}, {"id": 89, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "ماذا يفعل الواقع المعزز AR؟", "options": ["يزيل العالم الحقيقي", "يضيف عناصر رقمية إلى العالم الحقيقي", "يوقف الإنترنت", "يستبدل الحاسب"]}, {"id": 90, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "ماذا يفعل الواقع الافتراضي VR؟", "options": ["يضيف نصًا فقط إلى الواقع", "يضع المستخدم داخل بيئة افتراضية", "يوقف التطبيقات", "يزيد سرعة الإنترنت"]}, {"id": 91, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "ما وحدة المعلومات الأساسية في الحوسبة الكمومية؟", "options": ["البت", "البايت", "الكيوبت", "البكسل"]}, {"id": 92, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "ما المبدأ الذي يستخدمه الكيوبت في الحوسبة الكمومية؟", "options": ["التشفير", "التراكب الكمومي", "التخزين السحابي", "الضغط الرقمي"]}, {"id": 93, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "قانون مور قانون فيزيائي ثابت مثل قوانين الحركة والجاذبية.", "options": []}, {"id": 94, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "ينص قانون مور على أن عدد الترانزستورات التي يمكن وضعها داخل شريحة إلكترونية يتضاعف تقريبًا كل عامين.", "options": []}, {"id": 95, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "ساهم استمرار اتجاه قانون مور في زيادة قدرات الحوسبة وتحسين أداء المعالجات.", "options": []}, {"id": 96, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "كانت الحواسب الأولى صغيرة الحجم ويمكن وضعها بسهولة على المكتب.", "options": []}, {"id": 97, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "انتشرت الحواسب الشخصية في السبعينيات والثمانينيات.", "options": []}, {"id": 98, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "أتيح الإنترنت للاستخدام التجاري وظهر الويب في التسعينيات.", "options": []}, {"id": 99, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "ظهرت الهواتف الذكية وانتشرت في العقد الأول من الألفية.", "options": []}, {"id": 100, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "أدى انتشار الحوسبة السحابية إلى تقديم موارد تكنولوجيا المعلومات في صورة خدمات عبر الإنترنت.", "options": []}, {"id": 101, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "لا توجد أي تحديات هندسية أو فيزيائية مرتبطة بتصغير مكونات الدوائر الإلكترونية.", "options": []}, {"id": 102, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "من مشكلات تصغير الترانزستورات ازدياد تيارات التسرب وظهور تأثيرات كمومية مثل النفق الكمومي.", "options": []}, {"id": 103, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "يعتمد تحسين أداء الحواسب فقط على تصغير الترانزستورات وزيادة عددها.", "options": []}, {"id": 104, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "تعدد الأنوية والمعالجة المتوازية من الطرق المستخدمة لتحسين أداء الحواسب.", "options": []}, {"id": 105, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "شبكات التواصل الاجتماعي تتيح للمستخدمين التواصل ونشر المحتوى ومشاركته بسرعة.", "options": []}, {"id": 106, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "التجارة الإلكترونية هي نمط عمل يؤدي فيه الشخص مهامه من المنزل باستخدام الإنترنت.", "options": []}, {"id": 107, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "العمل عن بعد يعني أداء الشخص مهامه من المنزل أو من موقع آخر بعيد باستخدام الإنترنت.", "options": []}, {"id": 108, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "الدفع غير النقدي يشمل استخدام البطاقات المصرفية وتطبيقات الهاتف ورموز QR.", "options": []}, {"id": 109, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "الواقع المعزز يضع المستخدم بالكامل داخل بيئة افتراضية مولدة حاسوبيًا.", "options": []}, {"id": 110, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "الواقع الافتراضي يضع المستخدم داخل بيئة افتراضية مولدة حاسوبيًا.", "options": []}, {"id": 111, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "من بين الخيارات التالية، اختر التسلسل الصحيح لمراحل تطور تكنولوجيا المعلومات:", "options": ["بداية ظهور الحاسب ← ظهور الهواتف الذكية ← تسويق الإنترنت تجاريًا ← انتشار الحوسبة السحابية", "بداية ظهور الحاسب ← تسويق الإنترنت تجاريًا ← ظهور الهواتف الذكية ← انتشار الحوسبة السحابية", "تسويق الإنترنت تجاريًا ← بداية ظهور الحاسب ← انتشار الحوسبة السحابية ← ظهور الهواتف الذكية", "ظهور الهواتف الذكية ← تسويق الإنترنت تجاريًا ← بداية ظهور الحاسب ← انتشار الحوسبة السحابية"]}, {"id": 112, "source": "كتاب الفائز", "type": "مطابقة", "question": "طابق كل وصف بالتقنية الأنسب:\n١) تقنية تضيف معلومات رقمية فوق صور من العالم الحقيقي.\n٢) تقنية تستخدم الذكاء الاصطناعي لقيادة مركبة بأقل تدخل بشري وفق مستوى الأتمتة.\n٣) تقنية تتيح للمستخدم الانغماس في فضاء افتراضي يولده الحاسب.\nالتقنيات: القيادة الذاتية – الواقع المعزز – الواقع الافتراضي.", "options": []}, {"id": 113, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "أي العبارات التالية تصف قانون مور بصورة صحيحة؟", "options": ["قانون فيزيائي ثابت", "ملاحظة تجريبية تقول إن عدد الترانزستورات يتضاعف تقريبًا كل عامين", "قانون يحدد سرعة الإنترنت", "قانون يحدد عدد المستخدمين"]}, {"id": 114, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "أي عبارة تصف المشكلة الهندسية المرتبطة باستمرار تصغير مكونات الدوائر؟", "options": ["لا توجد أي مشكلة", "تظهر تحديات مثل تيارات التسرب والتأثيرات الكمومية", "يتوقف الإنترنت", "تقل الحاجة إلى المعالجات"]}, {"id": 115, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "أي عبارة صحيحة بشأن شبكات التواصل الاجتماعي؟", "options": ["هي خدمات لبيع السلع فقط", "هي خدمات فعالة في نشر المعلومات والتواصل ومشاركة المحتوى", "هي أنظمة دفع إلكتروني", "هي أنظمة لتشغيل السيارات"]}, {"id": 116, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "أي عبارة صحيحة بشأن التجارة الإلكترونية؟", "options": ["تعني شراء السلع من المتاجر الفعلية بالنقد", "تعني بيع وشراء السلع والخدمات عبر الإنترنت", "تعني العمل من المنزل", "تعني التعلم عن بعد"]}, {"id": 117, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "ما التقنية التي تتيح للمستخدمين الانغماس في فضاء افتراضي يولده الحاسب؟", "options": ["الواقع المعزز", "الواقع الافتراضي", "الحوسبة الطرفية", "الدفع غير النقدي"]}, {"id": 118, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "ما التقنية التي تضيف معلومات رقمية فوق صور العالم الحقيقي؟", "options": ["الواقع الافتراضي", "الواقع المعزز", "الحوسبة السحابية", "الحوسبة الكمومية"]}, {"id": 119, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "ما التقنية التي تستخدم الذكاء الاصطناعي لقيادة المركبة بأقل تدخل بشري بحسب مستوى الأتمتة؟", "options": ["القيادة الذاتية", "الواقع الافتراضي", "التجارة الإلكترونية", "الحوسبة السحابية"]}, {"id": 120, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "لماذا يعد ترتيب مراحل تطور تكنولوجيا المعلومات مهمًا عند دراسة الدرس؟", "options": ["لأنه يوضح كيف تراكم التطور التقني عبر الزمن", "لأنه يثبت أن التقنيات القديمة اختفت فورًا", "لأنه يحدد أسعار الأجهزة", "لأنه يحدد سرعة الإنترنت"]}, {"id": 121, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "إذا كانت الحواسيب الأولى تستخدم أساسًا للأغراض العسكرية والحسابات العلمية، فما الذي يفسر عدم انتشارها بين الأفراد؟", "options": ["صغر حجمها", "ضخامة حجمها وارتفاع تكلفتها وطبيعة استخداماتها المتخصصة", "انتشار الهواتف الذكية", "توفر الإنترنت للجميع"]}, {"id": 122, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "ما الأثر الاجتماعي الأبرز لانتشار الحواسيب الشخصية؟", "options": ["جعل الحوسبة متاحة على نطاق أوسع للأفراد", "إلغاء الإنترنت", "استبدال الهواتف الذكية", "إلغاء البرمجيات"]}, {"id": 123, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "ما الأثر الرئيسي لإتاحة الإنترنت للاستخدام التجاري وظهور الويب في التسعينيات؟", "options": ["تقليل الوصول إلى المعلومات", "توسيع الوصول العالمي إلى المعلومات", "إيقاف البريد الإلكتروني", "إلغاء الحواسيب الشخصية"]}, {"id": 124, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "لماذا مثل ظهور الهواتف الذكية نقطة تحول في استخدام الإنترنت؟", "options": ["لأنها جعلت الإنترنت متاحًا بصورة أكبر عبر الأجهزة المحمولة", "لأنها ألغت الحواسيب", "لأنها أوقفت شبكات التواصل", "لأنها استبدلت الخوادم"]}, {"id": 125, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "ما العلاقة بين الحوسبة السحابية والبيانات الضخمة؟", "options": ["الحوسبة السحابية يمكن أن توفر موارد لمعالجة وتخزين كميات كبيرة من البيانات", "لا علاقة بينهما", "البيانات الضخمة تمنع استخدام السحابة", "السحابة ظهرت قبل الحواسيب الأولى"]}, {"id": 126, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "ما المقصود بتكنولوجيا المعلومات كخدمة؟", "options": ["امتلاك جميع الموارد التقنية محليًا فقط", "توفير موارد وخدمات تقنية يمكن الوصول إليها عبر الإنترنت", "إلغاء الإنترنت", "استخدام الصمامات المفرغة"]}, {"id": 127, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "أي موقف يمثل العمل عن بعد؟", "options": ["موظف يؤدي مهامه من منزله باستخدام الإنترنت", "طالب يشتري كتابًا إلكترونيًا", "شخص يدفع باستخدام QR", "شخص يستخدم نظارة VR"]}, {"id": 128, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "أي موقف يمثل التعلم عبر الإنترنت؟", "options": ["موظف يعمل من المنزل", "طالب يحضر درسًا ويصل إلى مواده التعليمية عبر الإنترنت", "شخص يشتري منتجًا إلكترونيًا", "سيارة تعالج بيانات مستشعراتها"]}, {"id": 129, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "أي موقف يمثل التجارة الإلكترونية؟", "options": ["شراء منتج من متجر إلكتروني عبر الإنترنت", "حضور محاضرة عبر الإنترنت", "العمل من المنزل", "معالجة بيانات مستشعرات السيارة"]}, {"id": 130, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "أي موقف يمثل الدفع غير النقدي؟", "options": ["دفع ثمن منتج باستخدام رمز QR", "دفع ثمن المنتج بأوراق نقدية", "تبادل السلع", "شراء جهاز باستخدام المقايضة"]}, {"id": 131, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "ما الفائدة الأساسية من معالجة البيانات بالقرب من مصدر توليدها؟", "options": ["زيادة زمن الاستجابة", "تقليل زمن الاستجابة وتقليل الحاجة لإرسال كل البيانات إلى مركز بعيد", "إلغاء المستشعرات", "زيادة حجم البيانات المرسلة"]}, {"id": 132, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "شركة لديها سيارة ذاتية القيادة وتحتاج إلى اتخاذ قرار سريع. لماذا لا ترسل كل البيانات إلى خادم بعيد قبل اتخاذ القرار؟", "options": ["لأن الاتصال قد يضيف زمن تأخير غير مناسب للمواقف الحرجة", "لأن الخوادم لا تستطيع معالجة البيانات", "لأن السيارة لا تحتوي على مستشعرات", "لأن الذكاء الاصطناعي لا يعمل مع السحابة"]}, {"id": 133, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "أي مما يلي يمثل استخدامًا مناسبًا للحوسبة الطرفية؟", "options": ["تحليل فوري لبيانات مستشعرات سيارة أثناء الحركة", "تخزين نسخة احتياطية لسنوات على خادم بعيد", "استضافة موقع ويب على السحابة", "تخزين ملفات أرشيفية"]}, {"id": 134, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "ما الدور الذي تلعبه المستشعرات والكاميرات في أنظمة القيادة الذاتية؟", "options": ["جمع معلومات عن البيئة المحيطة", "تخزين الملفات فقط", "توفير الإنترنت", "إجراء المدفوعات"]}, {"id": 135, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "إذا زاد زمن استجابة نظام القيادة الذاتية في موقف حرج، فما النتيجة الأكثر منطقية؟", "options": ["قد يتأخر القرار بما يؤثر في السلامة", "تزداد السلامة دائمًا", "لا يحدث أي تأثير", "تختفي الحاجة إلى المستشعرات"]}, {"id": 136, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "أي عبارة تميز AR عن VR؟", "options": ["AR يحافظ على ارتباط المستخدم بالعالم الحقيقي ويضيف إليه عناصر رقمية", "AR ينقل المستخدم بالكامل إلى عالم افتراضي", "VR يضيف معلومات فقط إلى الواقع", "لا فرق بينهما"]}, {"id": 137, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "أي من الأمثلة التالية يمثل الواقع المعزز؟", "options": ["تطبيق يعرض معلومات رقمية فوق صورة شارع حقيقي عبر الكاميرا", "نظارة تنقل المستخدم بالكامل إلى عالم افتراضي", "خادم يعالج بيانات السيارة", "تطبيق دفع إلكتروني"]}, {"id": 138, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "أي من الأمثلة التالية يمثل الواقع الافتراضي؟", "options": ["تطبيق يعرض معلومات فوق مبنى حقيقي", "نظام يضع المستخدم داخل بيئة رقمية افتراضية كاملة", "نظام دفع عبر QR", "معالجة بيانات المستشعرات محليًا"]}, {"id": 139, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "ما المقصود بالحوسبة الكمومية؟", "options": ["نوع من الحوسبة يعتمد على مبادئ ميكانيكا الكم لمعالجة المعلومات", "تخزين الملفات على الإنترنت", "معالجة البيانات بالقرب من مصدرها", "استخدام الهاتف للدفع"]}, {"id": 140, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "ما وحدة المعلومات الأساسية في الحوسبة الكمومية؟", "options": ["البت", "البايت", "الكيوبت", "البكسل"]}, {"id": 141, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "ما المقصود بمبدأ التراكب الكمومي في سياق الكيوبت؟", "options": ["أن الكيوبت يمكن أن يكون في تراكب من الحالات الكمومية قبل القياس", "أن الكيوبت لا يستطيع تمثيل أي حالة", "أن الكيوبت يساوي دائمًا البت التقليدي", "أن الكيوبت يستخدم فقط للتخزين السحابي"]}, {"id": 142, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "أي عبارة أدق عن التفوق الكمومي؟", "options": ["الحواسيب الكمومية أسرع من التقليدية في كل شيء", "قد توفر تفوقًا في أنواع محددة من المسائل", "لا تستطيع إجراء أي حساب", "ستلغي جميع الحواسيب التقليدية فورًا"]}, {"id": 143, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "لماذا لا يعني استمرار قانون مور أن تصغير الترانزستورات يمكن أن يستمر بلا حدود؟", "options": ["لأن هناك حدودًا هندسية وفيزيائية تظهر مع تصغير المكونات", "لأن الإنترنت سيتوقف", "لأن عدد المستخدمين سينخفض", "لأن الهواتف ستختفي"]}, {"id": 144, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "ما العلاقة بين تيارات التسرب والتصغير المستمر للترانزستورات؟", "options": ["يمكن أن تصبح تيارات التسرب من التحديات الناتجة عن تصغير المكونات", "تقل دائمًا إلى الصفر", "لا علاقة لها بالدوائر الإلكترونية", "تمنع استخدام الإنترنت"]}, {"id": 145, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "إذا واجه المهندسون صعوبة في الاعتماد على تصغير الترانزستورات وحده لزيادة الأداء، فما أحد البدائل؟", "options": ["تعدد الأنوية والمعالجة المتوازية", "تقليل عدد الأنوية", "إيقاف الذاكرة", "زيادة حجم الجهاز فقط"]}, {"id": 146, "source": "كتاب الفائز", "type": "أسئلة مقالية", "question": "ناقش العبارة: «تطور تكنولوجيا المعلومات لا يعني فقط أجهزة أسرع، بل يؤدي إلى تحولات اجتماعية واقتصادية». استشهد بثلاثة أمثلة من الدرس.", "options": []}, {"id": 147, "source": "كتاب الفائز", "type": "أسئلة مقالية", "question": "قارن بين العمل عن بعد والتعلم عبر الإنترنت من حيث الهدف وطبيعة النشاط الذي يتم عبر الإنترنت.", "options": []}, {"id": 148, "source": "كتاب الفائز", "type": "أسئلة مقالية", "question": "اشرح كيف يمكن أن تؤثر الحوسبة السحابية في طريقة تعامل الأفراد والمؤسسات مع تخزين البيانات والوصول إليها.", "options": []}, {"id": 149, "source": "كتاب الفائز", "type": "أسئلة مقالية", "question": "إذا أصبحت خدمات الدفع غير النقدي متاحة في مجتمع يعتمد سابقًا على النقد فقط، فما فرصة واحدة يمكن أن تظهر، وما تحدٍ اجتماعي محتمل قد ينتج؟", "options": []}, {"id": 150, "source": "كتاب الفائز", "type": "أسئلة مقالية", "question": "حلل كيف يعكس الانتقال من الحواسيب الأولى الضخمة إلى الحواسيب الشخصية ثم الهواتف الذكية ثم الخدمات السحابية فكرة «التراكم والتطور المستمر» في تكنولوجيا المعلومات.", "options": []}];
+
+const SOURCES = ["أسئلة المتفوقين","أسئلة من موضوعنا","الكويز","كتاب المبرمج","كتاب الفائز"];
+const SOURCE_BADGE_CLASS = {
+  "أسئلة المتفوقين":"badge-src-1",
+  "أسئلة من موضوعنا":"badge-src-2",
+  "الكويز":"badge-src-3",
+  "كتاب المبرمج":"badge-src-4",
+  "كتاب الفائز":"badge-src-5"
+};
+const LETTERS = ["أ","ب","ج","د"];
+
+let state = {
+  search:"",
+  source:"all",
+  type:"all",
+  quizMode:false,
+  selections:{},      // id -> selected option index (mcq) or "صح"/"خطأ" (tf)
+  quizFinished:false
+};
+
+// ---------- Stats ----------
+function renderStats(){
+  const counts = {};
+  SOURCES.forEach(s=>counts[s]=0);
+  questions.forEach(q=>counts[q.source]++);
+  const grid = document.getElementById('statsGrid');
+  let html = `<div class="stat total"><div class="n num">${questions.length}</div><div class="l">إجمالي الأسئلة</div></div>`;
+  SOURCES.forEach(s=>{
+    html += `<div class="stat"><div class="n num">${counts[s]}</div><div class="l">${s}</div></div>`;
+  });
+  grid.innerHTML = html;
+}
+
+// ---------- Filters setup ----------
+function setupFilters(){
+  const sourceSel = document.getElementById('sourceFilter');
+  SOURCES.forEach(s=>{
+    const opt = document.createElement('option');
+    opt.value = s; opt.textContent = s;
+    sourceSel.appendChild(opt);
+  });
+  const types = [...new Set(questions.map(q=>q.type))];
+  const typeSel = document.getElementById('typeFilter');
+  types.forEach(t=>{
+    const opt = document.createElement('option');
+    opt.value = t; opt.textContent = t;
+    typeSel.appendChild(opt);
+  });
+}
+
+function onFiltersChanged(){
+  state.search = document.getElementById('searchInput').value.trim().toLowerCase();
+  state.source = document.getElementById('sourceFilter').value;
+  state.type = document.getElementById('typeFilter').value;
+  renderQuestions();
+}
+
+function resetFilters(){
+  document.getElementById('searchInput').value = "";
+  document.getElementById('sourceFilter').value = "all";
+  document.getElementById('typeFilter').value = "all";
+  state.search = ""; state.source = "all"; state.type = "all";
+  renderQuestions();
+}
+
+function filterQuestions(){
+  return questions.filter(q=>{
+    if(state.source !== "all" && q.source !== state.source) return false;
+    if(state.type !== "all" && q.type !== state.type) return false;
+    if(state.search){
+      const hay = (q.question + " " + q.options.join(" ") + " " + q.source).toLowerCase();
+      if(!hay.includes(state.search)) return false;
+    }
+    return true;
+  });
+}
+
+// ---------- Rendering ----------
+function optionLetter(i){ return LETTERS[i] || (i+1); }
+
+function renderQuestionCard(q){
+  const badgeClass = SOURCE_BADGE_CLASS[q.source] || "badge-src-2";
+  let body = "";
+
+  if(q.type === "اختيار من متعدد"){
+    body += `<div class="options">`;
+    q.options.forEach((opt,i)=>{
+      const selected = state.selections[q.id] === i;
+      body += `<div class="option ${selected?'selected':''}" onclick="selectOption(${q.id},${i})">
+        <span class="letter">${optionLetter(i)}</span><span>${escapeHtml(opt)}</span>
+      </div>`;
+    });
+    body += `</div>`;
+  } else if(q.type === "صح وخطأ"){
+    body += `<div class="tf-row">`;
+    ["صح","خطأ"].forEach(v=>{
+      const selected = state.selections[q.id] === v;
+      body += `<div class="option ${selected?'selected':''}" onclick="selectTF(${q.id},'${v}')">${v}</div>`;
+    });
+    body += `</div>`;
+  } else {
+    const labelMap = {
+      "أسئلة حسابية":"سؤال حسابي — يتطلب خطوات حل مكتوبة، لا توجد اختيارات لهذا السؤال في بنك البيانات المصدر.",
+      "أسئلة مقالية":"سؤال مقالي مفتوح — يتطلب إجابة تحريرية، لا توجد اختيارات لهذا السؤال في بنك البيانات المصدر.",
+      "مطابقة":"سؤال مطابقة — طابق كل وصف بالتقنية المناسبة من القائمة الواردة في نص السؤال.",
+      "ترتيب":"سؤال ترتيب زمني — رتّب العناصر الواردة في نص السؤال.",
+      "تصنيف":"سؤال تصنيف — صنّف كل مثال ضمن الفئة الأنسب من الدرس."
+    };
+    body += `<div class="open-note">✏️ ${labelMap[q.type] || "سؤال مفتوح."}</div>`;
+  }
+
+  const hasOptions = (q.type === "اختيار من متعدد" || q.type === "صح وخطأ");
+  let actions = "";
+  if(!state.quizMode && hasOptions){
+    actions = `
+      <div class="qcard-actions">
+        <button class="btn btn-ghost" onclick="showAnswer(${q.id})">إظهار الإجابة</button>
+      </div>
+      <div class="answer-box" id="answer-${q.id}"></div>`;
+  }
+
+  return `
+  <div class="qcard" data-source="${q.source}" data-id="${q.id}">
+    <div class="qcard-head">
+      <div class="qcard-meta">
+        <span class="qnum num">السؤال ${q.id}</span>
+        <span class="badge ${badgeClass}">${q.source}</span>
+        <span class="badge-type badge">${q.type}</span>
+      </div>
+    </div>
+    <div class="qtext">${escapeHtml(q.question)}</div>
+    ${body}
+    ${actions}
+  </div>`;
+}
+
+function renderQuestions(){
+  const list = filterQuestions();
+  const container = document.getElementById('qlist');
+  const empty = document.getElementById('emptyState');
+  if(list.length === 0){
+    container.innerHTML = "";
+    empty.style.display = "block";
+  }else{
+    empty.style.display = "none";
+    container.innerHTML = list.map(renderQuestionCard).join("");
+  }
+  updateProgress(list.length);
+  renderQuizBanner();
+}
+
+function updateProgress(shown){
+  const total = questions.length;
+  const pct = total ? Math.round((shown/total)*100) : 0;
+  document.getElementById('progressFill').style.width = pct + "%";
+  document.getElementById('progressLabel').textContent = `عرض ${shown} من ${total} سؤال`;
+}
+
+function escapeHtml(str){
+  return String(str)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;");
+}
+
+// ---------- Answering (browse mode) ----------
+function selectOption(id,i){
+  if(state.quizMode){ state.selections[id] = i; renderQuestions(); return; }
+  state.selections[id] = (state.selections[id] === i) ? undefined : i;
+  renderQuestions();
+}
+function selectTF(id,v){
+  if(state.quizMode){ state.selections[id] = v; renderQuestions(); return; }
+  state.selections[id] = (state.selections[id] === v) ? undefined : v;
+  renderQuestions();
+}
+
+function showAnswer(id){
+  const box = document.getElementById('answer-'+id);
+  if(!box) return;
+  box.classList.add('show','unavailable');
+  box.textContent = "⚠️ لا تحتوي بيانات بنك الأسئلة المصدرية على مفتاح إجابات لهذا السؤال، لذلك لا يمكن عرض الإجابة الصحيحة دون اختلاقها. راجع مصدر السؤال (الكتاب أو الملف الأصلي) للتأكد من الإجابة.";
+}
+
+// ---------- Quiz mode ----------
+function toggleQuizMode(){
+  state.quizMode = !state.quizMode;
+  state.quizFinished = false;
+  document.getElementById('quizResult').innerHTML = "";
+  const btn = document.getElementById('quizToggleBtn');
+  btn.textContent = state.quizMode ? "✖ إنهاء الوضع" : "🧠 وضع الاختبار";
+  if(state.quizMode){ state.selections = {}; }
+  renderQuestions();
+}
+
+function renderQuizBanner(){
+  const el = document.getElementById('quizBanner');
+  if(!state.quizMode || state.quizFinished){ el.innerHTML = ""; return; }
+  const gradable = questions.filter(q=>q.type==="اختيار من متعدد" || q.type==="صح وخطأ").length;
+  el.innerHTML = `
+    <div class="quiz-banner">
+      <div>
+        <h3>وضع الاختبار مفعّل</h3>
+        <p>اختر إجاباتك من أسئلة الاختيار من متعدد وصح/خطأ (${gradable} سؤالًا)، ثم اضغط «إنهاء الاختبار».</p>
+      </div>
+      <button class="btn btn-primary" onclick="finishQuiz()">إنهاء الاختبار</button>
+    </div>`;
+}
+
+function finishQuiz(){
+  const gradableQs = questions.filter(q=>q.type==="اختيار من متعدد" || q.type==="صح وخطأ");
+  const result = calculateScore(gradableQs);
+  state.quizFinished = true;
+  document.getElementById('quizBanner').innerHTML = "";
+  const resEl = document.getElementById('quizResult');
+  resEl.innerHTML = `
+    <div class="result-card">
+      <div class="result-score">${result.answered} / ${gradableQs.length} <span style="font-size:14px;color:var(--text-soft);font-weight:600;">تم الإجابة عنها</span></div>
+      <div class="result-grid">
+        <div class="rbox"><div class="rn">${result.answered}</div><div class="rl">أسئلة تمت الإجابة عنها</div></div>
+        <div class="rbox"><div class="rn">${result.unanswered}</div><div class="rl">أسئلة بلا إجابة</div></div>
+        <div class="rbox"><div class="rn">${gradableQs.length}</div><div class="rl">إجمالي أسئلة الاختبار</div></div>
+      </div>
+      <div class="result-notice">
+        ⚠️ ملاحظة مهمة: لا يتضمن بنك الأسئلة المصدري مفتاح إجابات صحيحة لأي سؤال، لذلك لا يمكن حساب الدرجة أو نسبة النجاح أو تصنيف الإجابات إلى صحيحة/خاطئة دون اختلاق بيانات غير موجودة. تم عرض عدد الأسئلة المُجابة فقط. لحساب الدرجة، يُنصح بإضافة مفتاح الإجابات الصحيحة إلى بيانات الأسئلة أولًا.
+      </div>
+    </div>`;
+  window.scrollTo({top:resEl.offsetTop-20,behavior:'smooth'});
+}
+
+function calculateScore(gradableQs){
+  let answered = 0;
+  gradableQs.forEach(q=>{
+    if(state.selections[q.id] !== undefined) answered++;
+  });
+  return { answered, unanswered: gradableQs.length - answered };
+}
+
+// ---------- Dark mode ----------
+function toggleDarkMode(){
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  localStorage.setItem('ga_theme', isDark ? 'light' : 'dark');
+}
+function initTheme(){
+  const saved = localStorage.getItem('ga_theme');
+  if(saved === 'dark'){ document.documentElement.setAttribute('data-theme','dark'); }
+}
+
+// ---------- Init ----------
+function init(){
+  initTheme();
+  renderStats();
+  setupFilters();
+  renderQuestions();
+}
+init();
+</script>
+</body>
+</html>
