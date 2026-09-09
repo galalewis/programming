@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<!--
+Galal Academy
+Question Bank
+Topic: الذكاء الاصطناعي والتعلم الآلي والتعلم العميق والذكاء الاصطناعي التوليدي (AI / ML / DL / GenAI)
+Total Questions: 150
+-->
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بنك أسئلة — الذكاء الاصطناعي والتعلم الآلي والتعلم العميق | Galal Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1E2A5E;
+  --blue:#2563EB;
+  --purple:#7C3AED;
+  --light-blue:#E0F2FE;
+  --white:#FFFFFF;
+  --text:#172033;
+  --text-soft:#64748B;
+  --line:#DCE3F0;
+  --surface:#F7F9FE;
+  --radius:14px;
+  --shadow:0 10px 30px -14px rgba(30,42,94,0.28);
+}
+
+[data-theme="dark"]{
+  --white:#0F1424;
+  --surface:#161D34;
+  --text:#EAEFFB;
+  --text-soft:#9AA6C4;
+  --line:#2A3455;
+  --light-blue:#1B2747;
+  --shadow:0 10px 30px -14px rgba(0,0,0,0.55);
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Tajawal',sans-serif;
+  background:var(--white);
+  color:var(--text);
+  line-height:1.7;
+  transition:background .25s ease,color .25s ease;
+}
+:focus-visible{outline:3px solid var(--purple);outline-offset:2px;}
+.num{font-family:'IBM Plex Mono',monospace;}
+
+/* ===== Header ===== */
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(160deg,var(--navy) 0%,#233874 55%,var(--purple) 130%);
+  color:#fff;
+  padding:52px 24px 40px;
+}
+.hero::before{
+  content:"";
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);
+  background-size:42px 42px;
+  mask-image:radial-gradient(circle at 75% 20%,#000 0%,transparent 68%);
+  pointer-events:none;
+}
+.hero-circuit{
+  position:absolute;left:-40px;bottom:-40px;width:280px;height:280px;
+  opacity:.35;pointer-events:none;
+}
+.hero-inner{position:relative;max-width:1080px;margin:0 auto;}
+.brand-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand-mark{
+  width:44px;height:44px;border-radius:12px;
+  background:linear-gradient(135deg,var(--blue),var(--purple));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:20px;flex-shrink:0;
+  box-shadow:0 6px 18px -4px rgba(37,99,235,.6);
+}
+.brand-text .name{font-weight:800;font-size:19px;letter-spacing:.2px;}
+.brand-text .tagline{font-size:12.5px;color:#C6D2F2;font-weight:500;}
+
+.tool-row{display:flex;gap:10px;flex-wrap:wrap;}
+.icon-btn{
+  border:1px solid rgba(255,255,255,.25);
+  background:rgba(255,255,255,.08);
+  color:#fff;border-radius:10px;
+  padding:9px 14px;font-family:inherit;font-size:13.5px;font-weight:600;
+  cursor:pointer;display:flex;align-items:center;gap:6px;
+  transition:background .15s ease,transform .1s ease;
+  backdrop-filter:blur(4px);
+}
+.icon-btn:hover{background:rgba(255,255,255,.18);}
+.icon-btn:active{transform:scale(.97);}
+
+.hero-title{margin-top:38px;max-width:760px;}
+.hero-title h1{
+  font-size:clamp(24px,3.6vw,38px);
+  font-weight:800;line-height:1.35;
+}
+.hero-title p{
+  margin-top:12px;color:#D3DCF5;font-size:15.5px;max-width:640px;
+}
+
+/* ===== Stats ===== */
+.stats-wrap{max-width:1080px;margin:-30px auto 0;padding:0 24px;position:relative;z-index:2;}
+.stats-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+  background:var(--white);border:1px solid var(--line);
+  border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);
+}
+.stat{text-align:center;padding:10px 6px;border-radius:10px;}
+.stat .n{font-size:24px;font-weight:800;color:var(--navy);}
+[data-theme="dark"] .stat .n{color:#8FB3FF;}
+.stat .l{font-size:12px;color:var(--text-soft);margin-top:4px;font-weight:500;}
+.stat.total{background:var(--light-blue);}
+.stat.total .n{color:var(--blue);}
+
+/* ===== Layout ===== */
+.container{max-width:1080px;margin:0 auto;padding:32px 24px 80px;}
+
+.toolbar{
+  position:sticky;top:0;z-index:20;
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:16px;margin-bottom:22px;
+  box-shadow:var(--shadow);
+}
+.toolbar-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+.search-box{
+  flex:1 1 260px;position:relative;
+}
+.search-box input{
+  width:100%;padding:11px 42px 11px 14px;
+  border:1.5px solid var(--line);border-radius:10px;
+  font-family:inherit;font-size:14.5px;background:var(--surface);color:var(--text);
+  transition:border-color .15s ease;
+}
+.search-box input:focus{border-color:var(--blue);}
+.search-box .icon{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--text-soft);}
+select{
+  padding:11px 14px;border:1.5px solid var(--line);border-radius:10px;
+  font-family:inherit;font-size:14px;background:var(--surface);color:var(--text);
+  cursor:pointer;min-width:150px;
+}
+.btn{
+  border:none;border-radius:10px;padding:11px 18px;font-family:inherit;
+  font-size:14px;font-weight:700;cursor:pointer;transition:transform .1s ease,opacity .15s ease;
+  white-space:nowrap;
+}
+.btn:active{transform:scale(.97);}
+.btn-primary{background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff;}
+.btn-primary:hover{opacity:.92;}
+.btn-outline{background:transparent;border:1.5px solid var(--line);color:var(--text);}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue);}
+.btn-ghost{background:var(--surface);color:var(--text);}
+
+.progress-track{
+  margin-top:14px;height:8px;border-radius:6px;background:var(--surface);
+  border:1px solid var(--line);overflow:hidden;
+}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--purple));border-radius:6px;transition:width .25s ease;}
+.progress-label{margin-top:8px;font-size:12.5px;color:var(--text-soft);font-weight:600;}
+
+/* ===== Question cards ===== */
+.qlist{display:flex;flex-direction:column;gap:16px;}
+.qcard{
+  background:var(--white);
+  border:1px solid var(--line);
+  border-inline-start:4px solid var(--blue);
+  border-radius:var(--radius);
+  padding:20px 22px;
+  transition:box-shadow .15s ease;
+}
+.qcard:hover{box-shadow:var(--shadow);}
+.qcard[data-source="أسئلة من موضوعنا"]{border-inline-start-color:#2563EB;}
+.qcard[data-source="كتاب المبرمج"]{border-inline-start-color:#D97706;}
+.qcard[data-source="كتاب الفائز"]{border-inline-start-color:#DB2777;}
+
+.qcard-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px;}
+.qcard-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.qnum{
+  font-weight:800;color:var(--navy);font-size:14.5px;
+  background:var(--light-blue);padding:4px 11px;border-radius:8px;
+}
+[data-theme="dark"] .qnum{color:#AFCBFF;}
+.badge{
+  font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:20px;
+  color:#fff;
+}
+.badge-src-1{background:#2563EB;}
+.badge-src-2{background:#D97706;}
+.badge-src-3{background:#DB2777;}
+.badge-type{
+  font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:20px;
+  background:var(--surface);color:var(--text-soft);border:1px solid var(--line);
+}
+
+.qtext{font-size:16.5px;font-weight:600;color:var(--text);margin-bottom:14px;white-space:pre-line;}
+
+.options{display:flex;flex-direction:column;gap:9px;margin-bottom:12px;}
+.option{
+  display:flex;align-items:center;gap:10px;
+  border:1.5px solid var(--line);border-radius:10px;
+  padding:11px 14px;cursor:pointer;font-size:14.5px;
+  background:var(--surface);transition:border-color .12s ease,background .12s ease;
+}
+.option:hover{border-color:var(--blue);}
+.option.selected{border-color:var(--blue);background:var(--light-blue);font-weight:700;}
+.option .letter{
+  font-weight:800;color:var(--blue);flex-shrink:0;
+  width:24px;height:24px;border-radius:7px;background:var(--white);
+  display:flex;align-items:center;justify-content:center;font-size:13px;
+  border:1.5px solid var(--line);
+}
+.option.selected .letter{background:var(--blue);color:#fff;border-color:var(--blue);}
+.option.correct{border-color:#15803D;background:#EAF7EE;font-weight:700;}
+.option.correct .letter{background:#15803D;color:#fff;border-color:#15803D;}
+.option.incorrect{border-color:#DC2626;background:#FEF2F2;}
+.option .mark{margin-right:auto;color:#15803D;font-weight:800;}
+
+.tf-row{display:flex;gap:10px;margin-bottom:12px;}
+.tf-row .option{flex:1;justify-content:center;}
+
+.open-note{
+  background:var(--surface);border:1px dashed var(--line);border-radius:10px;
+  padding:12px 14px;font-size:13.5px;color:var(--text-soft);margin-bottom:12px;
+}
+
+.qcard-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.answer-box{
+  margin-top:10px;padding:11px 14px;border-radius:10px;font-size:13.5px;
+  background:var(--light-blue);color:var(--navy);border:1px solid var(--line);display:none;font-weight:600;
+}
+[data-theme="dark"] .answer-box{color:#CFE0FF;}
+.answer-box.show{display:block;}
+.answer-box.unavailable{background:#FFF4E5;color:#92400E;border-color:#FDE1B8;}
+[data-theme="dark"] .answer-box.unavailable{background:#3A2A11;color:#FCD9A3;border-color:#5A4520;}
+
+/* ===== Empty state ===== */
+.empty-state{
+  text-align:center;padding:60px 20px;color:var(--text-soft);
+}
+.empty-state .em-title{font-size:17px;font-weight:700;color:var(--text);margin-bottom:8px;}
+.empty-state .em-sub{font-size:14px;margin-bottom:18px;}
+
+/* ===== Quiz mode ===== */
+.quiz-banner{
+  background:linear-gradient(135deg,var(--navy),var(--purple));color:#fff;
+  border-radius:var(--radius);padding:18px 22px;margin-bottom:22px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+.quiz-banner h3{font-size:16px;font-weight:800;margin-bottom:4px;}
+.quiz-banner p{font-size:13px;color:#D9E0FA;}
+
+.result-card{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px;margin-bottom:22px;box-shadow:var(--shadow);
+}
+.result-score{font-size:30px;font-weight:900;color:var(--blue);margin-bottom:6px;}
+.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0;}
+.result-grid .rbox{background:var(--surface);border-radius:10px;padding:14px;text-align:center;border:1px solid var(--line);}
+.result-grid .rbox .rn{font-size:20px;font-weight:800;}
+.result-grid .rbox .rl{font-size:12px;color:var(--text-soft);margin-top:4px;}
+.result-notice{
+  background:#FFF4E5;border:1px solid #FDE1B8;color:#92400E;border-radius:10px;
+  padding:14px 16px;font-size:13.5px;line-height:1.8;margin-top:6px;
+}
+[data-theme="dark"] .result-notice{background:#3A2A11;color:#FCD9A3;border-color:#5A4520;}
+
+/* ===== Footer ===== */
+footer{
+  text-align:center;padding:30px 20px 50px;color:var(--text-soft);font-size:13px;
+}
+footer strong{color:var(--text);}
+
+/* ===== Responsive ===== */
+@media (max-width:860px){
+  .stats-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:640px){
+  .hero{padding:36px 16px 32px;}
+  .stats-wrap{padding:0 14px;}
+  .stats-grid{grid-template-columns:repeat(2,1fr);padding:14px;gap:9px;}
+  .container{padding:26px 14px 70px;}
+  .toolbar{position:static;}
+  select{min-width:0;flex:1;}
+  .qcard{padding:16px;}
+  .result-grid{grid-template-columns:1fr;}
+  .brand-row{gap:12px;}
+  .tool-row{width:100%;}
+  .icon-btn{flex:1;justify-content:center;}
+}
+
+/* ===== Print (screen-only elements hidden; dedicated print bank rendered instead) ===== */
+.print-only{ display:none; }
+
+
+@page { size: A4; margin: 10mm 12mm; }
+.print-only{ display:none; }
+@media print {
+  .screen-only{ display:none !important; }
+  .print-only{ display:block !important; }
+
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family: Tahoma, Arial, "Segoe UI", sans-serif; color:#172033; font-size:10px; line-height:1.2;}
+.pp{ page-break-after: always; }
+.pp.pp-last{ page-break-after: auto; }
+.pp-header{overflow:hidden;}
+.pp-brand{font-weight:bold;font-size:18px;color:#1E2A5E;float:right;}
+.pp-title{font-size:12px;color:#2563EB;font-weight:bold;float:left;}
+.pp-hr{height:1.5pt;background:#1E2A5E;margin:3px 0 6px;clear:both;}
+.pp-col{ width:48.5%; overflow:hidden; }
+.pp-col-r{ float:right; }
+.pp-col-l{ float:left; }
+.pp-clear{ clear:both; }
+.pq-card{ width:100%; max-width:100%; box-sizing:border-box; break-inside:avoid; border:0.5pt solid #cfd6e6; border-radius:2px; padding:3px 5px; margin-bottom:1.6mm; background:#fbfcff; overflow-wrap:break-word; word-wrap:break-word; word-break:break-word; overflow:hidden; direction:rtl; unicode-bidi:embed; }
+.pq-head{margin-bottom:1px;}
+.pq-num{display:inline-block;font-weight:bold;font-size:9.5px;color:#1E2A5E;background:#E0F2FE;padding:0 4px;border-radius:3px;}
+.pq-src{display:inline-block;font-size:8.5px;color:#fff;padding:0.5px 5px;border-radius:7px;margin-right:4px;}
+.pq-text{ overflow-wrap:break-word; word-wrap:break-word; word-break:break-word; font-size:11px;font-weight:bold;margin-bottom:2px;line-height:1.28; direction:rtl; unicode-bidi:embed; }
+.pq-opts{ display:block; }
+.pq-opt{ display:block; overflow-wrap:break-word; word-wrap:break-word; word-break:break-word; font-size:10px;line-height:1.32; direction:rtl; unicode-bidi:embed; }
+.pq-tf .pq-opt{ display:inline-block; margin-left:16px; }
+.pq-open{font-size:9px;color:#64748B;}
+.pp-footer{overflow:hidden;font-size:8px;color:#64748B;border-top:0.5pt solid #cfd6e6;padding-top:2px;margin-top:3px;}
+.pp-footer span:first-child{float:right;}
+.pp-footer span:last-child{float:left;}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="screen-only">
+<header class="hero">
+  <svg class="hero-circuit" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="30" cy="170" r="4" fill="#fff"/>
+    <circle cx="30" cy="120" r="4" fill="#fff"/>
+    <circle cx="90" cy="120" r="4" fill="#fff"/>
+    <circle cx="150" cy="60" r="4" fill="#fff"/>
+    <path d="M30 170 V120 H90 V60 H150 V20" stroke="#fff" stroke-width="2"/>
+    <path d="M10 90 H60" stroke="#fff" stroke-width="2"/>
+    <circle cx="60" cy="90" r="3" fill="#fff"/>
+  </svg>
+  <div class="hero-inner">
+    <div class="brand-row">
+      <div class="brand">
+        <div class="brand-mark">GA</div>
+        <div class="brand-text">
+          <div class="name">Galal Academy</div>
+          <div class="tagline">برمج مستقبلك من مقاعد الدراسة</div>
+        </div>
+      </div>
+      <div class="tool-row">
+        <button class="icon-btn" id="darkModeBtn" onclick="toggleDarkMode()">🌙 الوضع الليلي</button>
+        <button class="icon-btn" onclick="window.print()">🖨️ تصدير PDF</button>
+      </div>
+    </div>
+    <div class="hero-title">
+      <h1>بنك أسئلة — الذكاء الاصطناعي والتعلم الآلي والتعلم العميق والذكاء الاصطناعي التوليدي</h1>
+      <p>150 سؤالًا مجمّعة من ثلاثة مصادر تدريبية (AI · ML · DL · GenAI)، مع بحث وفلترة فورية ووضع اختبار تفاعلي. تصدير PDF ينتج مذكرة مضغوطة من 7 صفحات فقط.</p>
+    </div>
+  </div>
+</header>
+
+<div class="stats-wrap">
+  <div class="stats-grid" id="statsGrid"></div>
+</div>
+
+<main class="container">
+
+  <div class="toolbar">
+    <div class="toolbar-row">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="ابحث داخل الأسئلة..." oninput="onFiltersChanged()">
+        <span class="icon">🔎</span>
+      </div>
+      <select id="sourceFilter" onchange="onFiltersChanged()">
+        <option value="all">كل المصادر</option>
+      </select>
+      <select id="typeFilter" onchange="onFiltersChanged()">
+        <option value="all">كل الأنواع</option>
+      </select>
+      <button class="btn btn-outline" onclick="resetFilters()">إعادة ضبط الفلاتر</button>
+      <button class="btn btn-primary" id="quizToggleBtn" onclick="toggleQuizMode()">🧠 وضع الاختبار</button>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:100%"></div></div>
+    <div class="progress-label" id="progressLabel">عرض 150 من 150 سؤال</div>
+  </div>
+
+  <div id="quizBanner"></div>
+  <div id="quizResult"></div>
+
+  <div class="qlist" id="qlist"></div>
+  <div class="empty-state" id="emptyState" style="display:none;">
+    <div class="em-title">لم يتم العثور على أسئلة مطابقة لبحثك.</div>
+    <div class="em-sub">جرّب كلمات مختلفة أو غيّر الفلاتر المستخدمة.</div>
+    <button class="btn btn-outline" onclick="resetFilters()">إعادة ضبط الفلاتر</button>
+  </div>
+
+</main>
+
+<footer>
+  <strong>Galal Academy</strong> — بنك أسئلة الذكاء الاصطناعي والتعلم الآلي والتعلم العميق · 150 سؤالًا
+</footer>
+</div><!-- /.screen-only -->
+
+<div class="print-only" id="printBank">
+
+<section class="pp">
+  <div class="pp-header">
+    <span class="pp-brand">Galal Academy</span>
+    <span class="pp-title">بنك أسئلة — الذكاء الاصطناعي والتعلم الآلي والتعلم العميق والذكاء الاصطناعي التوليدي</span>
+  </div>
+  <div class="pp-hr"></div>
+  <div class="pp-grid"><div class="pp-col pp-col-r"><div class="pq-card"><div class="pq-head"><span class="pq-num">1</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">ما الخطأ الشائع الذي ينبّه إليه الدرس بخصوص المفاهيم الأربعة؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> اعتبار AI=ML=DL=GenAI مفاهيم متطابقة</div><div class="pq-opt"><b>ب)</b> اعتبار ML أوسع من AI</div><div class="pq-opt"><b>ج)</b> اعتبار DL فرعًا من ML</div><div class="pq-opt"><b>د)</b> اعتبار GenAI هو المجال الأوسع</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">2</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">ما وصف العلاقة التعليمية بين AI وML وDL وGenAI؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> احتواء صارم بلا استثناء</div><div class="pq-opt"><b>ب)</b> تبسيط تعليمي وليس احتواءً صارمًا دائمًا</div><div class="pq-opt"><b>ج)</b> لا علاقة بينها</div><div class="pq-opt"><b>د)</b> GenAI هو الأصل لكل ما سبق</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">3</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">ما التعريف الدقيق للذكاء الاصطناعي AI؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> فرع من التعلم الآلي فقط</div><div class="pq-opt"><b>ب)</b> مجال يضم أنظمة تتعلم وتتنبأ وتتعرف وتولّد وتدعم القرارات</div><div class="pq-opt"><b>ج)</b> شبكة عصبية واحدة</div><div class="pq-opt"><b>د)</b> برنامج تصنيف بريد فقط</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">4</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">لماذا يُشبَّه الذكاء الاصطناعي بمجال "الطب"؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> كلاهما ضيق يضم تخصصًا واحدًا</div><div class="pq-opt"><b>ب)</b> كلاهما واسع يضم تخصصات/أساليب متعددة</div><div class="pq-opt"><b>ج)</b> الطب فرع من AI</div><div class="pq-opt"><b>د)</b> لا علاقة بين التشبيهين</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">5</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">ما التعريف الدقيق للتعلم الآلي ML؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> برمجة كل قاعدة يدويًا</div><div class="pq-opt"><b>ب)</b> فرع من AI يتعلم أنماطًا من البيانات بدل برمجة القواعد</div><div class="pq-opt"><b>ج)</b> يعتمد حصرًا على الشبكات العصبية</div><div class="pq-opt"><b>د)</b> يولّد نصوصًا وصورًا فقط</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">6</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">ما الفرق بين البرمجة التقليدية والتعلم الآلي؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> لا فرق؛ كلاهما قواعد يدوية</div><div class="pq-opt"><b>ب)</b> التقليدية: قواعد يكتبها المبرمج، ML: بيانات + تدريب فيتعلم النموذج بنفسه</div><div class="pq-opt"><b>ج)</b> ML لا يحتاج بيانات</div><div class="pq-opt"><b>د)</b> التقليدية تحتاج تدريبًا ضخمًا</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">7</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">ما التعريف الدقيق للتعلم العميق DL؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> فرع مستقل لا علاقة له بـML</div><div class="pq-opt"><b>ب)</b> أسلوب من ML يعتمد على شبكات عصبية متعددة الطبقات</div><div class="pq-opt"><b>ج)</b> برمجة تقليدية بقواعد صريحة</div><div class="pq-opt"><b>د)</b> نظام توليدي للنصوص فقط</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">8</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">ما تعريف الشبكة العصبية Neural Network؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> قاعدة بيانات لتخزين الملفات</div><div class="pq-opt"><b>ب)</b> نموذج مستوحى من ترابط العصبونات، وحدات مترابطة تتغير أوزانها بالتدريب</div><div class="pq-opt"><b>ج)</b> نظام تشغيل حاسوبي</div><div class="pq-opt"><b>د)</b> لا علاقة لها بالتدريب</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">9</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">لماذا يُسمى "تعلمًا عميقًا"؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> يستخدم بيانات عميقة المعنى</div><div class="pq-opt"><b>ب)</b> النموذج يستخدم شبكات عصبية متعددة الطبقات</div><div class="pq-opt"><b>ج)</b> أبطأ من التعلم الآلي</div><div class="pq-opt"><b>د)</b> لا يحتاج بيانات</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">10</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">ما التعريف الدقيق لـGenAI؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> يصنّف البيانات فقط</div><div class="pq-opt"><b>ب)</b> ينشئ محتوى جديدًا اعتمادًا على أنماط متعلمة من بيانات التدريب</div><div class="pq-opt"><b>ج)</b> يحذف البيانات المكررة</div><div class="pq-opt"><b>د)</b> يعمل بدون أي بيانات</div></div></div></div><div class="pp-col pp-col-l"><div class="pq-card"><div class="pq-head"><span class="pq-num">11</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">ما وصف معظم أنظمة AI الحالية؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> عامة وشاملة كالإنسان</div><div class="pq-opt"><b>ب)</b> ضيقة النطاق لمهمة محددة أو محدودة</div><div class="pq-opt"><b>ج)</b> لا تحتاج بيانات تدريب</div><div class="pq-opt"><b>د)</b> كلها تعتمد على GenAI فقط</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">12</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">ما تعريف الهلوسة AI Hallucination؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> توقف النظام تمامًا</div><div class="pq-opt"><b>ب)</b> نص يبدو منطقيًا لكنه غير صحيح واقعيًا</div><div class="pq-opt"><b>ج)</b> بطء الاستجابة</div><div class="pq-opt"><b>د)</b> فقدان الاتصال بالإنترنت</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">13</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">ما قاعدة التعامل مع مخرجات GenAI الموصى بها؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> قبول فوري لتنظيمها الجيد</div><div class="pq-opt"><b>ب)</b> تحقق، راجع المصدر، قارن المعلومات، استخدم مصادر موثوقة</div><div class="pq-opt"><b>ج)</b> تجاهل كل مخرجات AI</div><div class="pq-opt"><b>د)</b> اعتماد كامل دون مراجعة</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">14</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">ما تسلسل الاحتواء التعليمي المبسط الصحيح؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> DL⊂ML و ML⊂AI</div><div class="pq-opt"><b>ب)</b> ML⊂DL و AI⊂ML</div><div class="pq-opt"><b>ج)</b> DL⊂AI فقط</div><div class="pq-opt"><b>د)</b> GenAI هو الأصل لكل ما سبق</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">15</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">ما الفرق بين "التصنيف" و"توليد المحتوى"؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> لا فرق؛ نفس العملية</div><div class="pq-opt"><b>ب)</b> التصنيف يحدد فئة لبيانات موجودة، والتوليد يُنشئ محتوى جديدًا</div><div class="pq-opt"><b>ج)</b> التوليد أبسط دائمًا</div><div class="pq-opt"><b>د)</b> التصنيف لا يستخدم بيانات</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">16</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">يحتاج DL غالبًا لكمية كبيرة نسبيًا من البيانات ليتعلم أنماطًا موثوقة.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">17</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">GenAI أنظمة تنشئ محتوى جديدًا اعتمادًا على أنماط متعلمة من بيانات التدريب.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">18</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">يمكن أن ينشئ GenAI نصوصًا وصورًا وأصواتًا وبرمجيات.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">19</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">لا تعتمد أي أنظمة GenAI حديثة على نماذج التعلم العميق.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">20</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">معظم أنظمة AI الحالية عامة وتمتلك قدرة شاملة كالإنسان.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div></div><div class="pp-clear"></div></div>
+  <div class="pp-footer">
+    <span>Galal Academy | بنك أسئلة — الذكاء الاصطناعي والتعلم الآلي والتعلم العميق والذكاء الاصطناعي التوليدي</span>
+    <span>صفحة 1 من 7</span>
+  </div>
+</section>
+
+<section class="pp">
+  <div class="pp-header">
+    <span class="pp-brand">Galal Academy</span>
+    <span class="pp-title">بنك أسئلة — الذكاء الاصطناعي والتعلم الآلي والتعلم العميق والذكاء الاصطناعي التوليدي</span>
+  </div>
+  <div class="pp-hr"></div>
+  <div class="pp-grid"><div class="pp-col pp-col-r"><div class="pq-card"><div class="pq-head"><span class="pq-num">21</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">الهلوسة هي إنتاج نص يبدو منطقيًا لكنه غير صحيح واقعيًا.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">22</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">شكل الإجابة المقنع يضمن دائمًا صحة المعلومة.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">23</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">الذكاء الاصطناعي مجال يضم أنظمة تتعلم وتتنبأ وتتعرف وتولّد وتدعم القرارات.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">24</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">الذكاء الاصطناعي تقنية واحدة محددة وليس مجالًا واسعًا.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">25</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">في ML يتعلم النموذج الأنماط من البيانات بدل برمجة كل قاعدة صراحة.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">26</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">التعلم الآلي هو المجال الأوسع الذي يضم الذكاء الاصطناعي.</div><div class="pq-open">(صحّح الخطأ)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">27</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">التعلم العميق مستقل تمامًا عن التعلم الآلي ولا علاقة بينهما.</div><div class="pq-open">(صحّح الخطأ)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">28</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">الذكاء الاصطناعي التوليدي يُستخدم فقط لتصنيف البيانات الموجودة.</div><div class="pq-open">(صحّح الخطأ)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">29</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">معظم أنظمة الذكاء الاصطناعي الحالية عامة القدرة وتضاهي الإنسان في كل المجالات.</div><div class="pq-open">(صحّح الخطأ)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">30</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">لا يحتاج التعلم العميق إلى كميات كبيرة من البيانات ليتعلم أنماطًا موثوقة.</div><div class="pq-open">(صحّح الخطأ)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">31</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">فسّر لماذا لا يعني تفوق نظام في مهمة واحدة أنه يمتلك ذكاءً عامًا شاملًا.</div><div class="pq-open">(فسّر)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">32</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">فسّر لماذا لا يضمن "الأسلوب المقنع" لإجابة GenAI صحتها.</div><div class="pq-open">(فسّر)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">33</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">فسّر لماذا تُعد الهلوسة خطرًا أكبر في التقارير الدراسية والقرارات المهمة تحديدًا.</div><div class="pq-open">(فسّر)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">34</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">فسّر سبب استبعاد "مرشح الرسائل المزعجة" من قائمة أمثلة GenAI.</div><div class="pq-open">(فسّر)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">35</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">فسّر كيف يوضح مثال المزارع فكرة اعتماد جودة التنبؤ على جودة بيانات التدريب.</div><div class="pq-open">(فسّر)</div></div></div><div class="pp-col pp-col-l"><div class="pq-card"><div class="pq-head"><span class="pq-num">36</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">ناقش كيف يمكن أن يُساء فهم مصطلحي "الذكاء الاصطناعي" و"التعلم الآلي" إعلاميًا، مستندًا للعلاقة الدقيقة بينهما.</div><div class="pq-open">(سؤال مقالي)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">37</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">حلّل العبارة: "التعلم العميق ليس تقنية منفصلة عن التعلم الآلي، بل امتداد له"، بمثالين من الدرس.</div><div class="pq-open">(سؤال مقالي)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">38</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">قارن بين "خطر عدم كفاية بيانات التدريب" و"خطر الهلوسة" من حيث طبيعة كل خطر ومصدره.</div><div class="pq-open">(سؤال مقالي)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">39</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">ناقش أيهما أكثر خطورة: نظام ضيق النطاق دقيق، أم نظام توليدي عام عرضة للهلوسة؟ برر إجابتك.</div><div class="pq-open">(سؤال مقالي)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">40</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">حلّل كيف يعكس مثال "تصنيف الرسائل" مقابل "توليد صورة من نص" الفرق بين "الفهم/التصنيف" و"الإنشاء".</div><div class="pq-open">(سؤال مقالي)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">41</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">ناقش أثر ظاهرة الهلوسة على ثقة المجتمع في أنظمة GenAI على المدى الطويل دون إجراءات تحقق كافية.</div><div class="pq-open">(سؤال مقالي)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">42</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">لو صممت منهجًا مدرسيًا لتقديم AI/ML/DL/GenAI لأول مرة، بأي ترتيب تعليمي تقترح تقديمها؟ ولماذا؟</div><div class="pq-open">(سؤال مقالي)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">43</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">مزارع يريد تمييز المحاصيل السليمة والمصابة. ما البيانات الأنسب لتدريب النظام؟</div><div class="pq-open">(سؤال امتحان)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">44</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">في نفس المثال السابق، ما عامل خطأ التنبؤ المحتمل الذي قد يجعل النظام غير دقيق؟</div><div class="pq-open">(سؤال امتحان)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">45</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">نظام تدرب على صور كثيرة عبر شبكات عميقة، ثم بدأ يولّد صورًا جديدة من وصف نصي. اشرح كيف يوضح هذا المثال أن GenAI يبني على قدرات DL.</div><div class="pq-open">(سؤال امتحان)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">46</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">فسّر لماذا يُعد اعتبار AI وML وDL وGenAI مفاهيم متطابقة خطأً شائعًا وخطيرًا تعليميًا.</div><div class="pq-open">(سؤال امتحان)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">47</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">فسّر الفرق بين طريقة عمل البرمجة التقليدية وطريقة عمل التعلم الآلي في الوصول لنتيجة.</div><div class="pq-open">(سؤال امتحان)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">48</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">فسّر سبب تسمية "التعلم العميق" بهذا الاسم تحديدًا.</div><div class="pq-open">(سؤال امتحان)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">49</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">فسّر لماذا تحتاج نماذج التعلم العميق عادة إلى كميات كبيرة نسبيًا من البيانات.</div><div class="pq-open">(سؤال امتحان)</div></div></div><div class="pp-clear"></div></div>
+  <div class="pp-footer">
+    <span>Galal Academy | بنك أسئلة — الذكاء الاصطناعي والتعلم الآلي والتعلم العميق والذكاء الاصطناعي التوليدي</span>
+    <span>صفحة 2 من 7</span>
+  </div>
+</section>
+
+<section class="pp">
+  <div class="pp-header">
+    <span class="pp-brand">Galal Academy</span>
+    <span class="pp-title">بنك أسئلة — الذكاء الاصطناعي والتعلم الآلي والتعلم العميق والذكاء الاصطناعي التوليدي</span>
+  </div>
+  <div class="pp-hr"></div>
+  <div class="pp-grid"><div class="pp-col pp-col-r"><div class="pq-card"><div class="pq-head"><span class="pq-num">50</span><span class="pq-src" style="background:#2563EB;">من موضوعنا</span></div><div class="pq-text">حلّل كيف يلخّص مبدأ "الفهم شكليًا لا يعني الصحة واقعيًا" درسًا أوسع للتعامل النقدي مع أي تقنية ذكاء اصطناعي.</div><div class="pq-open">(سؤال امتحان)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">51</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">أي العبارات التالية تعبر بدقة عن مفهوم الذكاء الاصطناعي؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> نظام يخزن المعلومات فقط دون تحليلها</div><div class="pq-opt"><b>ب)</b> مجال يهدف إلى إنشاء أنظمة قادرة على محاكاة بعض قدرات الذكاء البشري</div><div class="pq-opt"><b>ج)</b> برنامج يعتمد على إدخال البيانات يدويًا فقط</div><div class="pq-opt"><b>د)</b> تقنية تستخدم فقط لمعالجة الصور</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">52</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">إذا قام نظام بتصنيف الرسائل إلى مزعجة وغير مزعجة اعتمادًا على بيانات سابقة، فهذا مثال على:</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> معالجة النصوص اليدوية</div><div class="pq-opt"><b>ب)</b> الشبكات العصبية فقط</div><div class="pq-opt"><b>ج)</b> التعلم الآلي</div><div class="pq-opt"><b>د)</b> الذكاء الاصطناعي التوليدي</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">53</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">العلاقة بين الذكاء الاصطناعي والتعلم الآلي نجد أن...</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> التعلم الآلي أوسع من الذكاء الاصطناعي</div><div class="pq-opt"><b>ب)</b> الذكاء الاصطناعي جزء من التعلم الآلي</div><div class="pq-opt"><b>ج)</b> التعلم الآلي أحد فروع الذكاء الاصطناعي</div><div class="pq-opt"><b>د)</b> لا توجد علاقة بينهما</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">54</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">السبب الرئيسي الذي يجعل التعلم العميق قادرًا على التعامل مع أنماط معقدة هو:</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> اعتماده على حذف البيانات</div><div class="pq-opt"><b>ب)</b> استخدامه طبقات متعددة لاستخراج الأنماط</div><div class="pq-opt"><b>ج)</b> عدم حاجته إلى البيانات</div><div class="pq-opt"><b>د)</b> عمله بدون خوارزميات</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">55</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">أي مما يلي يمثل استخدامًا للذكاء الاصطناعي التوليدي؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> ترتيب الملفات فقط</div><div class="pq-opt"><b>ب)</b> إنشاء نصوص وصور جديدة اعتمادًا على أنماط تعلمها</div><div class="pq-opt"><b>ج)</b> تخزين البيانات فقط</div><div class="pq-opt"><b>د)</b> حذف المعلومات القديمة</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">56</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">تعتمد الشبكات العصبية الاصطناعية بشكل أساسي على فكرة:</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> محاكاة طريقة ترابط الخلايا العصبية</div><div class="pq-opt"><b>ب)</b> زيادة حجم الملفات</div><div class="pq-opt"><b>ج)</b> إلغاء دور البيانات</div><div class="pq-opt"><b>د)</b> كتابة الأوامر يدويًا فقط</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">57</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">الفرق الأساسي بين التعلم الآلي والبرمجة التقليدية أن التعلم الآلي:</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> يعتمد على تعلم الأنماط من البيانات</div><div class="pq-opt"><b>ب)</b> لا يستخدم البيانات</div><div class="pq-opt"><b>ج)</b> لا يحتاج إلى تدريب</div><div class="pq-opt"><b>د)</b> لا ينتج قرارات</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">58</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">عندما يستخدم نموذج ذكاء اصطناعي صورًا كثيرة لمعرفة الفرق بين القطط والكلاب، فإن ذلك يمثل:</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> التعلم من الأنماط</div><div class="pq-opt"><b>ب)</b> التخزين العادي</div><div class="pq-opt"><b>ج)</b> البرمجة الثابتة</div><div class="pq-opt"><b>د)</b> النسخ اليدوي</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">59</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">السبب في تسمية التعلم العميق بهذا الاسم يرجع إلى...</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> زيادة حجم الجهاز</div><div class="pq-opt"><b>ب)</b> اعتماده على شبكات عصبية تحتوي على طبقات متعددة</div><div class="pq-opt"><b>ج)</b> استخدام الإنترنت فقط</div><div class="pq-opt"><b>د)</b> صعوبة تشغيل الحاسوب</div></div></div></div><div class="pp-col pp-col-l"><div class="pq-card"><div class="pq-head"><span class="pq-num">60</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">الشبكة العصبية الاصطناعية تتكون من:</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> وحدات مترابطة تشبه فكرة الخلايا العصبية</div><div class="pq-opt"><b>ب)</b> أجهزة إدخال فقط</div><div class="pq-opt"><b>ج)</b> أوامر ثابتة فقط</div><div class="pq-opt"><b>د)</b> ملفات نصية فقط</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">61</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">إذا احتاج نموذج ذكاء اصطناعي إلى إنتاج محتوى جديد وليس فقط تصنيفه، فإن المجال الأقرب هو:</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> التخزين السحابي</div><div class="pq-opt"><b>ب)</b> الذكاء الاصطناعي التوليدي</div><div class="pq-opt"><b>ج)</b> البرمجة التقليدية</div><div class="pq-opt"><b>د)</b> قواعد البيانات</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">62</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">أي العبارات التالية صحيحة؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> كل ذكاء اصطناعي يعتمد على التعلم العميق</div><div class="pq-opt"><b>ب)</b> كل تعلم عميق يعد جزءًا من الذكاء الاصطناعي</div><div class="pq-opt"><b>ج)</b> التعلم الآلي ليس له علاقة بالذكاء الاصطناعي</div><div class="pq-opt"><b>د)</b> الذكاء الاصطناعي التوليدي منفصل تمامًا عن التعلم</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">63</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">عند تدريب نموذج على ملايين الأمثلة لاكتشاف نمط معين فإن العملية تسمى:</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> التدريب</div><div class="pq-opt"><b>ب)</b> التخزين</div><div class="pq-opt"><b>ج)</b> النسخ</div><div class="pq-opt"><b>د)</b> الإدخال اليدوي</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">64</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">أي مما يلي يمثل إحدى قدرات أنظمة الذكاء الاصطناعي...</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> منع التطور التقني</div><div class="pq-opt"><b>ب)</b> زيادة قدرة الأنظمة على التحليل واتخاذ القرارات</div><div class="pq-opt"><b>ج)</b> استبدال جميع البرامج التقليدية</div><div class="pq-opt"><b>د)</b> إلغاء استخدام البيانات</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">65</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">أي مما يلي يمثل استخدامًا للذكاء الاصطناعي التوليدي؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> تصنيف الرسائل إلى مزعجة وغير مزعجة.</div><div class="pq-opt"><b>ب)</b> اكتشاف نمط في بيانات سابقة.</div><div class="pq-opt"><b>ج)</b> إنشاء صورة جديدة اعتمادًا على وصف نصي.</div><div class="pq-opt"><b>د)</b> تخزين البيانات فقط.</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">66</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">الذكاء الاصطناعي هو مجال يهدف إلى جعل الأنظمة تحاكي بعض قدرات الإنسان.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">67</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">التعلم الآلي فرع من فروع الذكاء الاصطناعي.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">68</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">التعلم العميق لا يعتمد على الشبكات العصبية الاصطناعية.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">69</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">كل أنظمة الذكاء الاصطناعي تعتمد على نفس الطريقة في التعلم.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div></div><div class="pp-clear"></div></div>
+  <div class="pp-footer">
+    <span>Galal Academy | بنك أسئلة — الذكاء الاصطناعي والتعلم الآلي والتعلم العميق والذكاء الاصطناعي التوليدي</span>
+    <span>صفحة 3 من 7</span>
+  </div>
+</section>
+
+<section class="pp">
+  <div class="pp-header">
+    <span class="pp-brand">Galal Academy</span>
+    <span class="pp-title">بنك أسئلة — الذكاء الاصطناعي والتعلم الآلي والتعلم العميق والذكاء الاصطناعي التوليدي</span>
+  </div>
+  <div class="pp-hr"></div>
+  <div class="pp-grid"><div class="pp-col pp-col-r"><div class="pq-card"><div class="pq-head"><span class="pq-num">70</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">البيانات عنصر أساسي لتدريب نماذج التعلم الآلي.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">71</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">الشبكات العصبية الاصطناعية مستوحاة من طريقة عمل الدماغ البشري.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">72</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">الذكاء الاصطناعي أضيق من التعلم الآلي.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">73</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">النماذج العميقة تستطيع التعامل مع بيانات معقدة مثل الصور والصوت.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">74</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">زيادة جودة البيانات قد تؤثر على أداء النموذج الذكي.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">75</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">يمكن للنظام الذكي إنتاج نتائج دون الاعتماد على أي بيانات سابقة.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">76</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">يعد ________ أحد فروع الذكاء الاصطناعي الذي يسمح للحاسوب بالتعلم بالبيانات واكتشاف الأنماط دون برمجة كل قاعدة بشكل مباشر.</div><div class="pq-open">(أكمل الفراغ)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">77</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">تمثل ________ الاصطناعية نماذج حاسوبية تحاكي طريقة ترابط الخلايا العصبية في الدماغ البشري.</div><div class="pq-open">(أكمل الفراغ)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">78</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">العلاقة الصحيحة بين المفاهيم هي أن الذكاء الاصطناعي يحتوي على ________ الذي يحتوي بدوره على التعلم العميق.</div><div class="pq-open">(أكمل الفراغ)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">79</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">تتميز نماذج التعلم العميق بقدرتها على التعامل مع بيانات معقدة مثل ________ و ________ مقارنة بالطرق التقليدية.</div><div class="pq-open">(أكمل الفراغ)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">80</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">الهدف الأساسي من تدريب الذكاء الاصطناعي هو زيادة قدرته على ________ أو إنشاء نتائج جديدة بدقة أكبر.</div><div class="pq-open">(أكمل الفراغ)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">81</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">مجال يهدف إلى تصميم أنظمة قادرة على محاكاة الذكاء البشري.</div><div class="pq-open">(اذكر المصطلح)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">82</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">نوع من التعلم يعتمد على الشبكات العصبية متعددة الطبقات.</div><div class="pq-open">(اذكر المصطلح)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">83</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">نماذج حاسوبية مستوحاة من طريقة ترابط الخلايا العصبية.</div><div class="pq-open">(اذكر المصطلح)</div></div></div><div class="pp-col pp-col-l"><div class="pq-card"><div class="pq-head"><span class="pq-num">84</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">نوع من الذكاء الاصطناعي الذي يقوم بإنشاء محتوى جديد.</div><div class="pq-open">(اذكر المصطلح)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">85</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">العملية التي يتم فيها تزويد النموذج بالبيانات لتحسين أدائه.</div><div class="pq-open">(اذكر المصطلح)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">86</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">وضح العلاقة بين الذكاء الاصطناعي والتعلم الآلي والتعلم العميق مع رسم مخطط يوضح ترتيبهم.</div><div class="pq-open">(سؤال مقالي)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">87</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">قارن بين البرمجة التقليدية والتعلم الآلي من حيث طريقة الحصول على النتائج.</div><div class="pq-open">(سؤال مقالي)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">88</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">اشرح دور البيانات في تدريب أنظمة الذكاء الاصطناعي.</div><div class="pq-open">(سؤال مقالي)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">89</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">اذكر أمثلة تطبيقية توضح استخدام الذكاء الاصطناعي التوليدي في الحياة اليومية.</div><div class="pq-open">(سؤال مقالي)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">90</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">إذا تم تدريب نموذج على بيانات غير متنوعة، فما التأثير المتوقع على أداء النموذج؟</div><div class="pq-open">(سؤال مقالي)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">91</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">وضح الفرق بين نموذج يقوم بتصنيف البيانات ونموذج يقوم بإنشاء بيانات جديدة.</div><div class="pq-open">(سؤال مقالي)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">92</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">اشرح لماذا يعتبر الذكاء الاصطناعي التوليدي تطورًا مهمًا في مجال الذكاء الاصطناعي.</div><div class="pq-open">(سؤال مقالي)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">93</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">أمامك نظامان للذكاء الاصطناعي:
+النظام الأول تمت برمجته بقواعد ثابتة لتحديد إذا كانت الرسالة الإلكترونية مزعجة أم لا.
+النظام الثاني تم تدريبه على ملايين الرسائل السابقة ليكتشف الأنماط ويصنف الرسائل تلقائيًا.
+حلل الفرق بين النظامين من حيث طريقة العمل، وحدد أيهما يمثل التعلم الآلي مع تفسير السبب.</div><div class="pq-open">(سؤال امتحان)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">94</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">يريد أحد الباحثين إنشاء نظام ذكي يستطيع تحليل صور الأشعة الطبية واكتشاف أمراض غير واضحة للعين البشرية.
+وضح أي فروع الذكاء الاصطناعي يحتاج إليها هذا النظام، وفسر سبب اختيارك موضحًا دور التعلم العميق والشبكات العصبية الاصطناعية في هذا التطبيق.</div><div class="pq-open">(سؤال امتحان)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">95</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">قام فريق بتدريب نموذج ذكاء اصطناعي توليدي على مجموعة صغيرة وغير متنوعة من البيانات، وبعد ذلك بدأ النموذج في إنتاج نتائج غير دقيقة.
+حلل أسباب المشكلة، ووضح العلاقة بين جودة البيانات وقدرة النموذج على تعلم الأنماط وإنتاج محتوى جديد.</div><div class="pq-open">(سؤال امتحان)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">96</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">يعتقد أحد الطلاب أن الذكاء الاصطناعي والتعلم العميق مفهومان متساويان ويمكن استخدامهما بنفس المعنى.
+ناقش صحة هذا الرأي، مع توضيح العلاقة الهرمية بين الذكاء الاصطناعي والتعلم الآلي والتعلم العميق، واذكر مثالًا يوضح الفرق بينهم.</div><div class="pq-open">(سؤال امتحان)</div></div></div><div class="pp-clear"></div></div>
+  <div class="pp-footer">
+    <span>Galal Academy | بنك أسئلة — الذكاء الاصطناعي والتعلم الآلي والتعلم العميق والذكاء الاصطناعي التوليدي</span>
+    <span>صفحة 4 من 7</span>
+  </div>
+</section>
+
+<section class="pp">
+  <div class="pp-header">
+    <span class="pp-brand">Galal Academy</span>
+    <span class="pp-title">بنك أسئلة — الذكاء الاصطناعي والتعلم الآلي والتعلم العميق والذكاء الاصطناعي التوليدي</span>
+  </div>
+  <div class="pp-hr"></div>
+  <div class="pp-grid"><div class="pp-col pp-col-r"><div class="pq-card"><div class="pq-head"><span class="pq-num">97</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">صمم تصورًا لنظام ذكي يقوم بإنشاء صورة جديدة اعتمادًا على وصف يكتبه المستخدم.
+اشرح المراحل التي يمر بها النظام بداية من تعلم الأنماط من البيانات حتى إنتاج الصورة النهائية، مع توضيح دور الذكاء الاصطناعي التوليدي في هذه العملية.</div><div class="pq-open">(سؤال امتحان)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">98</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">ما العلاقة بين الذكاء الاصطناعي والتعلم الآلي والتعلم العميق؟</div><div class="pq-open">(سؤال امتحان)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">99</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">ما الفرق بين النظام الذي يصنف البيانات والنظام الذي يولد بيانات جديدة؟</div><div class="pq-open">(سؤال امتحان)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">100</span><span class="pq-src" style="background:#D97706;">كتاب المبرمج</span></div><div class="pq-text">كيف يتعلم نموذج التعلم الآلي من البيانات؟</div><div class="pq-open">(سؤال امتحان)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">101</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">ما المجال الذي يضم أنظمة تستطيع التعلم من البيانات والتنبؤ والتعرف وتوليد المحتوى؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> التعلم الآلي</div><div class="pq-opt"><b>ب)</b> الذكاء الاصطناعي</div><div class="pq-opt"><b>ج)</b> التعلم العميق</div><div class="pq-opt"><b>د)</b> الشبكات العصبية</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">102</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">أي مما يلي يُعد فرعًا من الذكاء الاصطناعي؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> التعلم الآلي</div><div class="pq-opt"><b>ب)</b> لوحة المفاتيح</div><div class="pq-opt"><b>ج)</b> الشاشة</div><div class="pq-opt"><b>د)</b> الطابعة</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">103</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">أي مما يلي يُعد أسلوبًا من أساليب التعلم الآلي؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> الذكاء الاصطناعي التوليدي</div><div class="pq-opt"><b>ب)</b> التعلم العميق</div><div class="pq-opt"><b>ج)</b> الترجمة</div><div class="pq-opt"><b>د)</b> توليد النصوص</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">104</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">ماذا تتعلم نماذج التعلم الآلي من البيانات؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> الأجهزة</div><div class="pq-opt"><b>ب)</b> الأنماط</div><div class="pq-opt"><b>ج)</b> الملفات</div><div class="pq-opt"><b>د)</b> القواعد فقط</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">105</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">أي مما يلي مثال على استخدام التعلم الآلي؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> تصنيف الرسائل المزعجة</div><div class="pq-opt"><b>ب)</b> تشغيل الشاشة</div><div class="pq-opt"><b>ج)</b> شحن الهاتف</div><div class="pq-opt"><b>د)</b> طباعة المستند</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">106</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">ماذا يقدم الإنسان لنظام التعلم الآلي لكي يتعلم؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> البيانات والأمثلة</div><div class="pq-opt"><b>ب)</b> الأجهزة فقط</div><div class="pq-opt"><b>ج)</b> الشاشات</div><div class="pq-opt"><b>د)</b> الملفات فقط</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">107</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">في البرمجة التقليدية، من يكتب القواعد التي ينفذها الكمبيوتر؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> النموذج</div><div class="pq-opt"><b>ب)</b> الشبكة</div><div class="pq-opt"><b>ج)</b> الإنسان</div><div class="pq-opt"><b>د)</b> البيانات</div></div></div></div><div class="pp-col pp-col-l"><div class="pq-card"><div class="pq-head"><span class="pq-num">108</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">على ماذا يعتمد التعلم العميق؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> قواعد ثابتة</div><div class="pq-opt"><b>ب)</b> شبكات عصبية متعددة الطبقات</div><div class="pq-opt"><b>ج)</b> ملفات نصية</div><div class="pq-opt"><b>د)</b> شبكات محلية</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">109</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">أي مما يلي مثال على استخدام التعلم العميق؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> تحليل الصور</div><div class="pq-opt"><b>ب)</b> حفظ الملفات</div><div class="pq-opt"><b>ج)</b> تشغيل الجهاز</div><div class="pq-opt"><b>د)</b> طباعة المستندات</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">110</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">ما النموذج الحاسوبي المستوحى بصورة مبسطة من فكرة ترابط العصبونات؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> نظام التشغيل</div><div class="pq-opt"><b>ب)</b> قاعدة البيانات</div><div class="pq-opt"><b>ج)</b> الشبكة العصبية</div><div class="pq-opt"><b>د)</b> الشبكة المحلية</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">111</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">ماذا يتغير أثناء تدريب الشبكة العصبية الاصطناعية؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> الصور</div><div class="pq-opt"><b>ب)</b> الأوزان</div><div class="pq-opt"><b>ج)</b> الملفات</div><div class="pq-opt"><b>د)</b> الشاشات</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">112</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">ما الهدف من تدريب الشبكة العصبية وتغيير أوزانها؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> حذف البيانات</div><div class="pq-opt"><b>ب)</b> تعلم الأنماط وتحسين الأداء</div><div class="pq-opt"><b>ج)</b> إيقاف الجهاز</div><div class="pq-opt"><b>د)</b> تغيير الشاشة</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">113</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">ماذا تستطيع أنظمة الذكاء الاصطناعي التوليدي إنشاءه؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> محتوى جديد</div><div class="pq-opt"><b>ب)</b> أجهزة جديدة</div><div class="pq-opt"><b>ج)</b> شبكات جديدة</div><div class="pq-opt"><b>د)</b> معالجات جديدة</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">114</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">أي مما يلي يُعد مثالًا على محتوى يمكن للذكاء الاصطناعي التوليدي إنتاجه؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> النصوص</div><div class="pq-opt"><b>ب)</b> لوحة المفاتيح</div><div class="pq-opt"><b>ج)</b> الفأرة</div><div class="pq-opt"><b>د)</b> الشاشة</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">115</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">أي مما يلي مثال على الذكاء الاصطناعي التوليدي؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> ChatGPT</div><div class="pq-opt"><b>ب)</b> الطابعة</div><div class="pq-opt"><b>ج)</b> القرص الصلب</div><div class="pq-opt"><b>د)</b> لوحة المفاتيح</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">116</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">تعتمد غالبية أنظمة الذكاء الاصطناعي التوليدي الحديثة على:</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> الترجمة</div><div class="pq-opt"><b>ب)</b> التعلم العميق</div><div class="pq-opt"><b>ج)</b> البرمجة التقليدية</div><div class="pq-opt"><b>د)</b> الشبكات المحلية</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">117</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">معظم أنظمة الذكاء الاصطناعي الحالية مصممة لأداء:</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> جميع المهام</div><div class="pq-opt"><b>ب)</b> مهمة محددة</div><div class="pq-opt"><b>ج)</b> لا شيء</div><div class="pq-opt"><b>د)</b> الألعاب فقط</div></div></div></div><div class="pp-clear"></div></div>
+  <div class="pp-footer">
+    <span>Galal Academy | بنك أسئلة — الذكاء الاصطناعي والتعلم الآلي والتعلم العميق والذكاء الاصطناعي التوليدي</span>
+    <span>صفحة 5 من 7</span>
+  </div>
+</section>
+
+<section class="pp">
+  <div class="pp-header">
+    <span class="pp-brand">Galal Academy</span>
+    <span class="pp-title">بنك أسئلة — الذكاء الاصطناعي والتعلم الآلي والتعلم العميق والذكاء الاصطناعي التوليدي</span>
+  </div>
+  <div class="pp-hr"></div>
+  <div class="pp-grid"><div class="pp-col pp-col-r"><div class="pq-card"><div class="pq-head"><span class="pq-num">118</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">أي ترتيب يمثل العلاقة الصحيحة بين المفاهيم التالية؟</div><div class="pq-opts"><div class="pq-opt"><b>أ)</b> الذكاء الاصطناعي ← التعلم الآلي ← التعلم العميق ← الذكاء الاصطناعي التوليدي</div><div class="pq-opt"><b>ب)</b> التعلم العميق ← الذكاء الاصطناعي ← التعلم الآلي ← الذكاء الاصطناعي التوليدي</div><div class="pq-opt"><b>ج)</b> التعلم الآلي ← الذكاء الاصطناعي ← التعلم العميق ← الذكاء الاصطناعي التوليدي</div><div class="pq-opt"><b>د)</b> الذكاء الاصطناعي التوليدي ← الذكاء الاصطناعي ← التعلم الآلي ← التعلم العميق</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">119</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">الذكاء الاصطناعي هو مجال واسع يضم العديد من التقنيات والأساليب.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">120</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">التعلم الآلي هو فرع من الذكاء الاصطناعي.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">121</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">التعلم العميق مجال مستقل تمامًا عن التعلم الآلي.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">122</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">يعتمد التعلم العميق على شبكات عصبية متعددة الطبقات.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">123</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">يستطيع التعلم الآلي استخدام البيانات لاكتشاف الأنماط.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">124</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">تصنيف الرسائل المزعجة من أمثلة استخدام التعلم الآلي.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">125</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">توصية المنتجات يمكن أن تكون من تطبيقات التعلم الآلي.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">126</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">في البرمجة التقليدية، يتعلم الكمبيوتر القواعد بنفسه من البيانات.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">127</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">في التعلم الآلي، يقدم الإنسان البيانات والأمثلة لكي يتعلم النموذج الأنماط.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div></div><div class="pp-col pp-col-l"><div class="pq-card"><div class="pq-head"><span class="pq-num">128</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">الشبكة العصبية الاصطناعية نموذج حاسوبي مستوحى بصورة مبسطة من فكرة ترابط العصبونات.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">129</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">تتغير أوزان الشبكة العصبية أثناء التدريب.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">130</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">الذكاء الاصطناعي التوليدي يستطيع إنشاء محتوى جديد.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">131</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">يقتصر الذكاء الاصطناعي التوليدي على إنشاء النصوص فقط.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">132</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">يمكن للذكاء الاصطناعي التوليدي إنشاء الصور والصوت والبرمجيات.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">133</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">كل نظام ذكاء اصطناعي يجب بالضرورة أن يعتمد على التعلم العميق.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">134</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">معظم أنظمة الذكاء الاصطناعي الحالية مصممة لأداء جميع المهام التي يقوم بها الإنسان.</div><div class="pq-opts pq-tf"><div class="pq-opt">( &nbsp; ) صح</div><div class="pq-opt">( &nbsp; ) خطأ</div></div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">135</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">الذكاء الاصطناعي هو مجال واسع يضم أنظمة حاسوبية تستطيع تنفيذ مهام مثل التعلم من البيانات و......................</div><div class="pq-open">(أكمل الفراغ)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">136</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">معظم أنظمة الذكاء الاصطناعي الحالية مصممة لأداء ...................... محددة.</div><div class="pq-open">(أكمل الفراغ)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">137</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">في التعلم الآلي، يقدم الإنسان ...................... والأمثلة لكي يتعلم النموذج.</div><div class="pq-open">(أكمل الفراغ)</div></div></div><div class="pp-clear"></div></div>
+  <div class="pp-footer">
+    <span>Galal Academy | بنك أسئلة — الذكاء الاصطناعي والتعلم الآلي والتعلم العميق والذكاء الاصطناعي التوليدي</span>
+    <span>صفحة 6 من 7</span>
+  </div>
+</section>
+
+<section class="pp pp-last">
+  <div class="pp-header">
+    <span class="pp-brand">Galal Academy</span>
+    <span class="pp-title">بنك أسئلة — الذكاء الاصطناعي والتعلم الآلي والتعلم العميق والذكاء الاصطناعي التوليدي</span>
+  </div>
+  <div class="pp-hr"></div>
+  <div class="pp-grid"><div class="pp-col pp-col-r"><div class="pq-card"><div class="pq-head"><span class="pq-num">138</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">في البرمجة التقليدية، يكتب الإنسان ...................... بالتفصيل.</div><div class="pq-open">(أكمل الفراغ)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">139</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">تتعلم نماذج التعلم الآلي ...................... من البيانات لإجراء تنبؤات أو تصنيفات.</div><div class="pq-open">(أكمل الفراغ)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">140</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">يمكن للذكاء الاصطناعي التوليدي إنشاء النصوص والصور و...................... والبرمجيات.</div><div class="pq-open">(أكمل الفراغ)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">141</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">يعتمد التعلم العميق على شبكات عصبية متعددة ......................</div><div class="pq-open">(أكمل الفراغ)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">142</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">الذكاء الاصطناعي التوليدي نوع من أنظمة الذكاء الاصطناعي يستطيع ...................... محتوى جديد.</div><div class="pq-open">(أكمل الفراغ)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">143</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">تتغير ...................... الشبكة العصبية أثناء التدريب لتتعلم أنماطًا من البيانات.</div><div class="pq-open">(أكمل الفراغ)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">144</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">مجال واسع يضم أنظمة حاسوبية تستطيع تنفيذ مهام مثل التعلم من البيانات والتنبؤ والتعرف وتوليد المحتوى واتخاذ القرارات أو دعمها.</div><div class="pq-open">(اكتب المصطلح)</div></div></div><div class="pp-col pp-col-l"><div class="pq-card"><div class="pq-head"><span class="pq-num">145</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">فرع من الذكاء الاصطناعي تتعلم فيه النماذج أنماطًا من البيانات لإجراء تنبؤات أو تصنيفات.</div><div class="pq-open">(اكتب المصطلح)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">146</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">أسلوب من أساليب التعلم الآلي يعتمد على شبكات عصبية متعددة الطبقات ويمكنه تعلم أنماط معقدة من البيانات.</div><div class="pq-open">(اكتب المصطلح)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">147</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">نموذج حاسوبي مستوحى بصورة مبسطة من فكرة ترابط العصبونات، ويتكون من وحدات مترابطة تتغير أوزانها أثناء التدريب.</div><div class="pq-open">(اكتب المصطلح)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">148</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">نوع من أنظمة الذكاء الاصطناعي يستطيع إنشاء أو توليد محتوى جديد مثل النصوص والصور والصوت والبرمجيات.</div><div class="pq-open">(اكتب المصطلح)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">149</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">عملية يتعلم فيها النموذج الأنماط من البيانات باستخدام أمثلة، ثم يستخدم ما تعلمه لإجراء تنبؤات أو تصنيفات.</div><div class="pq-open">(اكتب المصطلح)</div></div><div class="pq-card"><div class="pq-head"><span class="pq-num">150</span><span class="pq-src" style="background:#DB2777;">كتاب الفائز</span></div><div class="pq-text">معلومات تبدو صحيحة أو مقنعة ينتجها نظام الذكاء الاصطناعي، لكنها قد تكون غير صحيحة أو غير مدعومة.</div><div class="pq-open">(اكتب المصطلح)</div></div></div><div class="pp-clear"></div></div>
+  <div class="pp-footer">
+    <span>Galal Academy | بنك أسئلة — الذكاء الاصطناعي والتعلم الآلي والتعلم العميق والذكاء الاصطناعي التوليدي</span>
+    <span>صفحة 7 من 7</span>
+  </div>
+</section>
+</div>
+
+<script>
+const questions = [{"id": 1, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما الخطأ الشائع الذي ينبّه إليه الدرس بخصوص المفاهيم الأربعة؟", "options": ["اعتبار AI=ML=DL=GenAI مفاهيم متطابقة", "اعتبار ML أوسع من AI", "اعتبار DL فرعًا من ML", "اعتبار GenAI هو المجال الأوسع"], "correctAnswer": 0}, {"id": 2, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما وصف العلاقة التعليمية بين AI وML وDL وGenAI؟", "options": ["احتواء صارم بلا استثناء", "تبسيط تعليمي وليس احتواءً صارمًا دائمًا", "لا علاقة بينها", "GenAI هو الأصل لكل ما سبق"], "correctAnswer": 1}, {"id": 3, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما التعريف الدقيق للذكاء الاصطناعي AI؟", "options": ["فرع من التعلم الآلي فقط", "مجال يضم أنظمة تتعلم وتتنبأ وتتعرف وتولّد وتدعم القرارات", "شبكة عصبية واحدة", "برنامج تصنيف بريد فقط"], "correctAnswer": 1}, {"id": 4, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "لماذا يُشبَّه الذكاء الاصطناعي بمجال \"الطب\"؟", "options": ["كلاهما ضيق يضم تخصصًا واحدًا", "كلاهما واسع يضم تخصصات/أساليب متعددة", "الطب فرع من AI", "لا علاقة بين التشبيهين"], "correctAnswer": 1}, {"id": 5, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما التعريف الدقيق للتعلم الآلي ML؟", "options": ["برمجة كل قاعدة يدويًا", "فرع من AI يتعلم أنماطًا من البيانات بدل برمجة القواعد", "يعتمد حصرًا على الشبكات العصبية", "يولّد نصوصًا وصورًا فقط"], "correctAnswer": 1}, {"id": 6, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما الفرق بين البرمجة التقليدية والتعلم الآلي؟", "options": ["لا فرق؛ كلاهما قواعد يدوية", "التقليدية: قواعد يكتبها المبرمج، ML: بيانات + تدريب فيتعلم النموذج بنفسه", "ML لا يحتاج بيانات", "التقليدية تحتاج تدريبًا ضخمًا"], "correctAnswer": 1}, {"id": 7, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما التعريف الدقيق للتعلم العميق DL؟", "options": ["فرع مستقل لا علاقة له بـML", "أسلوب من ML يعتمد على شبكات عصبية متعددة الطبقات", "برمجة تقليدية بقواعد صريحة", "نظام توليدي للنصوص فقط"], "correctAnswer": 1}, {"id": 8, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما تعريف الشبكة العصبية Neural Network؟", "options": ["قاعدة بيانات لتخزين الملفات", "نموذج مستوحى من ترابط العصبونات، وحدات مترابطة تتغير أوزانها بالتدريب", "نظام تشغيل حاسوبي", "لا علاقة لها بالتدريب"], "correctAnswer": 1}, {"id": 9, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "لماذا يُسمى \"تعلمًا عميقًا\"؟", "options": ["يستخدم بيانات عميقة المعنى", "النموذج يستخدم شبكات عصبية متعددة الطبقات", "أبطأ من التعلم الآلي", "لا يحتاج بيانات"], "correctAnswer": 1}, {"id": 10, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما التعريف الدقيق لـGenAI؟", "options": ["يصنّف البيانات فقط", "ينشئ محتوى جديدًا اعتمادًا على أنماط متعلمة من بيانات التدريب", "يحذف البيانات المكررة", "يعمل بدون أي بيانات"], "correctAnswer": 1}, {"id": 11, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما وصف معظم أنظمة AI الحالية؟", "options": ["عامة وشاملة كالإنسان", "ضيقة النطاق لمهمة محددة أو محدودة", "لا تحتاج بيانات تدريب", "كلها تعتمد على GenAI فقط"], "correctAnswer": 1}, {"id": 12, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما تعريف الهلوسة AI Hallucination؟", "options": ["توقف النظام تمامًا", "نص يبدو منطقيًا لكنه غير صحيح واقعيًا", "بطء الاستجابة", "فقدان الاتصال بالإنترنت"], "correctAnswer": 1}, {"id": 13, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما قاعدة التعامل مع مخرجات GenAI الموصى بها؟", "options": ["قبول فوري لتنظيمها الجيد", "تحقق، راجع المصدر، قارن المعلومات، استخدم مصادر موثوقة", "تجاهل كل مخرجات AI", "اعتماد كامل دون مراجعة"], "correctAnswer": 1}, {"id": 14, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما تسلسل الاحتواء التعليمي المبسط الصحيح؟", "options": ["DL⊂ML و ML⊂AI", "ML⊂DL و AI⊂ML", "DL⊂AI فقط", "GenAI هو الأصل لكل ما سبق"], "correctAnswer": 0}, {"id": 15, "source": "أسئلة من موضوعنا", "type": "اختيار من متعدد", "question": "ما الفرق بين \"التصنيف\" و\"توليد المحتوى\"؟", "options": ["لا فرق؛ نفس العملية", "التصنيف يحدد فئة لبيانات موجودة، والتوليد يُنشئ محتوى جديدًا", "التوليد أبسط دائمًا", "التصنيف لا يستخدم بيانات"], "correctAnswer": 1}, {"id": 16, "source": "أسئلة من موضوعنا", "type": "صح وخطأ", "question": "يحتاج DL غالبًا لكمية كبيرة نسبيًا من البيانات ليتعلم أنماطًا موثوقة.", "options": [], "correctAnswer": "صح"}, {"id": 17, "source": "أسئلة من موضوعنا", "type": "صح وخطأ", "question": "GenAI أنظمة تنشئ محتوى جديدًا اعتمادًا على أنماط متعلمة من بيانات التدريب.", "options": [], "correctAnswer": "صح"}, {"id": 18, "source": "أسئلة من موضوعنا", "type": "صح وخطأ", "question": "يمكن أن ينشئ GenAI نصوصًا وصورًا وأصواتًا وبرمجيات.", "options": [], "correctAnswer": "صح"}, {"id": 19, "source": "أسئلة من موضوعنا", "type": "صح وخطأ", "question": "لا تعتمد أي أنظمة GenAI حديثة على نماذج التعلم العميق.", "options": [], "correctAnswer": "خطأ"}, {"id": 20, "source": "أسئلة من موضوعنا", "type": "صح وخطأ", "question": "معظم أنظمة AI الحالية عامة وتمتلك قدرة شاملة كالإنسان.", "options": [], "correctAnswer": "خطأ"}, {"id": 21, "source": "أسئلة من موضوعنا", "type": "صح وخطأ", "question": "الهلوسة هي إنتاج نص يبدو منطقيًا لكنه غير صحيح واقعيًا.", "options": [], "correctAnswer": "صح"}, {"id": 22, "source": "أسئلة من موضوعنا", "type": "صح وخطأ", "question": "شكل الإجابة المقنع يضمن دائمًا صحة المعلومة.", "options": [], "correctAnswer": "خطأ"}, {"id": 23, "source": "أسئلة من موضوعنا", "type": "صح وخطأ", "question": "الذكاء الاصطناعي مجال يضم أنظمة تتعلم وتتنبأ وتتعرف وتولّد وتدعم القرارات.", "options": [], "correctAnswer": "صح"}, {"id": 24, "source": "أسئلة من موضوعنا", "type": "صح وخطأ", "question": "الذكاء الاصطناعي تقنية واحدة محددة وليس مجالًا واسعًا.", "options": [], "correctAnswer": "خطأ"}, {"id": 25, "source": "أسئلة من موضوعنا", "type": "صح وخطأ", "question": "في ML يتعلم النموذج الأنماط من البيانات بدل برمجة كل قاعدة صراحة.", "options": [], "correctAnswer": "صح"}, {"id": 26, "source": "أسئلة من موضوعنا", "type": "صحّح العبارة الخاطئة", "question": "التعلم الآلي هو المجال الأوسع الذي يضم الذكاء الاصطناعي.", "options": [], "modelAnswer": "العبارة الصحيحة: الذكاء الاصطناعي هو المجال الأوسع الذي يضم التعلم الآلي (وليس العكس)."}, {"id": 27, "source": "أسئلة من موضوعنا", "type": "صحّح العبارة الخاطئة", "question": "التعلم العميق مستقل تمامًا عن التعلم الآلي ولا علاقة بينهما.", "options": [], "modelAnswer": "العبارة الصحيحة: التعلم العميق أسلوب من أساليب التعلم الآلي يعتمد على شبكات عصبية متعددة الطبقات، وليس مستقلًا عنه."}, {"id": 28, "source": "أسئلة من موضوعنا", "type": "صحّح العبارة الخاطئة", "question": "الذكاء الاصطناعي التوليدي يُستخدم فقط لتصنيف البيانات الموجودة.", "options": [], "modelAnswer": "العبارة الصحيحة: الذكاء الاصطناعي التوليدي يُستخدم لإنشاء محتوى جديد (نصوص، صور، صوت...)، وليس فقط لتصنيف بيانات موجودة."}, {"id": 29, "source": "أسئلة من موضوعنا", "type": "صحّح العبارة الخاطئة", "question": "معظم أنظمة الذكاء الاصطناعي الحالية عامة القدرة وتضاهي الإنسان في كل المجالات.", "options": [], "modelAnswer": "العبارة الصحيحة: معظم أنظمة الذكاء الاصطناعي الحالية ضيقة النطاق ومصممة لمهمة محددة، وليست عامة تضاهي الإنسان في كل المجالات."}, {"id": 30, "source": "أسئلة من موضوعنا", "type": "صحّح العبارة الخاطئة", "question": "لا يحتاج التعلم العميق إلى كميات كبيرة من البيانات ليتعلم أنماطًا موثوقة.", "options": [], "modelAnswer": "العبارة الصحيحة: يحتاج التعلم العميق غالبًا إلى كميات كبيرة نسبيًا من البيانات ليتعلم أنماطًا موثوقة."}, {"id": 31, "source": "أسئلة من موضوعنا", "type": "فسّر", "question": "فسّر لماذا لا يعني تفوق نظام في مهمة واحدة أنه يمتلك ذكاءً عامًا شاملًا.", "options": []}, {"id": 32, "source": "أسئلة من موضوعنا", "type": "فسّر", "question": "فسّر لماذا لا يضمن \"الأسلوب المقنع\" لإجابة GenAI صحتها.", "options": []}, {"id": 33, "source": "أسئلة من موضوعنا", "type": "فسّر", "question": "فسّر لماذا تُعد الهلوسة خطرًا أكبر في التقارير الدراسية والقرارات المهمة تحديدًا.", "options": []}, {"id": 34, "source": "أسئلة من موضوعنا", "type": "فسّر", "question": "فسّر سبب استبعاد \"مرشح الرسائل المزعجة\" من قائمة أمثلة GenAI.", "options": []}, {"id": 35, "source": "أسئلة من موضوعنا", "type": "فسّر", "question": "فسّر كيف يوضح مثال المزارع فكرة اعتماد جودة التنبؤ على جودة بيانات التدريب.", "options": []}, {"id": 36, "source": "أسئلة من موضوعنا", "type": "أسئلة مقالية", "question": "ناقش كيف يمكن أن يُساء فهم مصطلحي \"الذكاء الاصطناعي\" و\"التعلم الآلي\" إعلاميًا، مستندًا للعلاقة الدقيقة بينهما.", "options": []}, {"id": 37, "source": "أسئلة من موضوعنا", "type": "أسئلة مقالية", "question": "حلّل العبارة: \"التعلم العميق ليس تقنية منفصلة عن التعلم الآلي، بل امتداد له\"، بمثالين من الدرس.", "options": []}, {"id": 38, "source": "أسئلة من موضوعنا", "type": "أسئلة مقالية", "question": "قارن بين \"خطر عدم كفاية بيانات التدريب\" و\"خطر الهلوسة\" من حيث طبيعة كل خطر ومصدره.", "options": []}, {"id": 39, "source": "أسئلة من موضوعنا", "type": "أسئلة مقالية", "question": "ناقش أيهما أكثر خطورة: نظام ضيق النطاق دقيق، أم نظام توليدي عام عرضة للهلوسة؟ برر إجابتك.", "options": []}, {"id": 40, "source": "أسئلة من موضوعنا", "type": "أسئلة مقالية", "question": "حلّل كيف يعكس مثال \"تصنيف الرسائل\" مقابل \"توليد صورة من نص\" الفرق بين \"الفهم/التصنيف\" و\"الإنشاء\".", "options": []}, {"id": 41, "source": "أسئلة من موضوعنا", "type": "أسئلة مقالية", "question": "ناقش أثر ظاهرة الهلوسة على ثقة المجتمع في أنظمة GenAI على المدى الطويل دون إجراءات تحقق كافية.", "options": []}, {"id": 42, "source": "أسئلة من موضوعنا", "type": "أسئلة مقالية", "question": "لو صممت منهجًا مدرسيًا لتقديم AI/ML/DL/GenAI لأول مرة، بأي ترتيب تعليمي تقترح تقديمها؟ ولماذا؟", "options": []}, {"id": 43, "source": "أسئلة من موضوعنا", "type": "أسئلة بأفكار الامتحان", "question": "مزارع يريد تمييز المحاصيل السليمة والمصابة. ما البيانات الأنسب لتدريب النظام؟", "options": []}, {"id": 44, "source": "أسئلة من موضوعنا", "type": "أسئلة بأفكار الامتحان", "question": "في نفس المثال السابق، ما عامل خطأ التنبؤ المحتمل الذي قد يجعل النظام غير دقيق؟", "options": []}, {"id": 45, "source": "أسئلة من موضوعنا", "type": "أسئلة بأفكار الامتحان", "question": "نظام تدرب على صور كثيرة عبر شبكات عميقة، ثم بدأ يولّد صورًا جديدة من وصف نصي. اشرح كيف يوضح هذا المثال أن GenAI يبني على قدرات DL.", "options": []}, {"id": 46, "source": "أسئلة من موضوعنا", "type": "أسئلة بأفكار الامتحان", "question": "فسّر لماذا يُعد اعتبار AI وML وDL وGenAI مفاهيم متطابقة خطأً شائعًا وخطيرًا تعليميًا.", "options": []}, {"id": 47, "source": "أسئلة من موضوعنا", "type": "أسئلة بأفكار الامتحان", "question": "فسّر الفرق بين طريقة عمل البرمجة التقليدية وطريقة عمل التعلم الآلي في الوصول لنتيجة.", "options": []}, {"id": 48, "source": "أسئلة من موضوعنا", "type": "أسئلة بأفكار الامتحان", "question": "فسّر سبب تسمية \"التعلم العميق\" بهذا الاسم تحديدًا.", "options": []}, {"id": 49, "source": "أسئلة من موضوعنا", "type": "أسئلة بأفكار الامتحان", "question": "فسّر لماذا تحتاج نماذج التعلم العميق عادة إلى كميات كبيرة نسبيًا من البيانات.", "options": []}, {"id": 50, "source": "أسئلة من موضوعنا", "type": "أسئلة بأفكار الامتحان", "question": "حلّل كيف يلخّص مبدأ \"الفهم شكليًا لا يعني الصحة واقعيًا\" درسًا أوسع للتعامل النقدي مع أي تقنية ذكاء اصطناعي.", "options": []}, {"id": 51, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "أي العبارات التالية تعبر بدقة عن مفهوم الذكاء الاصطناعي؟", "options": ["نظام يخزن المعلومات فقط دون تحليلها", "مجال يهدف إلى إنشاء أنظمة قادرة على محاكاة بعض قدرات الذكاء البشري", "برنامج يعتمد على إدخال البيانات يدويًا فقط", "تقنية تستخدم فقط لمعالجة الصور"], "correctAnswer": 1}, {"id": 52, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "إذا قام نظام بتصنيف الرسائل إلى مزعجة وغير مزعجة اعتمادًا على بيانات سابقة، فهذا مثال على:", "options": ["معالجة النصوص اليدوية", "الشبكات العصبية فقط", "التعلم الآلي", "الذكاء الاصطناعي التوليدي"], "correctAnswer": 2}, {"id": 53, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "العلاقة بين الذكاء الاصطناعي والتعلم الآلي نجد أن...", "options": ["التعلم الآلي أوسع من الذكاء الاصطناعي", "الذكاء الاصطناعي جزء من التعلم الآلي", "التعلم الآلي أحد فروع الذكاء الاصطناعي", "لا توجد علاقة بينهما"], "correctAnswer": 2}, {"id": 54, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "السبب الرئيسي الذي يجعل التعلم العميق قادرًا على التعامل مع أنماط معقدة هو:", "options": ["اعتماده على حذف البيانات", "استخدامه طبقات متعددة لاستخراج الأنماط", "عدم حاجته إلى البيانات", "عمله بدون خوارزميات"], "correctAnswer": 1}, {"id": 55, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "أي مما يلي يمثل استخدامًا للذكاء الاصطناعي التوليدي؟", "options": ["ترتيب الملفات فقط", "إنشاء نصوص وصور جديدة اعتمادًا على أنماط تعلمها", "تخزين البيانات فقط", "حذف المعلومات القديمة"], "correctAnswer": 1}, {"id": 56, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "تعتمد الشبكات العصبية الاصطناعية بشكل أساسي على فكرة:", "options": ["محاكاة طريقة ترابط الخلايا العصبية", "زيادة حجم الملفات", "إلغاء دور البيانات", "كتابة الأوامر يدويًا فقط"], "correctAnswer": 0}, {"id": 57, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "الفرق الأساسي بين التعلم الآلي والبرمجة التقليدية أن التعلم الآلي:", "options": ["يعتمد على تعلم الأنماط من البيانات", "لا يستخدم البيانات", "لا يحتاج إلى تدريب", "لا ينتج قرارات"], "correctAnswer": 0}, {"id": 58, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "عندما يستخدم نموذج ذكاء اصطناعي صورًا كثيرة لمعرفة الفرق بين القطط والكلاب، فإن ذلك يمثل:", "options": ["التعلم من الأنماط", "التخزين العادي", "البرمجة الثابتة", "النسخ اليدوي"], "correctAnswer": 0}, {"id": 59, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "السبب في تسمية التعلم العميق بهذا الاسم يرجع إلى...", "options": ["زيادة حجم الجهاز", "اعتماده على شبكات عصبية تحتوي على طبقات متعددة", "استخدام الإنترنت فقط", "صعوبة تشغيل الحاسوب"], "correctAnswer": 1}, {"id": 60, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "الشبكة العصبية الاصطناعية تتكون من:", "options": ["وحدات مترابطة تشبه فكرة الخلايا العصبية", "أجهزة إدخال فقط", "أوامر ثابتة فقط", "ملفات نصية فقط"], "correctAnswer": 0}, {"id": 61, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "إذا احتاج نموذج ذكاء اصطناعي إلى إنتاج محتوى جديد وليس فقط تصنيفه، فإن المجال الأقرب هو:", "options": ["التخزين السحابي", "الذكاء الاصطناعي التوليدي", "البرمجة التقليدية", "قواعد البيانات"], "correctAnswer": 1}, {"id": 62, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "أي العبارات التالية صحيحة؟", "options": ["كل ذكاء اصطناعي يعتمد على التعلم العميق", "كل تعلم عميق يعد جزءًا من الذكاء الاصطناعي", "التعلم الآلي ليس له علاقة بالذكاء الاصطناعي", "الذكاء الاصطناعي التوليدي منفصل تمامًا عن التعلم"], "correctAnswer": 1}, {"id": 63, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "عند تدريب نموذج على ملايين الأمثلة لاكتشاف نمط معين فإن العملية تسمى:", "options": ["التدريب", "التخزين", "النسخ", "الإدخال اليدوي"], "correctAnswer": 0}, {"id": 64, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "أي مما يلي يمثل إحدى قدرات أنظمة الذكاء الاصطناعي...", "options": ["منع التطور التقني", "زيادة قدرة الأنظمة على التحليل واتخاذ القرارات", "استبدال جميع البرامج التقليدية", "إلغاء استخدام البيانات"], "correctAnswer": 1}, {"id": 65, "source": "كتاب المبرمج", "type": "اختيار من متعدد", "question": "أي مما يلي يمثل استخدامًا للذكاء الاصطناعي التوليدي؟", "options": ["تصنيف الرسائل إلى مزعجة وغير مزعجة.", "اكتشاف نمط في بيانات سابقة.", "إنشاء صورة جديدة اعتمادًا على وصف نصي.", "تخزين البيانات فقط."], "correctAnswer": 2}, {"id": 66, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "الذكاء الاصطناعي هو مجال يهدف إلى جعل الأنظمة تحاكي بعض قدرات الإنسان.", "options": [], "correctAnswer": "صح"}, {"id": 67, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "التعلم الآلي فرع من فروع الذكاء الاصطناعي.", "options": [], "correctAnswer": "صح"}, {"id": 68, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "التعلم العميق لا يعتمد على الشبكات العصبية الاصطناعية.", "options": [], "correctAnswer": "خطأ"}, {"id": 69, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "كل أنظمة الذكاء الاصطناعي تعتمد على نفس الطريقة في التعلم.", "options": [], "correctAnswer": "خطأ"}, {"id": 70, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "البيانات عنصر أساسي لتدريب نماذج التعلم الآلي.", "options": [], "correctAnswer": "صح"}, {"id": 71, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "الشبكات العصبية الاصطناعية مستوحاة من طريقة عمل الدماغ البشري.", "options": [], "correctAnswer": "صح"}, {"id": 72, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "الذكاء الاصطناعي أضيق من التعلم الآلي.", "options": [], "correctAnswer": "خطأ"}, {"id": 73, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "النماذج العميقة تستطيع التعامل مع بيانات معقدة مثل الصور والصوت.", "options": [], "correctAnswer": "صح"}, {"id": 74, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "زيادة جودة البيانات قد تؤثر على أداء النموذج الذكي.", "options": [], "correctAnswer": "صح"}, {"id": 75, "source": "كتاب المبرمج", "type": "صح وخطأ", "question": "يمكن للنظام الذكي إنتاج نتائج دون الاعتماد على أي بيانات سابقة.", "options": [], "correctAnswer": "خطأ"}, {"id": 76, "source": "كتاب المبرمج", "type": "أكمل العبارات", "question": "يعد ________ أحد فروع الذكاء الاصطناعي الذي يسمح للحاسوب بالتعلم بالبيانات واكتشاف الأنماط دون برمجة كل قاعدة بشكل مباشر.", "options": [], "modelAnswer": "التعلم الآلي (ML)"}, {"id": 77, "source": "كتاب المبرمج", "type": "أكمل العبارات", "question": "تمثل ________ الاصطناعية نماذج حاسوبية تحاكي طريقة ترابط الخلايا العصبية في الدماغ البشري.", "options": [], "modelAnswer": "الشبكة العصبية / الشبكات العصبية"}, {"id": 78, "source": "كتاب المبرمج", "type": "أكمل العبارات", "question": "العلاقة الصحيحة بين المفاهيم هي أن الذكاء الاصطناعي يحتوي على ________ الذي يحتوي بدوره على التعلم العميق.", "options": [], "modelAnswer": "التعلم الآلي (ML)"}, {"id": 79, "source": "كتاب المبرمج", "type": "أكمل العبارات", "question": "تتميز نماذج التعلم العميق بقدرتها على التعامل مع بيانات معقدة مثل ________ و ________ مقارنة بالطرق التقليدية.", "options": [], "modelAnswer": "الصور والصوت (أو أي بيانات معقدة كالفيديو والنصوص الطويلة)"}, {"id": 80, "source": "كتاب المبرمج", "type": "أكمل العبارات", "question": "الهدف الأساسي من تدريب الذكاء الاصطناعي هو زيادة قدرته على ________ أو إنشاء نتائج جديدة بدقة أكبر.", "options": [], "modelAnswer": "التنبؤ أو التصنيف"}, {"id": 81, "source": "كتاب المبرمج", "type": "اذكر المصطلح العلمي", "question": "مجال يهدف إلى تصميم أنظمة قادرة على محاكاة الذكاء البشري.", "options": [], "modelAnswer": "الذكاء الاصطناعي (AI)"}, {"id": 82, "source": "كتاب المبرمج", "type": "اذكر المصطلح العلمي", "question": "نوع من التعلم يعتمد على الشبكات العصبية متعددة الطبقات.", "options": [], "modelAnswer": "التعلم العميق (DL)"}, {"id": 83, "source": "كتاب المبرمج", "type": "اذكر المصطلح العلمي", "question": "نماذج حاسوبية مستوحاة من طريقة ترابط الخلايا العصبية.", "options": [], "modelAnswer": "الشبكات العصبية الاصطناعية"}, {"id": 84, "source": "كتاب المبرمج", "type": "اذكر المصطلح العلمي", "question": "نوع من الذكاء الاصطناعي الذي يقوم بإنشاء محتوى جديد.", "options": [], "modelAnswer": "الذكاء الاصطناعي التوليدي (GenAI)"}, {"id": 85, "source": "كتاب المبرمج", "type": "اذكر المصطلح العلمي", "question": "العملية التي يتم فيها تزويد النموذج بالبيانات لتحسين أدائه.", "options": [], "modelAnswer": "التدريب (Training)"}, {"id": 86, "source": "كتاب المبرمج", "type": "أسئلة مقالية", "question": "وضح العلاقة بين الذكاء الاصطناعي والتعلم الآلي والتعلم العميق مع رسم مخطط يوضح ترتيبهم.", "options": []}, {"id": 87, "source": "كتاب المبرمج", "type": "أسئلة مقالية", "question": "قارن بين البرمجة التقليدية والتعلم الآلي من حيث طريقة الحصول على النتائج.", "options": []}, {"id": 88, "source": "كتاب المبرمج", "type": "أسئلة مقالية", "question": "اشرح دور البيانات في تدريب أنظمة الذكاء الاصطناعي.", "options": []}, {"id": 89, "source": "كتاب المبرمج", "type": "أسئلة مقالية", "question": "اذكر أمثلة تطبيقية توضح استخدام الذكاء الاصطناعي التوليدي في الحياة اليومية.", "options": []}, {"id": 90, "source": "كتاب المبرمج", "type": "أسئلة مقالية", "question": "إذا تم تدريب نموذج على بيانات غير متنوعة، فما التأثير المتوقع على أداء النموذج؟", "options": []}, {"id": 91, "source": "كتاب المبرمج", "type": "أسئلة مقالية", "question": "وضح الفرق بين نموذج يقوم بتصنيف البيانات ونموذج يقوم بإنشاء بيانات جديدة.", "options": []}, {"id": 92, "source": "كتاب المبرمج", "type": "أسئلة مقالية", "question": "اشرح لماذا يعتبر الذكاء الاصطناعي التوليدي تطورًا مهمًا في مجال الذكاء الاصطناعي.", "options": []}, {"id": 93, "source": "كتاب المبرمج", "type": "أسئلة بشكل الامتحان", "question": "أمامك نظامان للذكاء الاصطناعي:\nالنظام الأول تمت برمجته بقواعد ثابتة لتحديد إذا كانت الرسالة الإلكترونية مزعجة أم لا.\nالنظام الثاني تم تدريبه على ملايين الرسائل السابقة ليكتشف الأنماط ويصنف الرسائل تلقائيًا.\nحلل الفرق بين النظامين من حيث طريقة العمل، وحدد أيهما يمثل التعلم الآلي مع تفسير السبب.", "options": []}, {"id": 94, "source": "كتاب المبرمج", "type": "أسئلة بشكل الامتحان", "question": "يريد أحد الباحثين إنشاء نظام ذكي يستطيع تحليل صور الأشعة الطبية واكتشاف أمراض غير واضحة للعين البشرية.\nوضح أي فروع الذكاء الاصطناعي يحتاج إليها هذا النظام، وفسر سبب اختيارك موضحًا دور التعلم العميق والشبكات العصبية الاصطناعية في هذا التطبيق.", "options": []}, {"id": 95, "source": "كتاب المبرمج", "type": "أسئلة بشكل الامتحان", "question": "قام فريق بتدريب نموذج ذكاء اصطناعي توليدي على مجموعة صغيرة وغير متنوعة من البيانات، وبعد ذلك بدأ النموذج في إنتاج نتائج غير دقيقة.\nحلل أسباب المشكلة، ووضح العلاقة بين جودة البيانات وقدرة النموذج على تعلم الأنماط وإنتاج محتوى جديد.", "options": []}, {"id": 96, "source": "كتاب المبرمج", "type": "أسئلة بشكل الامتحان", "question": "يعتقد أحد الطلاب أن الذكاء الاصطناعي والتعلم العميق مفهومان متساويان ويمكن استخدامهما بنفس المعنى.\nناقش صحة هذا الرأي، مع توضيح العلاقة الهرمية بين الذكاء الاصطناعي والتعلم الآلي والتعلم العميق، واذكر مثالًا يوضح الفرق بينهم.", "options": []}, {"id": 97, "source": "كتاب المبرمج", "type": "أسئلة بشكل الامتحان", "question": "صمم تصورًا لنظام ذكي يقوم بإنشاء صورة جديدة اعتمادًا على وصف يكتبه المستخدم.\nاشرح المراحل التي يمر بها النظام بداية من تعلم الأنماط من البيانات حتى إنتاج الصورة النهائية، مع توضيح دور الذكاء الاصطناعي التوليدي في هذه العملية.", "options": []}, {"id": 98, "source": "كتاب المبرمج", "type": "أسئلة بشكل الامتحان", "question": "ما العلاقة بين الذكاء الاصطناعي والتعلم الآلي والتعلم العميق؟", "options": []}, {"id": 99, "source": "كتاب المبرمج", "type": "أسئلة بشكل الامتحان", "question": "ما الفرق بين النظام الذي يصنف البيانات والنظام الذي يولد بيانات جديدة؟", "options": []}, {"id": 100, "source": "كتاب المبرمج", "type": "أسئلة بشكل الامتحان", "question": "كيف يتعلم نموذج التعلم الآلي من البيانات؟", "options": []}, {"id": 101, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "ما المجال الذي يضم أنظمة تستطيع التعلم من البيانات والتنبؤ والتعرف وتوليد المحتوى؟", "options": ["التعلم الآلي", "الذكاء الاصطناعي", "التعلم العميق", "الشبكات العصبية"], "correctAnswer": 1}, {"id": 102, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "أي مما يلي يُعد فرعًا من الذكاء الاصطناعي؟", "options": ["التعلم الآلي", "لوحة المفاتيح", "الشاشة", "الطابعة"], "correctAnswer": 0}, {"id": 103, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "أي مما يلي يُعد أسلوبًا من أساليب التعلم الآلي؟", "options": ["الذكاء الاصطناعي التوليدي", "التعلم العميق", "الترجمة", "توليد النصوص"], "correctAnswer": 1}, {"id": 104, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "ماذا تتعلم نماذج التعلم الآلي من البيانات؟", "options": ["الأجهزة", "الأنماط", "الملفات", "القواعد فقط"], "correctAnswer": 1}, {"id": 105, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "أي مما يلي مثال على استخدام التعلم الآلي؟", "options": ["تصنيف الرسائل المزعجة", "تشغيل الشاشة", "شحن الهاتف", "طباعة المستند"], "correctAnswer": 0}, {"id": 106, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "ماذا يقدم الإنسان لنظام التعلم الآلي لكي يتعلم؟", "options": ["البيانات والأمثلة", "الأجهزة فقط", "الشاشات", "الملفات فقط"], "correctAnswer": 0}, {"id": 107, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "في البرمجة التقليدية، من يكتب القواعد التي ينفذها الكمبيوتر؟", "options": ["النموذج", "الشبكة", "الإنسان", "البيانات"], "correctAnswer": 2}, {"id": 108, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "على ماذا يعتمد التعلم العميق؟", "options": ["قواعد ثابتة", "شبكات عصبية متعددة الطبقات", "ملفات نصية", "شبكات محلية"], "correctAnswer": 1}, {"id": 109, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "أي مما يلي مثال على استخدام التعلم العميق؟", "options": ["تحليل الصور", "حفظ الملفات", "تشغيل الجهاز", "طباعة المستندات"], "correctAnswer": 0}, {"id": 110, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "ما النموذج الحاسوبي المستوحى بصورة مبسطة من فكرة ترابط العصبونات؟", "options": ["نظام التشغيل", "قاعدة البيانات", "الشبكة العصبية", "الشبكة المحلية"], "correctAnswer": 2}, {"id": 111, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "ماذا يتغير أثناء تدريب الشبكة العصبية الاصطناعية؟", "options": ["الصور", "الأوزان", "الملفات", "الشاشات"], "correctAnswer": 1}, {"id": 112, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "ما الهدف من تدريب الشبكة العصبية وتغيير أوزانها؟", "options": ["حذف البيانات", "تعلم الأنماط وتحسين الأداء", "إيقاف الجهاز", "تغيير الشاشة"], "correctAnswer": 1}, {"id": 113, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "ماذا تستطيع أنظمة الذكاء الاصطناعي التوليدي إنشاءه؟", "options": ["محتوى جديد", "أجهزة جديدة", "شبكات جديدة", "معالجات جديدة"], "correctAnswer": 0}, {"id": 114, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "أي مما يلي يُعد مثالًا على محتوى يمكن للذكاء الاصطناعي التوليدي إنتاجه؟", "options": ["النصوص", "لوحة المفاتيح", "الفأرة", "الشاشة"], "correctAnswer": 0}, {"id": 115, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "أي مما يلي مثال على الذكاء الاصطناعي التوليدي؟", "options": ["ChatGPT", "الطابعة", "القرص الصلب", "لوحة المفاتيح"], "correctAnswer": 0}, {"id": 116, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "تعتمد غالبية أنظمة الذكاء الاصطناعي التوليدي الحديثة على:", "options": ["الترجمة", "التعلم العميق", "البرمجة التقليدية", "الشبكات المحلية"], "correctAnswer": 1}, {"id": 117, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "معظم أنظمة الذكاء الاصطناعي الحالية مصممة لأداء:", "options": ["جميع المهام", "مهمة محددة", "لا شيء", "الألعاب فقط"], "correctAnswer": 1}, {"id": 118, "source": "كتاب الفائز", "type": "اختيار من متعدد", "question": "أي ترتيب يمثل العلاقة الصحيحة بين المفاهيم التالية؟", "options": ["الذكاء الاصطناعي ← التعلم الآلي ← التعلم العميق ← الذكاء الاصطناعي التوليدي", "التعلم العميق ← الذكاء الاصطناعي ← التعلم الآلي ← الذكاء الاصطناعي التوليدي", "التعلم الآلي ← الذكاء الاصطناعي ← التعلم العميق ← الذكاء الاصطناعي التوليدي", "الذكاء الاصطناعي التوليدي ← الذكاء الاصطناعي ← التعلم الآلي ← التعلم العميق"], "correctAnswer": 0}, {"id": 119, "source": "كتاب الفائز", "type": "صح وخطأ", "question": "الذكاء الاصطناعي هو مجال واسع يضم العديد من التقنيات والأساليب.", "options": [], "correctAnswer": "صح"}, {"id": 120, "source": "كتاب الفائز", "type": "صح وخطأ", "question": "التعلم الآلي هو فرع من الذكاء الاصطناعي.", "options": [], "correctAnswer": "صح"}, {"id": 121, "source": "كتاب الفائز", "type": "صح وخطأ", "question": "التعلم العميق مجال مستقل تمامًا عن التعلم الآلي.", "options": [], "correctAnswer": "خطأ"}, {"id": 122, "source": "كتاب الفائز", "type": "صح وخطأ", "question": "يعتمد التعلم العميق على شبكات عصبية متعددة الطبقات.", "options": [], "correctAnswer": "صح"}, {"id": 123, "source": "كتاب الفائز", "type": "صح وخطأ", "question": "يستطيع التعلم الآلي استخدام البيانات لاكتشاف الأنماط.", "options": [], "correctAnswer": "صح"}, {"id": 124, "source": "كتاب الفائز", "type": "صح وخطأ", "question": "تصنيف الرسائل المزعجة من أمثلة استخدام التعلم الآلي.", "options": [], "correctAnswer": "صح"}, {"id": 125, "source": "كتاب الفائز", "type": "صح وخطأ", "question": "توصية المنتجات يمكن أن تكون من تطبيقات التعلم الآلي.", "options": [], "correctAnswer": "صح"}, {"id": 126, "source": "كتاب الفائز", "type": "صح وخطأ", "question": "في البرمجة التقليدية، يتعلم الكمبيوتر القواعد بنفسه من البيانات.", "options": [], "correctAnswer": "خطأ"}, {"id": 127, "source": "كتاب الفائز", "type": "صح وخطأ", "question": "في التعلم الآلي، يقدم الإنسان البيانات والأمثلة لكي يتعلم النموذج الأنماط.", "options": [], "correctAnswer": "صح"}, {"id": 128, "source": "كتاب الفائز", "type": "صح وخطأ", "question": "الشبكة العصبية الاصطناعية نموذج حاسوبي مستوحى بصورة مبسطة من فكرة ترابط العصبونات.", "options": [], "correctAnswer": "صح"}, {"id": 129, "source": "كتاب الفائز", "type": "صح وخطأ", "question": "تتغير أوزان الشبكة العصبية أثناء التدريب.", "options": [], "correctAnswer": "صح"}, {"id": 130, "source": "كتاب الفائز", "type": "صح وخطأ", "question": "الذكاء الاصطناعي التوليدي يستطيع إنشاء محتوى جديد.", "options": [], "correctAnswer": "صح"}, {"id": 131, "source": "كتاب الفائز", "type": "صح وخطأ", "question": "يقتصر الذكاء الاصطناعي التوليدي على إنشاء النصوص فقط.", "options": [], "correctAnswer": "خطأ"}, {"id": 132, "source": "كتاب الفائز", "type": "صح وخطأ", "question": "يمكن للذكاء الاصطناعي التوليدي إنشاء الصور والصوت والبرمجيات.", "options": [], "correctAnswer": "صح"}, {"id": 133, "source": "كتاب الفائز", "type": "صح وخطأ", "question": "كل نظام ذكاء اصطناعي يجب بالضرورة أن يعتمد على التعلم العميق.", "options": [], "correctAnswer": "خطأ"}, {"id": 134, "source": "كتاب الفائز", "type": "صح وخطأ", "question": "معظم أنظمة الذكاء الاصطناعي الحالية مصممة لأداء جميع المهام التي يقوم بها الإنسان.", "options": [], "correctAnswer": "خطأ"}, {"id": 135, "source": "كتاب الفائز", "type": "أكمل العبارات", "question": "الذكاء الاصطناعي هو مجال واسع يضم أنظمة حاسوبية تستطيع تنفيذ مهام مثل التعلم من البيانات و......................", "options": [], "modelAnswer": "التنبؤ، والتعرف، وتوليد المحتوى، واتخاذ القرارات أو دعمها"}, {"id": 136, "source": "كتاب الفائز", "type": "أكمل العبارات", "question": "معظم أنظمة الذكاء الاصطناعي الحالية مصممة لأداء ...................... محددة.", "options": [], "modelAnswer": "مهمة"}, {"id": 137, "source": "كتاب الفائز", "type": "أكمل العبارات", "question": "في التعلم الآلي، يقدم الإنسان ...................... والأمثلة لكي يتعلم النموذج.", "options": [], "modelAnswer": "البيانات"}, {"id": 138, "source": "كتاب الفائز", "type": "أكمل العبارات", "question": "في البرمجة التقليدية، يكتب الإنسان ...................... بالتفصيل.", "options": [], "modelAnswer": "القواعد"}, {"id": 139, "source": "كتاب الفائز", "type": "أكمل العبارات", "question": "تتعلم نماذج التعلم الآلي ...................... من البيانات لإجراء تنبؤات أو تصنيفات.", "options": [], "modelAnswer": "الأنماط"}, {"id": 140, "source": "كتاب الفائز", "type": "أكمل العبارات", "question": "يمكن للذكاء الاصطناعي التوليدي إنشاء النصوص والصور و...................... والبرمجيات.", "options": [], "modelAnswer": "الصوت"}, {"id": 141, "source": "كتاب الفائز", "type": "أكمل العبارات", "question": "يعتمد التعلم العميق على شبكات عصبية متعددة ......................", "options": [], "modelAnswer": "الطبقات"}, {"id": 142, "source": "كتاب الفائز", "type": "أكمل العبارات", "question": "الذكاء الاصطناعي التوليدي نوع من أنظمة الذكاء الاصطناعي يستطيع ...................... محتوى جديد.", "options": [], "modelAnswer": "إنشاء / توليد"}, {"id": 143, "source": "كتاب الفائز", "type": "أكمل العبارات", "question": "تتغير ...................... الشبكة العصبية أثناء التدريب لتتعلم أنماطًا من البيانات.", "options": [], "modelAnswer": "أوزان"}, {"id": 144, "source": "كتاب الفائز", "type": "اكتب المصطلح العلمي", "question": "مجال واسع يضم أنظمة حاسوبية تستطيع تنفيذ مهام مثل التعلم من البيانات والتنبؤ والتعرف وتوليد المحتوى واتخاذ القرارات أو دعمها.", "options": [], "modelAnswer": "الذكاء الاصطناعي (AI)"}, {"id": 145, "source": "كتاب الفائز", "type": "اكتب المصطلح العلمي", "question": "فرع من الذكاء الاصطناعي تتعلم فيه النماذج أنماطًا من البيانات لإجراء تنبؤات أو تصنيفات.", "options": [], "modelAnswer": "التعلم الآلي (ML)"}, {"id": 146, "source": "كتاب الفائز", "type": "اكتب المصطلح العلمي", "question": "أسلوب من أساليب التعلم الآلي يعتمد على شبكات عصبية متعددة الطبقات ويمكنه تعلم أنماط معقدة من البيانات.", "options": [], "modelAnswer": "التعلم العميق (DL)"}, {"id": 147, "source": "كتاب الفائز", "type": "اكتب المصطلح العلمي", "question": "نموذج حاسوبي مستوحى بصورة مبسطة من فكرة ترابط العصبونات، ويتكون من وحدات مترابطة تتغير أوزانها أثناء التدريب.", "options": [], "modelAnswer": "الشبكة العصبية الاصطناعية"}, {"id": 148, "source": "كتاب الفائز", "type": "اكتب المصطلح العلمي", "question": "نوع من أنظمة الذكاء الاصطناعي يستطيع إنشاء أو توليد محتوى جديد مثل النصوص والصور والصوت والبرمجيات.", "options": [], "modelAnswer": "الذكاء الاصطناعي التوليدي (GenAI)"}, {"id": 149, "source": "كتاب الفائز", "type": "اكتب المصطلح العلمي", "question": "عملية يتعلم فيها النموذج الأنماط من البيانات باستخدام أمثلة، ثم يستخدم ما تعلمه لإجراء تنبؤات أو تصنيفات.", "options": [], "modelAnswer": "التدريب (Training)"}, {"id": 150, "source": "كتاب الفائز", "type": "اكتب المصطلح العلمي", "question": "معلومات تبدو صحيحة أو مقنعة ينتجها نظام الذكاء الاصطناعي، لكنها قد تكون غير صحيحة أو غير مدعومة.", "options": [], "modelAnswer": "الهلوسة (AI Hallucination)"}];
+
+const SOURCES = ["أسئلة من موضوعنا","كتاب المبرمج","كتاب الفائز"];
+const SOURCE_BADGE_CLASS = {
+  "أسئلة من موضوعنا":"badge-src-1",
+  "كتاب المبرمج":"badge-src-2",
+  "كتاب الفائز":"badge-src-3"
+};
+const LETTERS = ["أ","ب","ج","د"];
+
+const OPEN_TYPE_LABELS = {
+  "صحّح العبارة الخاطئة": "سؤال تصحيح عبارة خاطئة — يتطلب كتابة الصواب، لا توجد اختيارات لهذا السؤال في بنك البيانات المصدر.",
+  "فسّر": "سؤال تفسير مفتوح — يتطلب إجابة تحريرية، لا توجد اختيارات لهذا السؤال في بنك البيانات المصدر.",
+  "أسئلة مقالية": "سؤال مقالي مفتوح — يتطلب إجابة تحريرية، لا توجد اختيارات لهذا السؤال في بنك البيانات المصدر.",
+  "أسئلة بأفكار الامتحان": "سؤال مفتوح بأسلوب الامتحان — يتطلب إجابة تحريرية أو تحليلية.",
+  "أسئلة بشكل الامتحان": "سؤال مفتوح بأسلوب الامتحان — يتطلب إجابة تحريرية أو تحليلية.",
+  "أكمل العبارات": "سؤال إكمال فراغ — أكمل الفراغ الوارد في نص العبارة.",
+  "اذكر المصطلح العلمي": "سؤال تحديد مصطلح — اذكر المصطلح العلمي الذي تصفه العبارة.",
+  "اكتب المصطلح العلمي": "سؤال تحديد مصطلح — اكتب المصطلح العلمي الذي تصفه العبارة."
+};
+
+let state = {
+  search:"",
+  source:"all",
+  type:"all",
+  quizMode:false,
+  selections:{},
+  revealed:{},
+  quizFinished:false
+};
+
+function renderStats(){
+  const counts = {};
+  SOURCES.forEach(s=>counts[s]=0);
+  questions.forEach(q=>counts[q.source]++);
+  const grid = document.getElementById('statsGrid');
+  let html = `<div class="stat total"><div class="n num">${questions.length}</div><div class="l">إجمالي الأسئلة</div></div>`;
+  SOURCES.forEach(s=>{
+    html += `<div class="stat"><div class="n num">${counts[s]}</div><div class="l">${s}</div></div>`;
+  });
+  grid.innerHTML = html;
+}
+
+function setupFilters(){
+  const sourceSel = document.getElementById('sourceFilter');
+  SOURCES.forEach(s=>{
+    const opt = document.createElement('option');
+    opt.value = s; opt.textContent = s;
+    sourceSel.appendChild(opt);
+  });
+  const types = [...new Set(questions.map(q=>q.type))];
+  const typeSel = document.getElementById('typeFilter');
+  types.forEach(t=>{
+    const opt = document.createElement('option');
+    opt.value = t; opt.textContent = t;
+    typeSel.appendChild(opt);
+  });
+}
+
+function onFiltersChanged(){
+  state.search = document.getElementById('searchInput').value.trim().toLowerCase();
+  state.source = document.getElementById('sourceFilter').value;
+  state.type = document.getElementById('typeFilter').value;
+  renderQuestions();
+}
+
+function resetFilters(){
+  document.getElementById('searchInput').value = "";
+  document.getElementById('sourceFilter').value = "all";
+  document.getElementById('typeFilter').value = "all";
+  state.search = ""; state.source = "all"; state.type = "all";
+  renderQuestions();
+}
+
+function filterQuestions(){
+  return questions.filter(q=>{
+    if(state.source !== "all" && q.source !== state.source) return false;
+    if(state.type !== "all" && q.type !== state.type) return false;
+    if(state.search){
+      const hay = (q.question + " " + q.options.join(" ") + " " + q.source + " " + q.type).toLowerCase();
+      if(!hay.includes(state.search)) return false;
+    }
+    return true;
+  });
+}
+
+function optionLetter(i){ return LETTERS[i] || (i+1); }
+
+function renderQuestionCard(q){
+  const badgeClass = SOURCE_BADGE_CLASS[q.source] || "badge-src-1";
+  let body = "";
+
+  if(q.type === "اختيار من متعدد"){
+    body += `<div class="options">`;
+    q.options.forEach((opt,i)=>{
+      const selected = state.selections[q.id] === i;
+      const reveal = state.revealed[q.id];
+      const isCorrect = reveal && q.correctAnswer === i;
+      const isWrongPick = reveal && selected && q.correctAnswer !== i;
+      let cls = selected ? 'selected' : '';
+      if(isCorrect) cls += ' correct';
+      if(isWrongPick) cls += ' incorrect';
+      body += `<div class="option ${cls}" onclick="selectOption(${q.id},${i})">
+        <span class="letter">${optionLetter(i)}</span><span>${escapeHtml(opt)}</span>
+        ${isCorrect ? '<span class="mark">✓</span>' : ''}
+      </div>`;
+    });
+    body += `</div>`;
+  } else if(q.type === "صح وخطأ"){
+    body += `<div class="tf-row">`;
+    ["صح","خطأ"].forEach(v=>{
+      const selected = state.selections[q.id] === v;
+      const reveal = state.revealed[q.id];
+      const isCorrect = reveal && q.correctAnswer === v;
+      const isWrongPick = reveal && selected && q.correctAnswer !== v;
+      let cls = selected ? 'selected' : '';
+      if(isCorrect) cls += ' correct';
+      if(isWrongPick) cls += ' incorrect';
+      body += `<div class="option ${cls}" onclick="selectTF(${q.id},'${v}')">${v} ${isCorrect ? '✓' : ''}</div>`;
+    });
+    body += `</div>`;
+  } else {
+    body += `<div class="open-note">✏️ ${OPEN_TYPE_LABELS[q.type] || "سؤال مفتوح."}</div>`;
+  }
+
+  const hasOptions = (q.type === "اختيار من متعدد" || q.type === "صح وخطأ");
+  const hasModelAnswer = !!q.modelAnswer;
+  let actions = "";
+  if(!state.quizMode && (hasOptions || hasModelAnswer)){
+    let answerHtml = "";
+    if(state.revealed[q.id]){
+      const unavailable = !(q.type === "اختيار من متعدد" || q.type === "صح وخطأ" || q.modelAnswer);
+      answerHtml = `<div class="answer-box show${unavailable ? ' unavailable' : ''}">${getAnswerText(q)}</div>`;
+    } else {
+      answerHtml = `<div class="answer-box" id="answer-${q.id}"></div>`;
+    }
+    actions = `
+      <div class="qcard-actions">
+        <button class="btn btn-ghost" onclick="showAnswer(${q.id})">إظهار الإجابة</button>
+      </div>
+      ${answerHtml}`;
+  }
+
+  return `
+  <div class="qcard" data-source="${q.source}" data-id="${q.id}">
+    <div class="qcard-head">
+      <div class="qcard-meta">
+        <span class="qnum num">السؤال ${q.id}</span>
+        <span class="badge ${badgeClass}">${q.source}</span>
+        <span class="badge-type badge">${q.type}</span>
+      </div>
+    </div>
+    <div class="qtext">${escapeHtml(q.question)}</div>
+    ${body}
+    ${actions}
+  </div>`;
+}
+
+function renderQuestions(){
+  const list = filterQuestions();
+  const container = document.getElementById('qlist');
+  const empty = document.getElementById('emptyState');
+  if(list.length === 0){
+    container.innerHTML = "";
+    empty.style.display = "block";
+  }else{
+    empty.style.display = "none";
+    container.innerHTML = list.map(renderQuestionCard).join("");
+  }
+  updateProgress(list.length);
+  renderQuizBanner();
+}
+
+function updateProgress(shown){
+  const total = questions.length;
+  const pct = total ? Math.round((shown/total)*100) : 0;
+  document.getElementById('progressFill').style.width = pct + "%";
+  document.getElementById('progressLabel').textContent = `عرض ${shown} من ${total} سؤال`;
+}
+
+function escapeHtml(str){
+  return String(str)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;");
+}
+
+function selectOption(id,i){
+  if(state.quizMode){ state.selections[id] = i; renderQuestions(); return; }
+  state.selections[id] = (state.selections[id] === i) ? undefined : i;
+  renderQuestions();
+}
+function selectTF(id,v){
+  if(state.quizMode){ state.selections[id] = v; renderQuestions(); return; }
+  state.selections[id] = (state.selections[id] === v) ? undefined : v;
+  renderQuestions();
+}
+
+function showAnswer(id){
+  state.revealed[id] = true;
+  renderQuestions();
+}
+
+function getAnswerText(q){
+  if(q.type === "اختيار من متعدد"){
+    return escapeHtml(`✅ الإجابة الصحيحة: ${optionLetter(q.correctAnswer)}) ${q.options[q.correctAnswer]}`);
+  } else if(q.type === "صح وخطأ"){
+    return escapeHtml(`✅ الإجابة الصحيحة: ${q.correctAnswer}`);
+  } else if(q.modelAnswer){
+    return escapeHtml(`📝 ${q.modelAnswer}`);
+  }
+  return `<span class="unavailable-text">⚠️ هذا سؤال مفتوح، ولا توجد إجابة نموذجية واحدة له في بنك البيانات المصدر.</span>`;
+}
+
+function toggleQuizMode(){
+  state.quizMode = !state.quizMode;
+  state.quizFinished = false;
+  document.getElementById('quizResult').innerHTML = "";
+  const btn = document.getElementById('quizToggleBtn');
+  btn.textContent = state.quizMode ? "✖ إنهاء الوضع" : "🧠 وضع الاختبار";
+  if(state.quizMode){ state.selections = {}; }
+  renderQuestions();
+}
+
+function renderQuizBanner(){
+  const el = document.getElementById('quizBanner');
+  if(!state.quizMode || state.quizFinished){ el.innerHTML = ""; return; }
+  const gradable = questions.filter(q=>q.type==="اختيار من متعدد" || q.type==="صح وخطأ").length;
+  el.innerHTML = `
+    <div class="quiz-banner">
+      <div>
+        <h3>وضع الاختبار مفعّل</h3>
+        <p>اختر إجاباتك من أسئلة الاختيار من متعدد وصح/خطأ (${gradable} سؤالًا)، ثم اضغط «إنهاء الاختبار».</p>
+      </div>
+      <button class="btn btn-primary" onclick="finishQuiz()">إنهاء الاختبار</button>
+    </div>`;
+}
+
+function finishQuiz(){
+  const gradableQs = questions.filter(q=>q.type==="اختيار من متعدد" || q.type==="صح وخطأ");
+  const result = calculateScore(gradableQs);
+  state.quizFinished = true;
+  document.getElementById('quizBanner').innerHTML = "";
+  const resEl = document.getElementById('quizResult');
+  const pct = gradableQs.length ? Math.round((result.correct/gradableQs.length)*100) : 0;
+  const missedList = result.missed.map(q=>`<li>السؤال ${q.id} (${q.source})</li>`).join("");
+  resEl.innerHTML = `
+    <div class="result-card">
+      <div class="result-score">${result.correct} / ${gradableQs.length} <span style="font-size:14px;color:var(--text-soft);font-weight:600;">إجابة صحيحة (${pct}%)</span></div>
+      <div class="result-grid">
+        <div class="rbox"><div class="rn">${result.correct}</div><div class="rl">إجابات صحيحة</div></div>
+        <div class="rbox"><div class="rn">${result.incorrect}</div><div class="rl">إجابات خاطئة</div></div>
+        <div class="rbox"><div class="rn">${result.unanswered}</div><div class="rl">أسئلة بلا إجابة</div></div>
+      </div>
+      ${missedList ? `<div class="result-notice" style="background:var(--surface);color:var(--text);border-color:var(--line);">الأسئلة التي أخطأت فيها أو لم تُجب عنها:<ul style="margin:8px 18px 0;">${missedList}</ul></div>` : ""}
+      <div class="result-notice">
+        ℹ️ هذا التصحيح يشمل فقط أسئلة الاختيار من متعدد وصح/خطأ (${gradableQs.length} من إجمالي 150)، وهي الأنواع التي أضيف لها مفتاح إجابات. الأسئلة المقالية والتفسيرية وأفكار الامتحان تبقى بلا درجة لأنها أسئلة مفتوحة تتطلب إجابة تحريرية.
+      </div>
+    </div>`;
+  window.scrollTo({top:resEl.offsetTop-20,behavior:'smooth'});
+}
+
+function calculateScore(gradableQs){
+  let correct = 0, incorrect = 0, unanswered = 0;
+  const missed = [];
+  gradableQs.forEach(q=>{
+    const sel = state.selections[q.id];
+    if(sel === undefined){ unanswered++; missed.push(q); return; }
+    if(sel === q.correctAnswer){ correct++; }
+    else { incorrect++; missed.push(q); }
+  });
+  return { correct, incorrect, unanswered, missed };
+}
+
+function toggleDarkMode(){
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  localStorage.setItem('ga_theme_ai', isDark ? 'light' : 'dark');
+}
+function initTheme(){
+  const saved = localStorage.getItem('ga_theme_ai');
+  if(saved === 'dark'){ document.documentElement.setAttribute('data-theme','dark'); }
+}
+
+function init(){
+  initTheme();
+  renderStats();
+  setupFilters();
+  renderQuestions();
+}
+init();
+</script>
+</body>
+</html>
