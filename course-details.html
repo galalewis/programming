@@ -17,6 +17,105 @@
   <link rel="stylesheet" href="css/components.css" />
   <link rel="stylesheet" href="css/themes.css" />
   <link rel="stylesheet" href="css/pages/courses.css" />
+
+  <!-- ============ تنسيق فصول الكورس ومشغل الفيديو ============
+       الألوان شفافة/موروثة عشان تشتغل مع الوضعين الفاتح والداكن.
+       لو عايز تربطها بألوان الموقع غيّر --ch-accent بمتغير اللون الأساسي عندك. -->
+  <style>
+    .chapters-wrap{
+      --ch-accent: var(--color-primary, #2f6fed);
+      --ch-border: rgba(128,128,128,.30);
+      --ch-surface: rgba(128,128,128,.07);
+      --ch-muted: rgba(128,128,128,.95);
+      display:grid; gap:14px; min-width:0;
+    }
+
+    /* الفصول */
+    .chapters{display:grid;gap:12px}
+    .chapter{
+      border:1px solid var(--ch-border); border-radius:12px;
+      background:var(--ch-surface); overflow:hidden;
+    }
+    .chapter > summary,
+    .lecture > summary{
+      list-style:none; cursor:pointer; min-height:56px; padding:12px 16px;
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      font-weight:700;
+    }
+    .chapter > summary::-webkit-details-marker,
+    .lecture > summary::-webkit-details-marker{display:none}
+    .chapter > summary{font-size:1.05em;border-right:5px solid var(--ch-accent)}
+    .chapter[open] > summary{border-bottom:1px solid var(--ch-border)}
+    .chapter__title{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .chapter__soon{
+      font-size:.75em;font-weight:600;padding:2px 10px;border-radius:999px;
+      border:1px solid var(--ch-border);color:var(--ch-muted);
+    }
+    .chapter__arrow{
+      width:10px;height:10px;flex-shrink:0;border-left:2.5px solid currentColor;border-bottom:2.5px solid currentColor;
+      transform:rotate(-45deg);margin-top:-4px;color:var(--ch-accent);
+    }
+    details[open] > summary > .chapter__arrow{transform:rotate(135deg);margin-top:4px}
+    .chapter__body{padding:12px;display:grid;gap:10px}
+    .chapter__soon-box{
+      text-align:center;padding:22px 10px;border:1px dashed var(--ch-border);
+      border-radius:10px;color:var(--ch-muted);
+    }
+
+    /* المحاضرات */
+    .lecture{border:1px solid var(--ch-border);border-radius:10px;background:transparent;overflow:hidden}
+    .lecture > summary{min-height:50px;font-size:1em}
+    .lecture[open] > summary{border-bottom:1px solid var(--ch-border)}
+    .lecture__body{padding:10px 12px 12px;display:grid;gap:10px}
+    .lecture__intro{color:var(--ch-muted);font-size:.95em}
+
+    /* الفيديوهات */
+    .video-item{
+      display:flex;align-items:center;gap:12px;padding:12px;
+      border:1px solid var(--ch-border);border-right:4px solid var(--ch-accent);
+      border-radius:10px;background:var(--ch-surface);
+    }
+    .video-item.is-active{outline:2px solid var(--ch-accent);outline-offset:0}
+    .video-item__num{
+      min-width:32px;height:32px;border-radius:8px;flex-shrink:0;display:grid;place-items:center;
+      border:1px solid var(--ch-border);font-weight:700;color:var(--ch-accent);
+    }
+    .video-item__info{flex:1;min-width:0}
+    .video-item__title{font-size:1em;font-weight:600;line-height:1.7;margin:0}
+    .video-item__link{
+      display:inline-block;direction:ltr;font-size:.8em;color:var(--ch-muted);
+      text-decoration:none;word-break:break-all;
+    }
+    .video-item__link:hover{color:var(--ch-accent)}
+
+    /* المشغل */
+    .ch-player{
+      border:1px solid var(--ch-border);border-top:4px solid var(--ch-accent);
+      border-radius:12px;padding:12px;background:var(--ch-surface);
+    }
+    .ch-player[hidden]{display:none}
+    .ch-player__head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}
+    .ch-player__title{font-size:1.02em;font-weight:700;line-height:1.7;margin:0}
+    .ch-player__frame{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:8px;overflow:hidden}
+    .ch-player__frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    .ch-player__soon{
+      position:absolute;inset:0;display:grid;place-items:center;text-align:center;
+      padding:16px;color:#fff;font-weight:700;background:#222;
+    }
+    .ch-player__soon[hidden]{display:none}
+    .ch-player__note{margin:8px 0 0;font-size:.85em;color:var(--ch-muted)}
+
+    @media (max-width:560px){
+      .video-item{flex-wrap:wrap}
+      .video-item .btn{width:100%;justify-content:center;min-height:44px}
+      .ch-player__head{flex-direction:column}
+      .ch-player__head .btn{align-self:flex-end}
+      .chapter > summary{padding:12px}
+    }
+    @media (min-width:980px){
+      .ch-player{position:sticky;top:76px;z-index:2}
+    }
+  </style>
 </head>
 <body>
 
@@ -106,7 +205,7 @@
         <p id="courseDescription" class="course-section__text"></p>
       </section>
 
-      <!-- Content Breakdown (populated dynamically: sessions or parts) -->
+      <!-- Content Breakdown (populated dynamically: chapters, sessions or parts) -->
       <section class="course-section">
         <h2 class="section-title">محتوى الكورس</h2>
         <div id="courseContentBreakdown" class="course-breakdown"></div>
@@ -191,6 +290,234 @@
   <script type="module">
     import { getCourseById } from './data/courses.js';
 
+    /* =====================================================
+       فصول الكورس (بتظهر بدل "محتوى الكورس" القديم)
+       - الكورسات اللي ليها فصول: غيّر القايمة دي حسب معرّفات الكورسات عندك
+       - الفصل الأول حقيقي، والفصول 2 و3 و4 وهمية (placeholder: true)
+       - المحاضرات 2 و3 و4 لينكاتها وهمية (PLACEHOLD..)؛ استبدلها بالروابط الحقيقية
+       ===================================================== */
+    const COURSES_WITH_CHAPTERS = ['second-secondary-term1'];
+
+    const VIDEO_TITLES = [
+      'شرح الدرس',
+      'حل أسئلة كتاب الفايز',
+      'تثبيت أقوى 50 سؤال',
+      'حل أسئلة كتاب المبرمج',
+      'حل تمارين كتاب المدرسة',
+      'حل تقييمات الوزارة'
+    ];
+
+    function placeholderLecture(number, name) {
+      return {
+        title: `المحاضرة ${name}`,
+        intro: `محتوى المحاضرة ${name} (لينكات مؤقتة لحد ما تتضاف الفيديوهات الحقيقية).`,
+        videos: VIDEO_TITLES.map((title, i) => ({
+          title: `${title} – المحاضرة ${name} (عنوان مؤقت)`,
+          url: `https://youtu.be/PLACEHOLD${number}${i + 1}`
+        }))
+      };
+    }
+
+    const CHAPTERS = [
+      {
+        title: 'الفصل الأول: تطور تكنولوجيا المعلومات والتحول الاجتماعي',
+        lectures: [
+          {
+            title: 'المحاضرة الأولى',
+            intro: 'في المحاضرة الأولى هنبدأ رحلتنا مع مادة البرمجة والذكاء الاصطناعي، ونتعرف على تطور تكنولوجيا المعلومات ونحل أسئلة الكتاب خطوة بخطوة. اضغط على أي فيديو وذاكر بالترتيب.',
+            videos: [
+              { title: 'حرق منهج البرمجة والذكاء الاصطناعي 🔥 الدرس الأول: تطور تكنولوجيا المعلومات', url: 'https://youtu.be/rW1SRAKBKm0' },
+              { title: 'حل كتاب الفايز 2027 🔥 مادة البرمجة والذكاء الاصطناعي | ثانية ثانوي', url: 'https://youtu.be/xx4oLjTDNJA' },
+              { title: 'تثبيت 1 أقوى 50 سؤال على الدرس الأول | برمجة 2 بكالوريا', url: 'https://youtu.be/rWeUQpHpDf8' },
+              { title: 'حل أسئلة الدرس الأول 🔥 من كتاب المبرمج | برمجة وذكاء اصطناعي | أقوى مراجعة', url: 'https://youtu.be/iLz0rEaGdq8' },
+              { title: 'حل تمارين الدرس الأول من كتاب المدرسة | تطور تكنولوجيا المعلومات والتحول الاجتماعي | برمجة وذكاء اصطناعي', url: 'https://youtu.be/HPNh1mXIXXM' },
+              { title: 'حل تقييمات الوزارة على الدرس الأول | برمجة وذكاء اصطناعي | ثانية بكالوريا', url: 'https://youtu.be/y__wU-V49PM' }
+            ]
+          },
+          placeholderLecture(2, 'الثانية'),
+          placeholderLecture(3, 'الثالثة'),
+          placeholderLecture(4, 'الرابعة')
+        ]
+      },
+      { title: 'الفصل الثاني: الأمن السيبراني', placeholder: true },
+      { title: 'الفصل الثالث: تصميم المواقع', placeholder: true },
+      { title: 'الفصل الرابع: تطوير المواقع', placeholder: true }
+    ];
+
+    /* ===== أدوات بناء العناصر ===== */
+    function el(tag, className, text) {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text) node.textContent = text;
+      return node;
+    }
+
+    function makeSummary(className, title, badgeText) {
+      const summary = el('summary');
+      const label = el('span', className, title);
+      if (badgeText) label.appendChild(el('span', 'chapter__soon', badgeText));
+      summary.appendChild(label);
+      summary.appendChild(el('span', 'chapter__arrow'));
+      return summary;
+    }
+
+    /* ===== مشغل الفيديو الداخلي (مشغل واحد بيتغير محتواه) ===== */
+    const ALLOWED_HOSTS = [
+      'youtu.be', 'youtube.com', 'www.youtube.com', 'm.youtube.com',
+      'youtube-nocookie.com', 'www.youtube-nocookie.com'
+    ];
+    const VIDEO_ID_PATTERN = /^[A-Za-z0-9_-]{11}$/;
+
+    function extractVideoId(url) {
+      let parsed;
+      try { parsed = new URL(url); } catch (e) { return null; }
+      if (!ALLOWED_HOSTS.includes(parsed.hostname)) return null;
+
+      const parts = parsed.pathname.split('/').filter(Boolean);
+      let id = null;
+      if (parsed.hostname === 'youtu.be') id = parts[0];
+      else if (['embed', 'shorts', 'live'].includes(parts[0])) id = parts[1];
+      else if (parts[0] === 'watch') id = parsed.searchParams.get('v');
+
+      return id && VIDEO_ID_PATTERN.test(id) ? id : null;
+    }
+
+    function buildEmbedUrl(videoId) {
+      let url = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+      if (location.protocol === 'https:' || location.protocol === 'http:') {
+        url += `&origin=${encodeURIComponent(location.origin)}`;
+      }
+      return url;
+    }
+
+    function createPlayerBox() {
+      const box = el('section', 'ch-player');
+      box.hidden = true;
+      box.setAttribute('aria-live', 'polite');
+
+      const head = el('div', 'ch-player__head');
+      const title = el('h3', 'ch-player__title');
+      const closeBtn = el('button', 'btn btn--outline btn--sm', 'إغلاق المشغل ✕');
+      closeBtn.type = 'button';
+      head.append(title, closeBtn);
+
+      const frame = el('div', 'ch-player__frame');
+      const soon = el('div', 'ch-player__soon', 'الفيديو ده هيتضاف قريباً إن شاء الله');
+      soon.hidden = true;
+      frame.appendChild(soon);
+
+      const note = el('p', 'ch-player__note',
+        location.protocol === 'file:'
+          ? 'الصفحة مفتوحة كملف على الجهاز، وYouTube بيرفض التشغيل كده. شغّلها من الموقع المنشور.'
+          : 'لو الفيديو مش بيشتغل هنا، ممكن يكون التضمين متوقف في إعدادات الفيديو على YouTube.');
+
+      box.append(head, frame, note);
+
+      let iframe = null;
+      let activeItem = null;
+
+      function play(url, videoTitle, item) {
+        const videoId = extractVideoId(url);
+        if (!videoId) return;
+
+        if (!iframe) {
+          iframe = document.createElement('iframe');
+          iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen');
+          iframe.setAttribute('allowfullscreen', '');
+          iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+          iframe.setAttribute('title', 'مشغل فيديو جلال أكاديمي');
+          frame.appendChild(iframe);
+        }
+
+        const isPlaceholder = videoId.startsWith('PLACEHOLD');
+        soon.hidden = !isPlaceholder;
+        iframe.hidden = isPlaceholder;
+        iframe.src = isPlaceholder ? 'about:blank' : buildEmbedUrl(videoId);
+
+        title.textContent = videoTitle;
+        box.hidden = false;
+
+        if (activeItem) activeItem.classList.remove('is-active');
+        activeItem = item;
+        if (item) item.classList.add('is-active');
+
+        box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      function close() {
+        if (iframe) iframe.src = 'about:blank';
+        box.hidden = true;
+        if (activeItem) activeItem.classList.remove('is-active');
+        activeItem = null;
+      }
+
+      closeBtn.addEventListener('click', close);
+      return { box, play };
+    }
+
+    /* ===== بناء الفصول ===== */
+    function makeVideoItem(video, number, player) {
+      const item = el('div', 'video-item');
+      item.appendChild(el('div', 'video-item__num', String(number)));
+
+      const info = el('div', 'video-item__info');
+      info.appendChild(el('h4', 'video-item__title', video.title));
+      const link = el('a', 'video-item__link', video.url);
+      link.href = video.url;
+      info.appendChild(link);
+      item.appendChild(info);
+
+      const watch = el('a', 'btn btn--primary btn--sm', 'مشاهدة');
+      watch.href = video.url;
+      item.appendChild(watch);
+
+      // الرابط وزرار «مشاهدة» بيشغّلوا الفيديو جوه الصفحة (من غير تاب جديدة)
+      [link, watch].forEach((a) => {
+        a.addEventListener('click', (event) => {
+          event.preventDefault();
+          player.play(video.url, video.title, item);
+        });
+      });
+      return item;
+    }
+
+    function makeLecture(lecture, open, player) {
+      const details = el('details', 'lecture');
+      details.open = open;
+      details.appendChild(makeSummary('lecture__title', lecture.title));
+
+      const body = el('div', 'lecture__body');
+      if (lecture.intro) body.appendChild(el('p', 'lecture__intro', lecture.intro));
+      lecture.videos.forEach((video, i) => body.appendChild(makeVideoItem(video, i + 1, player)));
+      details.appendChild(body);
+      return details;
+    }
+
+    function makeChapter(chapter, open, player) {
+      const details = el('details', 'chapter');
+      details.open = open;
+      details.appendChild(makeSummary('chapter__title', chapter.title, chapter.placeholder ? 'قريباً' : ''));
+
+      const body = el('div', 'chapter__body');
+      if (chapter.placeholder) {
+        body.appendChild(el('p', 'chapter__soon-box', 'محتوى الفصل ده هيتضاف قريباً إن شاء الله.'));
+      } else {
+        chapter.lectures.forEach((lecture, i) => body.appendChild(makeLecture(lecture, i === 0, player)));
+      }
+      details.appendChild(body);
+      return details;
+    }
+
+    function renderChapters(container) {
+      const wrap = el('div', 'chapters-wrap');
+      const player = createPlayerBox();
+      const chapters = el('div', 'chapters');
+      CHAPTERS.forEach((chapter, i) => chapters.appendChild(makeChapter(chapter, i === 0, player)));
+      wrap.append(player.box, chapters);
+      container.appendChild(wrap);
+    }
+
+    /* ===== عرض بيانات الكورس ===== */
     const params = new URLSearchParams(window.location.search);
     const courseId = params.get('course');
     const course = courseId ? getCourseById(courseId) : null;
@@ -222,37 +549,42 @@
       );
       document.getElementById('whatsappConfirmLink').href = `https://wa.me/201038639818?text=${waMessage}`;
 
-      // Render content breakdown — supports both "sessions" and "parts" structures
       const breakdownEl = document.getElementById('courseContentBreakdown');
 
-      if (course.sessions) {
-        const list = document.createElement('ul');
-        list.className = 'breakdown-list';
-        list.innerHTML = `
-          <li class="breakdown-list__item">
-            <span class="breakdown-list__count">${course.stats.sessionsCount}</span>
-            <span>حصة، كل حصة فيها امتحان، فيديو شرح، فيديو حل، ملف شرح، وملف حل</span>
-          </li>`;
-        breakdownEl.appendChild(list);
-      }
+      if (COURSES_WITH_CHAPTERS.includes(courseId)) {
+        // الكورسات اللي ليها فصول: 4 ليبلات للفصول
+        renderChapters(breakdownEl);
+      } else {
+        // باقي الكورسات: نفس العرض القديم (حصص أو أجزاء)
+        if (course.sessions) {
+          const list = document.createElement('ul');
+          list.className = 'breakdown-list';
+          list.innerHTML = `
+            <li class="breakdown-list__item">
+              <span class="breakdown-list__count">${course.stats.sessionsCount}</span>
+              <span>حصة، كل حصة فيها امتحان، فيديو شرح، فيديو حل، ملف شرح، وملف حل</span>
+            </li>`;
+          breakdownEl.appendChild(list);
+        }
 
-      if (course.parts) {
-        const list = document.createElement('ul');
-        list.className = 'breakdown-list';
-        course.parts.forEach((part) => {
-          const item = document.createElement('li');
-          item.className = 'breakdown-list__item';
-          let countLabel = '';
-          if (part.videosCount) countLabel += `${part.videosCount} فيديو `;
-          if (part.filesCount) countLabel += `+ ${part.filesCount} ملف `;
-          if (part.sessionsCount) countLabel += `${part.sessionsCount} حصة `;
-          item.innerHTML = `
-            <span class="breakdown-list__count">${countLabel.trim()}</span>
-            <span>${part.titleAr}</span>
-          `;
-          list.appendChild(item);
-        });
-        breakdownEl.appendChild(list);
+        if (course.parts) {
+          const list = document.createElement('ul');
+          list.className = 'breakdown-list';
+          course.parts.forEach((part) => {
+            const item = document.createElement('li');
+            item.className = 'breakdown-list__item';
+            let countLabel = '';
+            if (part.videosCount) countLabel += `${part.videosCount} فيديو `;
+            if (part.filesCount) countLabel += `+ ${part.filesCount} ملف `;
+            if (part.sessionsCount) countLabel += `${part.sessionsCount} حصة `;
+            item.innerHTML = `
+              <span class="breakdown-list__count">${countLabel.trim()}</span>
+              <span>${part.titleAr}</span>
+            `;
+            list.appendChild(item);
+          });
+          breakdownEl.appendChild(list);
+        }
       }
     }
   </script>
