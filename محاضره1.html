@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>جلال أكاديمي - المحاضرة الأولى</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f3f2ef;
+    --panel:#ffffff;
+    --panel-dark:#faf9f7;
+    --blue:#d9480f;
+    --cyan:#d9480f;
+    --text:#222222;
+    --muted:#666666;
+    --line:#dcd8d0;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:"Tajawal","Segoe UI",Tahoma,Arial,sans-serif;
+    background:var(--bg); color:var(--text);
+    padding:28px 14px; line-height:1.7;
+  }
+  .lecture{
+    max-width:760px; margin:0 auto;
+    background:var(--panel); border:1px solid var(--line); border-radius:8px;
+  }
+  .lecture > summary{
+    list-style:none; cursor:pointer; padding:18px 20px;
+    background:var(--blue); border-bottom:3px solid #a63a0b;
+    border-radius:8px 8px 0 0;
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+  }
+  .lecture:not([open]) > summary{border-radius:8px}
+  .lecture > summary::-webkit-details-marker{display:none}
+  .label{font-size:1.25rem;font-weight:800;color:#fff}
+  .arrow{
+    width:11px;height:11px;flex-shrink:0;
+    border-left:3px solid #fff;border-bottom:3px solid #fff;
+    transform:rotate(-45deg);margin-top:-4px;
+  }
+  .lecture[open] .arrow{transform:rotate(135deg);margin-top:4px}
+  .intro{
+    padding:16px 20px; color:var(--muted); font-size:1rem;
+    border-bottom:1px solid var(--line);
+  }
+
+  /* مشغل الفيديو */
+  .player-box{
+    margin:12px 14px 0; padding:12px;
+    background:var(--panel-dark); border:1px solid var(--line);
+    border-top:3px solid var(--cyan); border-radius:6px;
+  }
+  .player-box[hidden]{display:none}
+  .player-head{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:10px; margin-bottom:10px;
+  }
+  .player-title{font-size:1.02rem;font-weight:700;line-height:1.7}
+  .close-btn{
+    background:#fff;color:var(--cyan);border:1px solid var(--cyan);
+    font-family:inherit;font-weight:700;font-size:.9rem;
+    padding:5px 12px;border-radius:4px;cursor:pointer;white-space:nowrap;
+  }
+  .close-btn:hover{background:var(--cyan);color:#fff}
+  .player-frame{
+    position:relative; width:100%; aspect-ratio:16/9;
+    background:#000; border-radius:4px; overflow:hidden;
+  }
+  .player-frame iframe{
+    position:absolute; inset:0; width:100%; height:100%; border:0;
+  }
+  .player-note{margin-top:8px;color:var(--muted);font-size:.85rem}
+
+  .slots{padding:12px 14px 14px; display:grid; gap:10px}
+  .slot{
+    background:var(--panel-dark); border:1px solid var(--line);
+    border-right:4px solid var(--cyan); border-radius:6px;
+    padding:12px 14px; display:flex; align-items:center; gap:12px;
+  }
+  .slot:hover{background:#fff4ec}
+  .slot.active{background:#fff4ec;border-color:var(--cyan)}
+  .num{
+    min-width:30px;height:30px;border-radius:4px;flex-shrink:0;
+    background:var(--bg);border:1px solid var(--line);color:var(--cyan);
+    font-weight:700;display:grid;place-items:center;
+  }
+  .info{flex:1;min-width:0}
+  .info h3{font-size:1rem;font-weight:700;line-height:1.7;margin-bottom:2px}
+  .info a{color:var(--muted);font-size:.82rem;text-decoration:none;word-break:break-all;direction:ltr;display:inline-block}
+  .info a:hover{color:var(--cyan)}
+  .watch{
+    background:var(--cyan);color:#fff;font-weight:700;
+    padding:7px 14px;border-radius:4px;text-decoration:none;
+    font-size:.92rem;white-space:nowrap;
+  }
+  .watch:hover{background:#b83a0a}
+  .contact{
+    max-width:760px;margin:14px auto 0;text-align:center;
+    color:var(--muted);font-size:.95rem;
+  }
+  .contact a{color:var(--cyan);font-weight:700;text-decoration:none;direction:ltr;display:inline-block}
+  @media(max-width:520px){
+    .slot{flex-wrap:wrap}
+    .watch{width:100%;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<details class="lecture" open>
+  <summary>
+    <span class="label">المحاضرة الأولى – البرمجة والذكاء الاصطناعي</span>
+    <span class="arrow"></span>
+  </summary>
+
+  <p class="intro">
+    في المحاضرة الأولى هنبدأ رحلتنا مع مادة البرمجة والذكاء الاصطناعي، ونتعرف على تطور تكنولوجيا المعلومات
+    ونحل أسئلة الكتاب خطوة بخطوة. اضغط على أي فيديو من الفيديوهات تحت وذاكر بالترتيب.
+  </p>
+
+  <!-- مشغل الفيديو الداخلي: مشغل واحد فقط بيتغير محتواه -->
+  <section class="player-box" id="playerBox" hidden aria-live="polite">
+    <div class="player-head">
+      <h2 class="player-title" id="playerTitle"></h2>
+      <button type="button" class="close-btn" id="closePlayer">إغلاق المشغل ✕</button>
+    </div>
+    <div class="player-frame" id="playerFrame"></div>
+    <p class="player-note" id="playerNote">لو الفيديو مش بيشتغل هنا، ممكن يكون التضمين متوقف في إعدادات الفيديو على YouTube.</p>
+  </section>
+
+  <div class="slots">
+
+    <div class="slot">
+      <div class="num">1</div>
+      <div class="info">
+        <h3>حرق منهج البرمجة والذكاء الاصطناعي 🔥 الدرس الأول: تطور تكنولوجيا المعلومات</h3>
+        <a class="video-link" href="https://youtu.be/rW1SRAKBKm0">https://youtu.be/rW1SRAKBKm0</a>
+      </div>
+      <a class="watch video-link" href="https://youtu.be/rW1SRAKBKm0">مشاهدة</a>
+    </div>
+
+    <div class="slot">
+      <div class="num">2</div>
+      <div class="info">
+        <h3>حل كتاب الفايز 2027 🔥 مادة البرمجة والذكاء الاصطناعي | ثانية ثانوي</h3>
+        <a class="video-link" href="https://youtu.be/xx4oLjTDNJA">https://youtu.be/xx4oLjTDNJA</a>
+      </div>
+      <a class="watch video-link" href="https://youtu.be/xx4oLjTDNJA">مشاهدة</a>
+    </div>
+
+    <div class="slot">
+      <div class="num">3</div>
+      <div class="info">
+        <h3>تثبيت 1 أقوى 50 سؤال على الدرس الأول | برمجة 2 بكالوريا</h3>
+        <a class="video-link" href="https://youtu.be/rWeUQpHpDf8">https://youtu.be/rWeUQpHpDf8</a>
+      </div>
+      <a class="watch video-link" href="https://youtu.be/rWeUQpHpDf8">مشاهدة</a>
+    </div>
+
+    <div class="slot">
+      <div class="num">4</div>
+      <div class="info">
+        <h3>حل أسئلة الدرس الأول 🔥 من كتاب المبرمج | برمجة وذكاء اصطناعي | أقوى مراجعة</h3>
+        <a class="video-link" href="https://youtu.be/iLz0rEaGdq8">https://youtu.be/iLz0rEaGdq8</a>
+      </div>
+      <a class="watch video-link" href="https://youtu.be/iLz0rEaGdq8">مشاهدة</a>
+    </div>
+
+    <div class="slot">
+      <div class="num">5</div>
+      <div class="info">
+        <h3>حل تمارين الدرس الأول من كتاب المدرسة | تطور تكنولوجيا المعلومات والتحول الاجتماعي | برمجة وذكاء اصطناعي</h3>
+        <a class="video-link" href="https://youtu.be/HPNh1mXIXXM">https://youtu.be/HPNh1mXIXXM</a>
+      </div>
+      <a class="watch video-link" href="https://youtu.be/HPNh1mXIXXM">مشاهدة</a>
+    </div>
+
+    <div class="slot">
+      <div class="num">6</div>
+      <div class="info">
+        <h3>حل تقييمات الوزارة على الدرس الأول | برمجة وذكاء اصطناعي | ثانية بكالوريا</h3>
+        <a class="video-link" href="https://youtu.be/y__wU-V49PM">https://youtu.be/y__wU-V49PM</a>
+      </div>
+      <a class="watch video-link" href="https://youtu.be/y__wU-V49PM">مشاهدة</a>
+    </div>
+
+  </div>
+</details>
+
+<p class="contact">للحجز والاستفسار واتساب: <a href="https://wa.me/201202590556" target="_blank" rel="noopener">01202590556</a></p>
+
+<script>
+(function () {
+  "use strict";
+
+  var ALLOWED_HOSTS = [
+    "youtu.be",
+    "youtube.com", "www.youtube.com", "m.youtube.com",
+    "youtube-nocookie.com", "www.youtube-nocookie.com"
+  ];
+  var VIDEO_ID_PATTERN = /^[A-Za-z0-9_-]{11}$/;
+
+  var playerBox   = document.getElementById("playerBox");
+  var playerTitle = document.getElementById("playerTitle");
+  var playerFrame = document.getElementById("playerFrame");
+  var closeButton = document.getElementById("closePlayer");
+  var player = null;          // iframe واحد بيتعاد استخدامه
+  var activeSlot = null;
+
+  // استخراج معرّف الفيديو من أي رابط YouTube معروف، أو null لو الرابط غير صالح
+  function extractVideoId(url) {
+    var parsed;
+    try { parsed = new URL(url); } catch (e) { return null; }
+    if (ALLOWED_HOSTS.indexOf(parsed.hostname) === -1) return null;
+
+    var id = null;
+    var parts = parsed.pathname.split("/").filter(Boolean);
+
+    if (parsed.hostname === "youtu.be") {
+      id = parts[0];
+    } else if (parts[0] === "embed" || parts[0] === "shorts" || parts[0] === "live") {
+      id = parts[1];
+    } else if (parts[0] === "watch") {
+      id = parsed.searchParams.get("v");
+    }
+    return id && VIDEO_ID_PATTERN.test(id) ? id : null;
+  }
+
+  function buildEmbedUrl(videoId) {
+    var url = "https://www.youtube-nocookie.com/embed/" + videoId + "?autoplay=1&rel=0&modestbranding=1&playsinline=1";
+    // YouTube بيحتاج يعرف دومين الصفحة؛ بنبعته بس لو الصفحة شغالة على http/https
+    if (location.protocol === "https:" || location.protocol === "http:") {
+      url += "&origin=" + encodeURIComponent(location.origin);
+    }
+    return url;
+  }
+
+  // لو الصفحة مفتوحة كملف على الجهاز، YouTube هيرفض التشغيل (خطأ 153)
+  if (location.protocol === "file:") {
+    document.getElementById("playerNote").textContent =
+      "الصفحة مفتوحة كملف على الجهاز، وYouTube بيرفض التشغيل كده. ارفع الصفحة على موقعك (Netlify) أو شغلها من localhost وهتشتغل.";
+  }
+
+  function createPlayer() {
+    var frame = document.createElement("iframe");
+    frame.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen");
+    frame.setAttribute("allowfullscreen", "");
+    frame.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+    frame.setAttribute("title", "مشغل فيديو جلال أكاديمي");
+    playerFrame.appendChild(frame);
+    return frame;
+  }
+
+  function playVideo(url, title, slot) {
+    var videoId = extractVideoId(url);
+    if (!videoId) return;
+
+    if (!player) player = createPlayer();
+    player.src = buildEmbedUrl(videoId);
+    playerTitle.textContent = title;
+    playerBox.hidden = false;
+
+    if (activeSlot) activeSlot.classList.remove("active");
+    activeSlot = slot;
+    if (slot) slot.classList.add("active");
+
+    playerBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  function closePlayer() {
+    if (player) player.src = "about:blank";   // إيقاف الصوت والفيديو
+    playerBox.hidden = true;
+    if (activeSlot) activeSlot.classList.remove("active");
+    activeSlot = null;
+  }
+
+  // كل روابط الفيديوهات وأزرار «مشاهدة» بتستخدم نفس الآلية
+  document.querySelectorAll("a.video-link").forEach(function (link) {
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+      var slot = link.closest(".slot");
+      var heading = slot ? slot.querySelector("h3") : null;
+      playVideo(link.getAttribute("href"), heading ? heading.textContent : "", slot);
+    });
+  });
+
+  closeButton.addEventListener("click", closePlayer);
+})();
+</script>
+
+</body>
+</html>
