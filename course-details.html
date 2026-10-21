@@ -116,6 +116,53 @@
       .ch-player{position:sticky;top:76px;z-index:2}
     }
   </style>
+
+  <!-- ============ تنسيق نظام أكواد الاشتراك (شارة القفل + نافذة إدخال الكود) ============ -->
+  <style>
+    /* شارة "مقفل" جنب عنوان الفصل */
+    .chapter__lock{
+      font-size:.75em;font-weight:600;padding:2px 10px;border-radius:999px;
+      border:1px solid var(--ch-accent);color:var(--ch-accent);
+      white-space:nowrap;
+    }
+
+    /* نافذة إدخال الكود */
+    .code-modal{
+      position:fixed;inset:0;z-index:9999;
+      display:flex;align-items:center;justify-content:center;
+      padding:16px;background:rgba(0,0,0,.55);
+    }
+    .code-modal[hidden]{display:none}
+    .code-modal__panel{
+      width:100%;max-width:420px;box-sizing:border-box;
+      padding:22px 20px;border-radius:14px;
+      border:1px solid rgba(128,128,128,.35);
+      box-shadow:0 18px 50px rgba(0,0,0,.35);
+      background:#fff;color:#111;
+      font-family:inherit;
+    }
+    .code-modal__title{margin:0 0 6px;font-size:1.15em;font-weight:700;line-height:1.7}
+    .code-modal__chapter{margin:0 0 14px;font-size:.92em;line-height:1.8;opacity:.85}
+    .code-modal__label{display:block;margin-bottom:6px;font-size:.9em;font-weight:600}
+    .code-modal__input{
+      width:100%;box-sizing:border-box;min-height:50px;padding:10px 14px;
+      font-family:'JetBrains Mono',ui-monospace,monospace;font-size:1.4em;letter-spacing:.35em;
+      text-align:center;direction:ltr;border-radius:10px;
+      border:2px solid rgba(128,128,128,.5);background:transparent;color:inherit;
+    }
+    .code-modal__input:focus{outline:none;border-color:var(--color-primary,#2f6fed);box-shadow:0 0 0 3px rgba(47,111,237,.25)}
+    .code-modal__input.is-invalid{border-color:#d93025}
+    .code-modal__error{
+      min-height:1.6em;margin:8px 0 0;font-size:.9em;font-weight:600;line-height:1.6;color:#d93025;
+    }
+    .code-modal__error:empty{min-height:0;margin:0}
+    .code-modal__hint{margin:10px 0 0;font-size:.82em;line-height:1.7;opacity:.75}
+    .code-modal__actions{display:flex;gap:10px;margin-top:16px}
+    .code-modal__actions .btn{flex:1;justify-content:center;min-height:46px}
+    @media (max-width:420px){
+      .code-modal__actions{flex-direction:column-reverse}
+    }
+  </style>
 </head>
 <body>
 
@@ -298,6 +345,133 @@
        ===================================================== */
     const COURSES_WITH_CHAPTERS = ['second-secondary-term1'];
 
+    /* =====================================================
+       أكواد اشتراك الفصول (120 كود: 30 لكل فصل)
+       - كل فصل ليه مجموعة أكواد خاصة بيه، وكود فصل مايفتحش فصل تاني.
+       - الأكواد نصوص (Strings) من 6 أرقام بالظبط.
+       - لتعديل كود: غيّره في مجموعة الفصل المناسب (مفتاح الفصل بيتربط بخاصية key في CHAPTERS تحت).
+       - تنبيه: الأكواد هنا على جهة المتصفح، يعني أي حد يفتح الكود المصدري يقدر يشوفها.
+         دي حماية بسيطة مش حماية تجارية (اقرأ الملخص الأمني).
+       ===================================================== */
+    const CHAPTER_CODES = Object.freeze({
+      chapter1: Object.freeze([
+        '900153', '373549', '136827', '196192', '560668',
+        '547845', '140328', '578256', '728343', '135205',
+        '521166', '483408', '278289', '127778', '507417',
+        '223194', '718460', '200766', '718051', '946869',
+        '483246', '787970', '966385', '335475', '456984',
+        '482434', '978116', '563757', '834222', '709646'
+      ]),
+      chapter2: Object.freeze([
+        '579935', '690127', '615305', '940188', '454030',
+        '141874', '705784', '398169', '829214', '646535',
+        '775340', '446551', '507607', '515713', '837348',
+        '623784', '643012', '400986', '476233', '452151',
+        '826433', '436153', '804041', '646025', '819786',
+        '438762', '890731', '559874', '537236', '317481'
+      ]),
+      chapter3: Object.freeze([
+        '451262', '772706', '661138', '495482', '457648',
+        '806529', '653844', '569211', '338311', '494867',
+        '262806', '748609', '878972', '997418', '921567',
+        '648533', '730633', '489092', '921217', '582312',
+        '973281', '634731', '706868', '104695', '396594',
+        '663038', '777058', '594330', '129893', '192555'
+      ]),
+      chapter4: Object.freeze([
+        '638483', '349309', '647327', '666552', '245684',
+        '337561', '938517', '168236', '411056', '971404',
+        '974475', '694184', '449778', '393124', '150240',
+        '454838', '696379', '909450', '396274', '310233',
+        '514219', '299435', '298511', '417417', '948837',
+        '267026', '581502', '168920', '170934', '458077'
+      ])
+    });
+
+    const CODE_LENGTH = 6;
+    const CODE_PATTERN = /^\d{6}$/;
+    const CODES_PER_CHAPTER = 30;
+
+    // مجموعات (Set) للبحث السريع، بتتبني مرة واحدة
+    const CODE_SETS = new Map(
+      Object.entries(CHAPTER_CODES).map(([key, list]) => [key, new Set(list)])
+    );
+
+    /* فحص سلامة بيانات الأكواد (30 في كل فصل، 6 أرقام، ومفيش تكرار بين الفصول) */
+    function validateCodeData() {
+      const seen = new Map();
+      const problems = [];
+      Object.entries(CHAPTER_CODES).forEach(([key, list]) => {
+        if (list.length !== CODES_PER_CHAPTER) {
+          problems.push(`${key}: عدد الأكواد ${list.length} بدل ${CODES_PER_CHAPTER}`);
+        }
+        if (CODE_SETS.get(key).size !== list.length) {
+          problems.push(`${key}: فيه أكواد مكررة جوه نفس الفصل`);
+        }
+        list.forEach((code) => {
+          if (typeof code !== 'string' || !CODE_PATTERN.test(code)) {
+            problems.push(`${key}: الكود ${code} مش 6 أرقام`);
+          }
+          if (seen.has(code)) {
+            problems.push(`الكود ${code} مكرر بين ${seen.get(code)} و ${key}`);
+          } else {
+            seen.set(code, key);
+          }
+        });
+      });
+      if (problems.length) console.error('[أكواد الاشتراك] مشاكل في البيانات:', problems);
+      return problems.length === 0;
+    }
+    validateCodeData();
+
+    /* تحويل الأرقام العربية/الفارسية لأرقام إنجليزية وشيل أي حاجة مش رقم */
+    function normalizeCode(raw) {
+      return String(raw == null ? '' : raw)
+        .replace(/[\u0660-\u0669]/g, (d) => String(d.charCodeAt(0) - 0x0660))
+        .replace(/[\u06F0-\u06F9]/g, (d) => String(d.charCodeAt(0) - 0x06F0))
+        .replace(/\D/g, '');
+    }
+
+    function isValidCode(chapterKey, code) {
+      const set = CODE_SETS.get(chapterKey);
+      return Boolean(set) && CODE_PATTERN.test(code) && set.has(code);
+    }
+
+    /* =====================================================
+       حالة الفصول المفتوحة خلال الجلسة الحالية
+       - بنحفظ مفاتيح الفصول بس (مش الأكواد) في sessionStorage
+       - لو sessionStorage مش متاح (مثلاً file:// أو وضع خاص) الكود بيشتغل عادي بالذاكرة
+       ===================================================== */
+    const unlockedChapters = new Set();
+    const STORAGE_KEY = 'galalAcademy.unlockedChapters:' +
+      (new URLSearchParams(window.location.search).get('course') || '');
+
+    function loadUnlocked() {
+      try {
+        const saved = JSON.parse(window.sessionStorage.getItem(STORAGE_KEY) || '[]');
+        if (Array.isArray(saved)) {
+          saved.forEach((key) => { if (CODE_SETS.has(key)) unlockedChapters.add(key); });
+        }
+      } catch (e) { /* تجاهل */ }
+    }
+
+    function saveUnlocked() {
+      try {
+        window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify([...unlockedChapters]));
+      } catch (e) { /* تجاهل */ }
+    }
+
+    function isUnlocked(chapterKey) {
+      return unlockedChapters.has(chapterKey);
+    }
+
+    function unlockChapter(chapterKey) {
+      unlockedChapters.add(chapterKey);
+      saveUnlocked();
+    }
+
+    loadUnlocked();
+
     const VIDEO_TITLES = [
       'شرح الدرس',
       'حل أسئلة كتاب الفايز',
@@ -318,8 +492,10 @@
       };
     }
 
+    // key = مفتاح مجموعة الأكواد الخاصة بالفصل في CHAPTER_CODES
     const CHAPTERS = [
       {
+        key: 'chapter1',
         title: 'الفصل الأول: تطور تكنولوجيا المعلومات والتحول الاجتماعي',
         lectures: [
           {
@@ -339,9 +515,9 @@
           placeholderLecture(4, 'الرابعة')
         ]
       },
-      { title: 'الفصل الثاني: الأمن السيبراني', placeholder: true },
-      { title: 'الفصل الثالث: تصميم المواقع', placeholder: true },
-      { title: 'الفصل الرابع: تطوير المواقع', placeholder: true }
+      { key: 'chapter2', title: 'الفصل الثاني: الأمن السيبراني', placeholder: true },
+      { key: 'chapter3', title: 'الفصل الثالث: تصميم المواقع', placeholder: true },
+      { key: 'chapter4', title: 'الفصل الرابع: تطوير المواقع', placeholder: true }
     ];
 
     /* ===== أدوات بناء العناصر ===== */
@@ -359,6 +535,177 @@
       summary.appendChild(label);
       summary.appendChild(el('span', 'chapter__arrow'));
       return summary;
+    }
+
+    /* ===== نافذة إدخال كود الاشتراك (نافذة واحدة بس بتتعمل مرة واحدة وبيعاد استخدامها) ===== */
+    let codeModalInstance = null;
+
+    function getCodeModal() {
+      if (codeModalInstance) return codeModalInstance;
+
+      const overlay = el('div', 'code-modal');
+      overlay.hidden = true;
+
+      const panel = el('form', 'code-modal__panel');
+      panel.setAttribute('role', 'dialog');
+      panel.setAttribute('aria-modal', 'true');
+      panel.setAttribute('aria-labelledby', 'codeModalTitle');
+      panel.setAttribute('novalidate', '');
+
+      const title = el('h3', 'code-modal__title', 'كود الاشتراك في الفصل');
+      title.id = 'codeModalTitle';
+      const chapterName = el('p', 'code-modal__chapter');
+
+      const label = el('label', 'code-modal__label', 'اكتب كود الاشتراك (6 أرقام)');
+      label.setAttribute('for', 'codeModalInput');
+
+      const input = el('input', 'code-modal__input');
+      input.id = 'codeModalInput';
+      input.type = 'text';
+      input.inputMode = 'numeric';
+      input.autocomplete = 'off';
+      input.maxLength = CODE_LENGTH;
+      input.placeholder = '••••••';
+      input.setAttribute('aria-describedby', 'codeModalError');
+      input.setAttribute('dir', 'ltr');
+
+      const error = el('p', 'code-modal__error');
+      error.id = 'codeModalError';
+      error.setAttribute('role', 'alert');
+
+      const hint = el('p', 'code-modal__hint',
+        'لو لسه ماشتركتش، اتبع خطوات الاشتراك تحت في الصفحة وهيوصلك الكود بعد تأكيد الدفع.');
+
+      const actions = el('div', 'code-modal__actions');
+      const submitBtn = el('button', 'btn btn--primary', 'تأكيد');
+      submitBtn.type = 'submit';
+      const cancelBtn = el('button', 'btn btn--outline', 'إلغاء');
+      cancelBtn.type = 'button';
+      actions.append(submitBtn, cancelBtn);
+
+      panel.append(title, chapterName, label, input, error, hint, actions);
+      overlay.appendChild(panel);
+      document.body.appendChild(overlay);
+
+      let isOpen = false;
+      let validator = null;
+      let finish = null;
+      let previouslyFocused = null;
+
+      function showError(message) {
+        error.textContent = message;
+        input.classList.add('is-invalid');
+      }
+
+      function clearError() {
+        error.textContent = '';
+        input.classList.remove('is-invalid');
+      }
+
+      function close(result) {
+        if (!isOpen) return;
+        isOpen = false;
+        overlay.hidden = true;
+        input.value = '';
+        clearError();
+        const done = finish;
+        finish = null;
+        validator = null;
+        if (previouslyFocused && typeof previouslyFocused.focus === 'function') {
+          try { previouslyFocused.focus(); } catch (e) { /* تجاهل */ }
+        }
+        previouslyFocused = null;
+        if (done) done(result);
+      }
+
+      // إدخال الأرقام فقط (بيحوّل الأرقام العربية) وبحد أقصى 6
+      input.addEventListener('input', () => {
+        const cleaned = normalizeCode(input.value).slice(0, CODE_LENGTH);
+        if (input.value !== cleaned) input.value = cleaned;
+        clearError();
+      });
+
+      panel.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const code = normalizeCode(input.value);
+
+        if (code.length === 0) {
+          showError('من فضلك اكتب كود الاشتراك.');
+          input.focus();
+          return;
+        }
+        if (code.length !== CODE_LENGTH) {
+          showError('الكود لازم يكون 6 أرقام بالظبط.');
+          input.focus();
+          return;
+        }
+        if (validator && validator(code)) {
+          close(true);
+          return;
+        }
+        showError('الكود غير صحيح. اتأكد منه وجرّب تاني.');
+        input.select();
+        input.focus();
+      });
+
+      cancelBtn.addEventListener('click', () => close(false));
+
+      // الضغط على الخلفية يقفل النافذة
+      overlay.addEventListener('mousedown', (event) => {
+        if (event.target === overlay) close(false);
+      });
+
+      // Esc للإلغاء + حبس التركيز (Tab) جوه النافذة
+      overlay.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          close(false);
+          return;
+        }
+        if (event.key === 'Tab') {
+          const focusable = [input, submitBtn, cancelBtn];
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          const active = document.activeElement;
+          if (event.shiftKey && active === first) {
+            event.preventDefault();
+            last.focus();
+          } else if (!event.shiftKey && active === last) {
+            event.preventDefault();
+            first.focus();
+          }
+        }
+      });
+
+      codeModalInstance = {
+        isOpen: () => isOpen,
+        // بترجّع Promise: true لو الكود صح، false لو اتلغت العملية
+        ask(chapterTitle, validate) {
+          if (isOpen) return Promise.resolve(false);
+          return new Promise((resolve) => {
+            isOpen = true;
+            finish = resolve;
+            validator = validate;
+            previouslyFocused = document.activeElement;
+            chapterName.textContent = chapterTitle;
+            clearError();
+            input.value = '';
+
+            // نخلي النافذة تاخد لون الصفحة الحالي (فاتح/داكن)
+            try {
+              const bodyStyle = window.getComputedStyle(document.body);
+              const bg = bodyStyle.backgroundColor;
+              const transparent = !bg || bg === 'transparent' || bg === 'rgba(0, 0, 0, 0)';
+              panel.style.background = transparent ? '#ffffff' : bg;
+              panel.style.color = bodyStyle.color || '#111111';
+            } catch (e) { /* تجاهل */ }
+
+            overlay.hidden = false;
+            input.focus();
+          });
+        }
+      };
+      return codeModalInstance;
     }
 
     /* ===== مشغل الفيديو الداخلي (مشغل واحد بيتغير محتواه) ===== */
@@ -493,18 +840,61 @@
       return details;
     }
 
-    function makeChapter(chapter, open, player) {
+    function makeChapter(chapter, player) {
+      const key = chapter.key;
       const details = el('details', 'chapter');
-      details.open = open;
-      details.appendChild(makeSummary('chapter__title', chapter.title, chapter.placeholder ? 'قريباً' : ''));
+      details.dataset.chapterKey = key;
+
+      const summary = makeSummary('chapter__title', chapter.title, chapter.placeholder ? 'قريباً' : '');
+      details.appendChild(summary);
+
+      // شارة القفل (بتتشال بعد إدخال الكود الصحيح)
+      const lockBadge = el('span', 'chapter__lock', '🔒 محتاج كود');
+      summary.firstChild.appendChild(lockBadge);
 
       const body = el('div', 'chapter__body');
       if (chapter.placeholder) {
         body.appendChild(el('p', 'chapter__soon-box', 'محتوى الفصل ده هيتضاف قريباً إن شاء الله.'));
       } else {
+        // أول محاضرة مفتوحة جوه الفصل زي الأصل (الفصل نفسه مقفول لحد ما الكود يتأكد)
         chapter.lectures.forEach((lecture, i) => body.appendChild(makeLecture(lecture, i === 0, player)));
       }
       details.appendChild(body);
+
+      function applyUnlockedState() {
+        lockBadge.hidden = true;
+        lockBadge.remove();
+      }
+
+      // لو الفصل اتفتح قبل كده في نفس الجلسة
+      if (isUnlocked(key)) {
+        applyUnlockedState();
+        details.open = true;
+      } else {
+        details.open = false;
+      }
+
+      // مستمع واحد بس على عنوان الفصل (summary)
+      summary.addEventListener('click', async (event) => {
+        if (isUnlocked(key)) return; // الفصل متفتح: السلوك العادي (فتح/قفل)
+
+        event.preventDefault(); // نمنع الفتح قبل التحقق من الكود
+        const modal = getCodeModal();
+        if (modal.isOpen()) return; // ماتظهرش النافذة مرتين
+
+        const ok = await modal.ask(chapter.title, (code) => isValidCode(key, code));
+        if (ok) {
+          unlockChapter(key);
+          applyUnlockedState();
+          details.open = true;
+        }
+      });
+
+      // حماية إضافية: لو اتفتح الفصل بأي طريقة تانية وهو مقفول، نقفله
+      details.addEventListener('toggle', () => {
+        if (details.open && !isUnlocked(key)) details.open = false;
+      });
+
       return details;
     }
 
@@ -512,7 +902,7 @@
       const wrap = el('div', 'chapters-wrap');
       const player = createPlayerBox();
       const chapters = el('div', 'chapters');
-      CHAPTERS.forEach((chapter, i) => chapters.appendChild(makeChapter(chapter, i === 0, player)));
+      CHAPTERS.forEach((chapter) => chapters.appendChild(makeChapter(chapter, player)));
       wrap.append(player.box, chapters);
       container.appendChild(wrap);
     }
