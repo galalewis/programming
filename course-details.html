@@ -1,1 +1,879 @@
-<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>تفاصيل الكورس | جلال أكاديمي</title><meta name="description" content="تفاصيل الكورس، محتوياته، وخطوات الاشتراك فيه." /><link rel="icon" type="image/png" href="assets/images/brand/favicon.png" /><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" /><link rel="stylesheet" href="css/base.css" /><link rel="stylesheet" href="css/layout.css" /><link rel="stylesheet" href="css/components.css" /><link rel="stylesheet" href="css/themes.css" /><link rel="stylesheet" href="css/pages/courses.css" /><style>.chapters-wrap{ --ch-accent: var(--color-primary, #2f6fed); --ch-border: rgba(128,128,128,.30); --ch-surface: rgba(128,128,128,.07); --ch-muted: rgba(128,128,128,.95); display:grid; gap:14px; min-width:0; } .chapters{display:grid;gap:12px} .chapter{ border:1px solid var(--ch-border); border-radius:12px; background:var(--ch-surface); overflow:hidden; } .chapter > summary, .lecture > summary{ list-style:none; cursor:pointer; min-height:56px; padding:12px 16px; display:flex; align-items:center; justify-content:space-between; gap:10px; font-weight:700; } .chapter > summary::-webkit-details-marker, .lecture > summary::-webkit-details-marker{display:none} .chapter > summary{font-size:1.05em;border-right:5px solid var(--ch-accent)} .chapter[open] > summary{border-bottom:1px solid var(--ch-border)} .chapter__title{display:flex;align-items:center;gap:10px;flex-wrap:wrap} .chapter__soon{ font-size:.75em;font-weight:600;padding:2px 10px;border-radius:999px; border:1px solid var(--ch-border);color:var(--ch-muted); } .chapter__arrow{ width:10px;height:10px;flex-shrink:0;border-left:2.5px solid currentColor;border-bottom:2.5px solid currentColor; transform:rotate(-45deg);margin-top:-4px;color:var(--ch-accent); } details[open] > summary > .chapter__arrow{transform:rotate(135deg);margin-top:4px} .chapter__body{padding:12px;display:grid;gap:10px} .chapter__soon-box{ text-align:center;padding:22px 10px;border:1px dashed var(--ch-border); border-radius:10px;color:var(--ch-muted); } .lecture{border:1px solid var(--ch-border);border-radius:10px;background:transparent;overflow:hidden} .lecture > summary{min-height:50px;font-size:1em} .lecture[open] > summary{border-bottom:1px solid var(--ch-border)} .lecture__body{padding:10px 12px 12px;display:grid;gap:10px} .lecture__intro{color:var(--ch-muted);font-size:.95em} .video-item{ display:flex;align-items:center;gap:12px;padding:12px; border:1px solid var(--ch-border);border-right:4px solid var(--ch-accent); border-radius:10px;background:var(--ch-surface); } .video-item.is-active{outline:2px solid var(--ch-accent);outline-offset:0} .video-item__num{ min-width:32px;height:32px;border-radius:8px;flex-shrink:0;display:grid;place-items:center; border:1px solid var(--ch-border);font-weight:700;color:var(--ch-accent); } .video-item__info{flex:1;min-width:0} .video-item__title{font-size:1em;font-weight:600;line-height:1.7;margin:0} .video-item__link{ display:inline-block;direction:ltr;font-size:.8em;color:var(--ch-muted); text-decoration:none;word-break:break-all; } .video-item__link:hover{color:var(--ch-accent)} .ch-player{ border:1px solid var(--ch-border);border-top:4px solid var(--ch-accent); border-radius:12px;padding:12px;background:var(--ch-surface); } .ch-player[hidden]{display:none} .ch-player__head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px} .ch-player__title{font-size:1.02em;font-weight:700;line-height:1.7;margin:0} .ch-player__frame{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:8px;overflow:hidden} .ch-player__frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0} .ch-player__soon{ position:absolute;inset:0;display:grid;place-items:center;text-align:center; padding:16px;color:#fff;font-weight:700;background:#222; } .ch-player__soon[hidden]{display:none} .ch-player__note{margin:8px 0 0;font-size:.85em;color:var(--ch-muted)} @media (max-width:560px){ .video-item{flex-wrap:wrap} .video-item .btn{width:100%;justify-content:center;min-height:44px} .ch-player__head{flex-direction:column} .ch-player__head .btn{align-self:flex-end} .chapter > summary{padding:12px} } @media (min-width:980px){ .ch-player{position:sticky;top:76px;z-index:2} }</style></head><body><a href="#main-content" class="skip-link">تخطَّ إلى المحتوى الرئيسي</a><header class="site-header" id="siteHeader"><nav class="navbar" aria-label="التنقل الرئيسي"><a href="index.html" class="navbar__brand" aria-label="جلال أكاديمي - الرئيسية"><img src="assets/images/brand/logo.png" alt="جلال أكاديمي" class="navbar__logo" width="40" height="40" /><span class="navbar__name">جلال أكاديمي</span></a><button class="navbar__toggle" id="navToggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="navMenu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button><ul class="navbar__menu" id="navMenu"><li><a href="index.html" class="navbar__link">الرئيسية</a></li><li><a href="courses.html" class="navbar__link is-active">الكورسات</a></li><li><a href="competitions.html" class="navbar__link">المسابقات</a></li><li><a href="leaderboard.html" class="navbar__link">لوحة المتصدرين</a></li><li><a href="about.html" class="navbar__link">من نحن</a></li><li><a href="faq.html" class="navbar__link">الأسئلة الشائعة</a></li><li><a href="contact.html" class="navbar__link">تواصل معنا</a></li></ul><div class="navbar__actions"><button class="theme-toggle" id="themeToggle" aria-label="تبديل الوضع الداكن"><svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg><svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></button><a href="login.html" class="btn btn--ghost btn--sm">تسجيل الدخول</a><a href="register.html" class="btn btn--primary btn--sm">إنشاء حساب</a></div></nav></header><main id="main-content"><div id="courseLoading" class="state-block"><p>بنجهزلك تفاصيل الكورس...</p></div><div id="courseNotFound" class="state-block" hidden><h1 class="section-title">الكورس ده مش موجود</h1><p>ممكن يكون الرابط غلط، أو الكورس اتشال. جرّب ترجع لصفحة الكورسات.</p><a href="courses.html" class="btn btn--primary">رجوع لكل الكورسات</a></div><article id="courseContent" hidden><section class="course-hero"><div class="course-hero__grid"><div class="course-hero__image-wrap"><img id="courseImage" src="" alt="" class="course-hero__image" /><span id="courseGradeBadge" class="course-card__badge"></span></div><div class="course-hero__content"><span class="section-tag">// تفاصيل الكورس</span><h1 id="courseTitle" class="course-hero__title"></h1><p id="courseSubtitle" class="course-hero__subtitle"></p><div class="course-hero__meta"><span id="coursePrice" class="course-hero__price"></span><a href="#enroll" class="btn btn--primary btn--lg">اشترك دلوقتي</a></div></div></div></section><section class="course-section"><h2 class="section-title">عن الكورس</h2><p id="courseDescription" class="course-section__text"></p></section><section class="course-section"><h2 class="section-title">محتوى الكورس</h2><div id="courseContentBreakdown" class="course-breakdown"></div></section><section class="enroll-section" id="enroll"><div class="enroll-card"><h2 class="section-title">إزاي تشترك؟</h2><ol class="enroll-steps"><li>اعمل حساب أو سجّل دخول من المنصة.</li><li>حوّل قيمة الكورس على فودافون كاش رقم <strong dir="ltr">01038639818</strong>.</li><li>ابعت Screenshot التحويل على واتساب مع ذكر رقم الهاتف المسجل في حسابك.</li><li>هنراجع الطلب ونفعّل الكورس في حسابك في أقرب وقت.</li></ol><div class="enroll-card__actions"><a href="register.html" class="btn btn--primary btn--lg">اعمل حساب وابدأ</a><a id="whatsappConfirmLink" href="https://wa.me/201038639818" target="_blank" rel="noopener" class="btn btn--outline btn--lg"> تأكيد الدفع على واتساب </a></div></div></section></article></main><footer class="site-footer"><div class="site-footer__top"><div class="site-footer__brand"><img src="assets/images/brand/logo.png" alt="جلال أكاديمي" class="site-footer__logo" width="36" height="36" /><div><p class="site-footer__name">جلال أكاديمي</p><p class="site-footer__tagline">برمج مستقبلك.. من مقاعد الدراسة.</p></div></div><div class="site-footer__col"><h4 class="site-footer__heading">الكورسات</h4><ul class="site-footer__list"><li><a href="course-details.html?course=foundation">كورس التأسيس</a></li><li><a href="course-details.html?course=first-secondary-term1">أولى ثانوي</a></li><li><a href="course-details.html?course=second-secondary-term1">ثانية ثانوي</a></li><li><a href="courses.html">كورسات قادمة قريبًا</a></li></ul></div><div class="site-footer__col"><h4 class="site-footer__heading">صفحات مهمة</h4><ul class="site-footer__list"><li><a href="about.html">من نحن</a></li><li><a href="faq.html">الأسئلة الشائعة</a></li><li><a href="contact.html">تواصل معنا</a></li><li><a href="leaderboard.html">لوحة المتصدرين</a></li></ul></div><div class="site-footer__col"><h4 class="site-footer__heading">تابعنا</h4><ul class="site-footer__social"><li><a href="https://youtube.com/@galalacademy" target="_blank" rel="noopener" aria-label="يوتيوب"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="6" width="20" height="12" rx="3"></rect><path d="M10 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"></path></svg></a></li><li><a href="https://www.facebook.com/share/1KyWePKFbn/" target="_blank" rel="noopener" aria-label="فيسبوك"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M15 3h-2a4 4 0 0 0-4 4v3H7v4h2v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a></li><li><a href="https://www.instagram.com/ewisgalal" target="_blank" rel="noopener" aria-label="انستجرام"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg></a></li><li><a href="https://www.tiktok.com/@galal.ewis" target="_blank" rel="noopener" aria-label="تيك توك"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M16 3v9.5a3.5 3.5 0 1 1-3-3.46V6a6 6 0 0 0 6 6"></path></svg></a></li><li><a href="https://www.linkedin.com/in/galal-ewis-2790b83a8" target="_blank" rel="noopener" aria-label="لينكدإن"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="18" height="18" rx="3"></rect><line x1="7" y1="10" x2="7" y2="17"></line><circle cx="7" cy="7" r="0.5" fill="currentColor"></circle><path d="M11 17v-4a2 2 0 0 1 4 0v4M11 10v7"></path></svg></a></li><li><a href="https://wa.me/201038637817" target="_blank" rel="noopener" aria-label="واتساب"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 12a9 9 0 1 1-4.2-7.6L21 3l-1 4.5A9 9 0 0 1 21 12z"></path></svg></a></li></ul></div></div><div class="site-footer__bottom"><p>© 2026 جلال أكاديمي. كل الحقوق محفوظة.</p></div></footer><script type="module" src="js/main.js"></script><script type="module">import { getCourseById } from './data/courses.js'; const COURSES_WITH_CHAPTERS = ['second-secondary-term1']; const youtube = (id) => (id ? `https://youtu.be/${id}` : null); function buildLecture(name, ordinal, ids) { const titles = [ `شرح الدرس ${ordinal}`, `حل أسئلة كتاب المدرسة على الدرس ${ordinal}`, `حل أسئلة كتاب التقييمات على الدرس ${ordinal}`, `حل أسئلة كتاب الاختبار على الدرس ${ordinal}`, `حل كويز الدرس ${ordinal}` ]; return { title: `المحاضرة ${name}`, videos: titles.map((title, i) => ({ title, url: youtube(ids[i] || null) })) }; } const EMPTY = [null, null, null, null, null]; const CHAPTERS = [ { title: 'الفصل الأول: تطور تكنولوجيا المعلومات والتحول الاجتماعي', lectures: [ buildLecture('الأولى', 'الأول', ['rW1SRAKBKm0', 'HPNh1mXIXXM', 'y__wU-V49PM', '3Gn0r_gqX-s', null]), buildLecture('الثانية', 'الثاني', ['EzH0DRH67Hs', 'bgjdgg0O7B0', 'i9eS5DGqZWw', 'S2qroCKDZQU', 'EdaQeXrx-20']), buildLecture('الثالثة', 'الثالث', ['x4rpIoPCgKw', 'FzsfxbWvIQM', 'Bh8i86G8g9M', '1IzywTI-Ikk', null]), buildLecture('الرابعة', 'الرابع', ['UzrtkdU4FbE', 'UzrtkdU4FbE', 'I6d-lVrQ7CM', 'V3hw_GnITEA', 'OH7e7haZhcg']) ] }, { title: 'الفصل الثاني: الأمن السيبراني', lectures: [ buildLecture('الخامسة', 'الخامس', ['8DSLXeA84FI', 'oRO7yt6Ld28', 'mu-OTloenJg', 'HMqT1KxnWUQ', null]), buildLecture('السادسة', 'السادس', ['KOVdt9nKMAE', 'KeqlXQPLLdo', 'p0H9Mhz356M', 'dtVsRl1QHyQ', 'yXVPfwCIRxs']), buildLecture('السابعة', 'السابع', ['KOVdt9nKMAE', 'fzdZMGthUwY', 'Bm0IxNd3sbU', 'GH2nuiOs2SA', 'jndD0NnO-1Q']) ] }, { title: 'الفصل الثالث: تصميم المواقع', lectures: [ buildLecture('الثامنة', 'الثامن', ['QsjgMs1Fhtc', 'cFvQDbf-CeU', 'QOo4bnDiOp4', 'QeFdLwr_2B8', null]), buildLecture('التاسعة', 'التاسع', EMPTY), buildLecture('العاشرة', 'العاشر', EMPTY) ] }, { title: 'الفصل الرابع: تطوير المواقع', lectures: [ buildLecture('الحادية عشرة', 'الحادي عشر', EMPTY), buildLecture('الثانية عشرة', 'الثاني عشر', EMPTY), buildLecture('الثالثة عشرة', 'الثالث عشر', EMPTY), buildLecture('الرابعة عشرة', 'الرابع عشر', EMPTY) ] }, { title: 'بلاي ليست حل الكتب', lectures: [ { title: 'حل الكتب بالكامل', videos: [ { title: 'بلاي ليست حل كتاب المبرمج', url: 'https://youtu.be/DpTFE6B0hH0?si=a1V0WBnLKdOC5MWv' }, { title: 'بلاي ليست حل كتاب الفايز', url: 'https://youtu.be/UJ9H9dsQCNQ?si=KBHTPSBwyeTBRM9z' } ] } ] } ]; function el(tag, className, text) { const node = document.createElement(tag); if (className) node.className = className; if (text) node.textContent = text; return node; } function makeSummary(className, title, badgeText) { const summary = el('summary'); const label = el('span', className, title); if (badgeText) label.appendChild(el('span', 'chapter__soon', badgeText)); summary.appendChild(label); summary.appendChild(el('span', 'chapter__arrow')); return summary; } const ALLOWED_HOSTS = [ 'youtu.be', 'youtube.com', 'www.youtube.com', 'm.youtube.com', 'youtube-nocookie.com', 'www.youtube-nocookie.com' ]; const VIDEO_ID_PATTERN = /^[A-Za-z0-9_-]{11}$/; function extractVideoId(url) { let parsed; try { parsed = new URL(url); } catch (e) { return null; } if (!ALLOWED_HOSTS.includes(parsed.hostname)) return null; const parts = parsed.pathname.split('/').filter(Boolean); let id = null; if (parsed.hostname === 'youtu.be') id = parts[0]; else if (['embed', 'shorts', 'live'].includes(parts[0])) id = parts[1]; else if (parts[0] === 'watch') id = parsed.searchParams.get('v'); return id && VIDEO_ID_PATTERN.test(id) ? id : null; } function buildEmbedUrl(videoId) { let url = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`; if (location.protocol === 'https:' || location.protocol === 'http:') { url += `&origin=${encodeURIComponent(location.origin)}`; } return url; } function createPlayerBox() { const box = el('section', 'ch-player'); box.hidden = true; box.setAttribute('aria-live', 'polite'); const head = el('div', 'ch-player__head'); const title = el('h3', 'ch-player__title'); const closeBtn = el('button', 'btn btn--outline btn--sm', 'إغلاق المشغل ✕'); closeBtn.type = 'button'; head.append(title, closeBtn); const frame = el('div', 'ch-player__frame'); const soon = el('div', 'ch-player__soon', 'الفيديو ده هيتضاف قريباً إن شاء الله'); soon.hidden = true; frame.appendChild(soon); const note = el('p', 'ch-player__note', location.protocol === 'file:' ? 'الصفحة مفتوحة كملف على الجهاز، وYouTube بيرفض التشغيل كده. شغّلها من الموقع المنشور.' : 'لو الفيديو مش بيشتغل هنا، ممكن يكون التضمين متوقف في إعدادات الفيديو على YouTube.'); box.append(head, frame, note); let iframe = null; let activeItem = null; function play(url, videoTitle, item) { const hasLink = Boolean(url); const videoId = hasLink ? extractVideoId(url) : null; if (hasLink && !videoId) return; if (!iframe) { iframe = document.createElement('iframe'); iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen'); iframe.setAttribute('allowfullscreen', ''); iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin'); iframe.setAttribute('title', 'مشغل فيديو جلال أكاديمي'); frame.appendChild(iframe); } const isPlaceholder = !hasLink; soon.hidden = !isPlaceholder; iframe.hidden = isPlaceholder; iframe.src = isPlaceholder ? 'about:blank' : buildEmbedUrl(videoId); title.textContent = videoTitle; box.hidden = false; if (activeItem) activeItem.classList.remove('is-active'); activeItem = item; if (item) item.classList.add('is-active'); box.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); } function close() { if (iframe) iframe.src = 'about:blank'; box.hidden = true; if (activeItem) activeItem.classList.remove('is-active'); activeItem = null; } closeBtn.addEventListener('click', close); return { box, play }; } function makeVideoItem(video, number, player) { const item = el('div', 'video-item'); item.appendChild(el('div', 'video-item__num', String(number))); const info = el('div', 'video-item__info'); info.appendChild(el('h4', 'video-item__title', video.title)); const clickable = []; if (video.url) { const link = el('a', 'video-item__link', video.url); link.href = video.url; info.appendChild(link); clickable.push(link); } else { info.appendChild(el('span', 'chapter__soon', 'قريباً')); } item.appendChild(info); const watch = el('a', 'btn btn--primary btn--sm', 'مشاهدة'); watch.href = video.url || '#'; item.appendChild(watch); clickable.push(watch); clickable.forEach((a) => { a.addEventListener('click', (event) => { event.preventDefault(); player.play(video.url, video.title, item); }); }); return item; } function makeLecture(lecture, open, player) { const details = el('details', 'lecture'); details.open = open; const notReady = lecture.videos.every((video) => !video.url); details.appendChild(makeSummary('lecture__title', lecture.title, notReady ? 'قريباً' : '')); const body = el('div', 'lecture__body'); if (lecture.intro) body.appendChild(el('p', 'lecture__intro', lecture.intro)); lecture.videos.forEach((video, i) => body.appendChild(makeVideoItem(video, i + 1, player))); details.appendChild(body); return details; } function makeChapter(chapter, open, player) { const details = el('details', 'chapter'); details.open = open; details.appendChild(makeSummary('chapter__title', chapter.title, chapter.placeholder ? 'قريباً' : '')); const body = el('div', 'chapter__body'); if (chapter.placeholder) { body.appendChild(el('p', 'chapter__soon-box', 'محتوى الفصل ده هيتضاف قريباً إن شاء الله.')); } else { chapter.lectures.forEach((lecture, i) => body.appendChild(makeLecture(lecture, i === 0, player))); } details.appendChild(body); return details; } function renderChapters(container) { const wrap = el('div', 'chapters-wrap'); const player = createPlayerBox(); const chapters = el('div', 'chapters'); CHAPTERS.forEach((chapter, i) => chapters.appendChild(makeChapter(chapter, i === 0, player))); wrap.append(player.box, chapters); container.appendChild(wrap); } const params = new URLSearchParams(window.location.search); const courseId = params.get('course'); const course = courseId ? getCourseById(courseId) : null; const loadingEl = document.getElementById('courseLoading'); const notFoundEl = document.getElementById('courseNotFound'); const contentEl = document.getElementById('courseContent'); if (!course) { loadingEl.hidden = true; notFoundEl.hidden = false; } else { loadingEl.hidden = true; contentEl.hidden = false; document.title = `${course.titleAr} | جلال أكاديمي`; document.getElementById('courseImage').src = course.image; document.getElementById('courseImage').alt = course.titleAr; document.getElementById('courseGradeBadge').textContent = course.grade; document.getElementById('courseTitle').textContent = course.titleAr; document.getElementById('courseSubtitle').textContent = course.subtitleAr || ''; document.getElementById('coursePrice').textContent = `${course.price} ${course.currency}`; document.getElementById('courseDescription').textContent = course.description; const waMessage = encodeURIComponent( `أهلاً، حولت قيمة كورس "${course.titleAr}" وعايز أأكد الدفع.` ); document.getElementById('whatsappConfirmLink').href = `https://wa.me/201038639818?text=${waMessage}`; const breakdownEl = document.getElementById('courseContentBreakdown'); if (COURSES_WITH_CHAPTERS.includes(courseId)) { renderChapters(breakdownEl); } else { if (course.sessions) { const list = document.createElement('ul'); list.className = 'breakdown-list'; list.innerHTML = ` <li class="breakdown-list__item"><span class="breakdown-list__count">${course.stats.sessionsCount}</span><span>حصة، كل حصة فيها امتحان، فيديو شرح، فيديو حل، ملف شرح، وملف حل</span></li>`; breakdownEl.appendChild(list); } if (course.parts) { const list = document.createElement('ul'); list.className = 'breakdown-list'; course.parts.forEach((part) => { const item = document.createElement('li'); item.className = 'breakdown-list__item'; let countLabel = ''; if (part.videosCount) countLabel += `${part.videosCount} فيديو `; if (part.filesCount) countLabel += `+ ${part.filesCount} ملف `; if (part.sessionsCount) countLabel += `${part.sessionsCount} حصة `; item.innerHTML = ` <span class="breakdown-list__count">${countLabel.trim()}</span><span>${part.titleAr}</span> `; list.appendChild(item); }); breakdownEl.appendChild(list); } } }</script></body></html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تفاصيل الكورس | جلال أكاديمي</title>
+  <meta name="description" content="تفاصيل الكورس، محتوياته، وخطوات الاشتراك فيه." />
+
+  <link rel="icon" type="image/png" href="assets/images/brand/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/themes.css" />
+  <link rel="stylesheet" href="css/pages/courses.css" />
+
+  <!-- ============ تنسيق فصول الكورس ومشغل الفيديو ============
+       الألوان شفافة/موروثة عشان تشتغل مع الوضعين الفاتح والداكن.
+       لو عايز تربطها بألوان الموقع غيّر --ch-accent بمتغير اللون الأساسي عندك. -->
+  <style>
+    .chapters-wrap{
+      --ch-accent: var(--color-primary, #2f6fed);
+      --ch-border: rgba(128,128,128,.30);
+      --ch-surface: rgba(128,128,128,.07);
+      --ch-muted: rgba(128,128,128,.95);
+      display:grid; gap:14px; min-width:0;
+    }
+
+    /* الفصول */
+    .chapters{display:grid;gap:12px}
+    .chapter{
+      border:1px solid var(--ch-border); border-radius:12px;
+      background:var(--ch-surface); overflow:hidden;
+    }
+    .chapter > summary,
+    .lecture > summary{
+      list-style:none; cursor:pointer; min-height:56px; padding:12px 16px;
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      font-weight:700;
+    }
+    .chapter > summary::-webkit-details-marker,
+    .lecture > summary::-webkit-details-marker{display:none}
+    .chapter > summary{font-size:1.05em;border-right:5px solid var(--ch-accent)}
+    .chapter[open] > summary{border-bottom:1px solid var(--ch-border)}
+    .chapter__title{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .chapter__soon{
+      font-size:.75em;font-weight:600;padding:2px 10px;border-radius:999px;
+      border:1px solid var(--ch-border);color:var(--ch-muted);
+    }
+    .chapter__arrow{
+      width:10px;height:10px;flex-shrink:0;border-left:2.5px solid currentColor;border-bottom:2.5px solid currentColor;
+      transform:rotate(-45deg);margin-top:-4px;color:var(--ch-accent);
+    }
+    details[open] > summary > .chapter__arrow{transform:rotate(135deg);margin-top:4px}
+    .chapter__body{padding:12px;display:grid;gap:10px}
+    .chapter__soon-box{
+      text-align:center;padding:22px 10px;border:1px dashed var(--ch-border);
+      border-radius:10px;color:var(--ch-muted);
+    }
+
+    /* المحاضرات */
+    .lecture{border:1px solid var(--ch-border);border-radius:10px;background:transparent;overflow:hidden}
+    .lecture > summary{min-height:50px;font-size:1em}
+    .lecture[open] > summary{border-bottom:1px solid var(--ch-border)}
+    .lecture__body{padding:10px 12px 12px;display:grid;gap:10px}
+    .lecture__intro{color:var(--ch-muted);font-size:.95em}
+
+    /* الفيديوهات */
+    .video-item{
+      display:flex;align-items:center;gap:12px;padding:12px;
+      border:1px solid var(--ch-border);border-right:4px solid var(--ch-accent);
+      border-radius:10px;background:var(--ch-surface);
+    }
+    .video-item.is-active{outline:2px solid var(--ch-accent);outline-offset:0}
+    .video-item__num{
+      min-width:32px;height:32px;border-radius:8px;flex-shrink:0;display:grid;place-items:center;
+      border:1px solid var(--ch-border);font-weight:700;color:var(--ch-accent);
+    }
+    .video-item__info{flex:1;min-width:0}
+    .video-item__title{font-size:1em;font-weight:600;line-height:1.7;margin:0}
+    .video-item__link{
+      display:inline-block;direction:ltr;font-size:.8em;color:var(--ch-muted);
+      text-decoration:none;word-break:break-all;
+    }
+    .video-item__link:hover{color:var(--ch-accent)}
+
+    /* المشغل */
+    .ch-player{
+      border:1px solid var(--ch-border);border-top:4px solid var(--ch-accent);
+      border-radius:12px;padding:12px;background:var(--ch-surface);
+    }
+    .ch-player[hidden]{display:none}
+    .ch-player__head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}
+    .ch-player__title{font-size:1.02em;font-weight:700;line-height:1.7;margin:0}
+    .ch-player__frame{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:8px;overflow:hidden}
+    .ch-player__frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    .ch-player__soon{
+      position:absolute;inset:0;display:grid;place-items:center;text-align:center;
+      padding:16px;color:#fff;font-weight:700;background:#222;
+    }
+    .ch-player__soon[hidden]{display:none}
+    .ch-player__note{margin:8px 0 0;font-size:.85em;color:var(--ch-muted)}
+
+    .lock-box{display:grid;gap:10px;padding:16px;border:1px dashed var(--ch-border);border-radius:10px;text-align:center}
+    .lock-box__text{margin:0;color:var(--ch-muted)}
+    .lock-box__row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+    .lock-box__input{
+      flex:1 1 180px;max-width:260px;min-height:44px;padding:8px 12px;border-radius:8px;
+      border:1px solid var(--ch-border);background:transparent;color:inherit;font:inherit;
+      direction:ltr;text-align:center;letter-spacing:.15em;
+    }
+    .lock-box__input:focus{outline:2px solid var(--ch-accent);outline-offset:1px}
+    .lock-box__msg{margin:0;min-height:1.6em;font-size:.92em;color:#d92d20}
+    @media (max-width:560px){
+      .video-item{flex-wrap:wrap}
+      .video-item .btn{width:100%;justify-content:center;min-height:44px}
+      .ch-player__head{flex-direction:column}
+      .ch-player__head .btn{align-self:flex-end}
+      .chapter > summary{padding:12px}
+    }
+    @media (min-width:980px){
+      .ch-player{position:sticky;top:76px;z-index:2}
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">تخطَّ إلى المحتوى الرئيسي</a>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="navbar" aria-label="التنقل الرئيسي">
+      <a href="index.html" class="navbar__brand" aria-label="جلال أكاديمي - الرئيسية">
+        <img src="assets/images/brand/logo.png" alt="جلال أكاديمي" class="navbar__logo" width="40" height="40" />
+        <span class="navbar__name">جلال أكاديمي</span>
+      </a>
+
+      <button class="navbar__toggle" id="navToggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="navMenu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <ul class="navbar__menu" id="navMenu">
+        <li><a href="index.html" class="navbar__link">الرئيسية</a></li>
+        <li><a href="courses.html" class="navbar__link is-active">الكورسات</a></li>
+        <li><a href="competitions.html" class="navbar__link">المسابقات</a></li>
+        <li><a href="leaderboard.html" class="navbar__link">لوحة المتصدرين</a></li>
+        <li><a href="about.html" class="navbar__link">من نحن</a></li>
+        <li><a href="faq.html" class="navbar__link">الأسئلة الشائعة</a></li>
+        <li><a href="contact.html" class="navbar__link">تواصل معنا</a></li>
+      </ul>
+
+      <div class="navbar__actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="تبديل الوضع الداكن">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <a href="login.html" class="btn btn--ghost btn--sm">تسجيل الدخول</a>
+        <a href="register.html" class="btn btn--primary btn--sm">إنشاء حساب</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ============ Loading State ============ -->
+    <div id="courseLoading" class="state-block">
+      <p>بنجهزلك تفاصيل الكورس...</p>
+    </div>
+
+    <!-- ============ Not Found State ============ -->
+    <div id="courseNotFound" class="state-block" hidden>
+      <h1 class="section-title">الكورس ده مش موجود</h1>
+      <p>ممكن يكون الرابط غلط، أو الكورس اتشال. جرّب ترجع لصفحة الكورسات.</p>
+      <a href="courses.html" class="btn btn--primary">رجوع لكل الكورسات</a>
+    </div>
+
+    <!-- ============ Course Content (populated by JS) ============ -->
+    <article id="courseContent" hidden>
+
+      <!-- Header -->
+      <section class="course-hero">
+        <div class="course-hero__grid">
+          <div class="course-hero__image-wrap">
+            <img id="courseImage" src="" alt="" class="course-hero__image" />
+            <span id="courseGradeBadge" class="course-card__badge"></span>
+          </div>
+          <div class="course-hero__content">
+            <span class="section-tag">// تفاصيل الكورس</span>
+            <h1 id="courseTitle" class="course-hero__title"></h1>
+            <p id="courseSubtitle" class="course-hero__subtitle"></p>
+
+            <div class="course-hero__meta">
+              <span id="coursePrice" class="course-hero__price"></span>
+              <a href="#enroll" class="btn btn--primary btn--lg">اشترك دلوقتي</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Description -->
+      <section class="course-section">
+        <h2 class="section-title">عن الكورس</h2>
+        <p id="courseDescription" class="course-section__text"></p>
+      </section>
+
+      <!-- Content Breakdown (populated dynamically: chapters, sessions or parts) -->
+      <section class="course-section">
+        <h2 class="section-title">محتوى الكورس</h2>
+        <div id="courseContentBreakdown" class="course-breakdown"></div>
+      </section>
+
+      <!-- Enrollment -->
+      <section class="enroll-section" id="enroll">
+        <div class="enroll-card">
+          <h2 class="section-title">إزاي تشترك؟</h2>
+          <ol class="enroll-steps">
+            <li>اعمل حساب أو سجّل دخول من المنصة.</li>
+            <li>حوّل قيمة الكورس على فودافون كاش رقم <strong dir="ltr">01038639818</strong>.</li>
+            <li>ابعت Screenshot التحويل على واتساب مع ذكر رقم الهاتف المسجل في حسابك.</li>
+            <li>هنراجع الطلب ونفعّل الكورس في حسابك في أقرب وقت.</li>
+          </ol>
+
+          <div class="enroll-card__actions">
+            <a href="register.html" class="btn btn--primary btn--lg">اعمل حساب وابدأ</a>
+            <a id="whatsappConfirmLink" href="https://wa.me/201038639818" target="_blank" rel="noopener" class="btn btn--outline btn--lg">
+              تأكيد الدفع على واتساب
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </article>
+
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <img src="assets/images/brand/logo.png" alt="جلال أكاديمي" class="site-footer__logo" width="36" height="36" />
+        <div>
+          <p class="site-footer__name">جلال أكاديمي</p>
+          <p class="site-footer__tagline">برمج مستقبلك.. من مقاعد الدراسة.</p>
+        </div>
+      </div>
+
+      <div class="site-footer__col">
+        <h4 class="site-footer__heading">الكورسات</h4>
+        <ul class="site-footer__list">
+          <li><a href="course-details.html?course=foundation">كورس التأسيس</a></li>
+          <li><a href="course-details.html?course=first-secondary-term1">أولى ثانوي</a></li>
+          <li><a href="course-details.html?course=second-secondary-term1">ثانية ثانوي</a></li>
+          <li><a href="courses.html">كورسات قادمة قريبًا</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <h4 class="site-footer__heading">صفحات مهمة</h4>
+        <ul class="site-footer__list">
+          <li><a href="about.html">من نحن</a></li>
+          <li><a href="faq.html">الأسئلة الشائعة</a></li>
+          <li><a href="contact.html">تواصل معنا</a></li>
+          <li><a href="leaderboard.html">لوحة المتصدرين</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <h4 class="site-footer__heading">تابعنا</h4>
+        <ul class="site-footer__social">
+          <li><a href="https://youtube.com/@galalacademy" target="_blank" rel="noopener" aria-label="يوتيوب"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="6" width="20" height="12" rx="3"></rect><path d="M10 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"></path></svg></a></li>
+          <li><a href="https://www.facebook.com/share/1KyWePKFbn/" target="_blank" rel="noopener" aria-label="فيسبوك"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M15 3h-2a4 4 0 0 0-4 4v3H7v4h2v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a></li>
+          <li><a href="https://www.instagram.com/ewisgalal" target="_blank" rel="noopener" aria-label="انستجرام"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg></a></li>
+          <li><a href="https://www.tiktok.com/@galal.ewis" target="_blank" rel="noopener" aria-label="تيك توك"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M16 3v9.5a3.5 3.5 0 1 1-3-3.46V6a6 6 0 0 0 6 6"></path></svg></a></li>
+          <li><a href="https://www.linkedin.com/in/galal-ewis-2790b83a8" target="_blank" rel="noopener" aria-label="لينكدإن"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="18" height="18" rx="3"></rect><line x1="7" y1="10" x2="7" y2="17"></line><circle cx="7" cy="7" r="0.5" fill="currentColor"></circle><path d="M11 17v-4a2 2 0 0 1 4 0v4M11 10v7"></path></svg></a></li>
+          <li><a href="https://wa.me/201038637817" target="_blank" rel="noopener" aria-label="واتساب"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 12a9 9 0 1 1-4.2-7.6L21 3l-1 4.5A9 9 0 0 1 21 12z"></path></svg></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>© 2026 جلال أكاديمي. كل الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+
+  <!-- ============ Dynamic Course Rendering ============ -->
+  <script type="module">
+    import { getCourseById } from './data/courses.js';
+
+    /* =====================================================
+       فصول الكورس (بتظهر بدل "محتوى الكورس" القديم)
+       - الكورسات اللي ليها فصول: غيّر القايمة دي حسب معرّفات الكورسات عندك
+       - كل محاضرة فيها 5 فيديوهات بالترتيب: شرح، كتاب المدرسة، كتاب التقييمات، كتاب الاختبار، كويز
+       - لينك فاضي (null) = الفيديو لسه مش جاهز، وبيظهر "قريباً"
+       - كل فصل (ch1..ch4) مقفول بكود فتح؛ الأكواد متخزنة كـ hash في CHAPTER_CODE_HASHES
+       - لما يجهز فيديو، حط معرّفه (الجزء اللي بعد youtu.be/) مكان null
+       ===================================================== */
+    const COURSES_WITH_CHAPTERS = ['second-secondary-term1'];
+
+    const youtube = (id) => (id ? `https://youtu.be/${id}` : null);
+
+    function buildLecture(name, ordinal, ids) {
+      const titles = [
+        `شرح الدرس ${ordinal}`,
+        `حل أسئلة كتاب المدرسة على الدرس ${ordinal}`,
+        `حل أسئلة كتاب التقييمات على الدرس ${ordinal}`,
+        `حل أسئلة كتاب الاختبار على الدرس ${ordinal}`,
+        `حل كويز الدرس ${ordinal}`
+      ];
+      return {
+        title: `المحاضرة ${name}`,
+        videos: titles.map((title, i) => ({ title, url: youtube(ids[i] || null) }))
+      };
+    }
+
+    const EMPTY = [null, null, null, null, null];
+
+    const CHAPTERS = [
+      {
+        key: 'ch1',
+        title: 'الفصل الأول: تطور تكنولوجيا المعلومات والتحول الاجتماعي',
+        lectures: [
+          buildLecture('الأولى', 'الأول', ['rW1SRAKBKm0', 'HPNh1mXIXXM', 'y__wU-V49PM', '3Gn0r_gqX-s', null]),
+          buildLecture('الثانية', 'الثاني', ['EzH0DRH67Hs', 'bgjdgg0O7B0', 'i9eS5DGqZWw', 'S2qroCKDZQU', 'EdaQeXrx-20']),
+          buildLecture('الثالثة', 'الثالث', ['x4rpIoPCgKw', 'FzsfxbWvIQM', 'Bh8i86G8g9M', '1IzywTI-Ikk', null]),
+          buildLecture('الرابعة', 'الرابع', ['UzrtkdU4FbE', 'UzrtkdU4FbE', 'I6d-lVrQ7CM', 'V3hw_GnITEA', 'OH7e7haZhcg'])
+        ]
+      },
+      {
+        key: 'ch2',
+        title: 'الفصل الثاني: الأمن السيبراني',
+        lectures: [
+          buildLecture('الخامسة', 'الخامس', ['8DSLXeA84FI', 'oRO7yt6Ld28', 'mu-OTloenJg', 'HMqT1KxnWUQ', null]),
+          buildLecture('السادسة', 'السادس', ['KOVdt9nKMAE', 'KeqlXQPLLdo', 'p0H9Mhz356M', 'dtVsRl1QHyQ', 'yXVPfwCIRxs']),
+          buildLecture('السابعة', 'السابع', ['KOVdt9nKMAE', 'fzdZMGthUwY', 'Bm0IxNd3sbU', 'GH2nuiOs2SA', 'jndD0NnO-1Q'])
+        ]
+      },
+      {
+        key: 'ch3',
+        title: 'الفصل الثالث: تصميم المواقع',
+        lectures: [
+          buildLecture('الثامنة', 'الثامن', ['QsjgMs1Fhtc', 'cFvQDbf-CeU', 'QOo4bnDiOp4', 'QeFdLwr_2B8', null]),
+          buildLecture('التاسعة', 'التاسع', EMPTY),
+          buildLecture('العاشرة', 'العاشر', EMPTY)
+        ]
+      },
+      {
+        key: 'ch4',
+        title: 'الفصل الرابع: تطوير المواقع',
+        lectures: [
+          buildLecture('الحادية عشرة', 'الحادي عشر', EMPTY),
+          buildLecture('الثانية عشرة', 'الثاني عشر', EMPTY),
+          buildLecture('الثالثة عشرة', 'الثالث عشر', EMPTY),
+          buildLecture('الرابعة عشرة', 'الرابع عشر', EMPTY)
+        ]
+      },
+      {
+        title: 'بلاي ليست حل الكتب',
+        lectures: [
+          {
+            title: 'حل الكتب بالكامل',
+            videos: [
+              { title: 'بلاي ليست حل كتاب المبرمج', url: 'https://youtu.be/DpTFE6B0hH0?si=a1V0WBnLKdOC5MWv' },
+              { title: 'بلاي ليست حل كتاب الفايز', url: 'https://youtu.be/UJ9H9dsQCNQ?si=KBHTPSBwyeTBRM9z' }
+            ]
+          }
+        ]
+      }
+    ];
+
+    /* أكواد فتح الفصول (30 كود لكل فصل) محفوظة كـ hash مش كأرقام: PBKDF2-SHA256، 100000 دورة، salt = galal-academy|<رقم الفصل> */
+    const CODE_HASH_ITERATIONS = 100000;
+    const CHAPTER_CODE_HASHES = {
+      ch1: [
+        '0a6296b5ed030f5ac6fa6e88667ec28903ada8ac3a1779dbbf3f065e6c07cff2',
+        'cbdc0a609cbf089ce030d37a61203ab19f89f80582fdb76ae4173180776aa78b',
+        '89a04f3543e5bf06ca4dc3f03e6c36d743410125103c15241e0b8e835e845ef6',
+        '708c3eb855e6f2dbb34a07f0cddfbe70d3a682f2971876fd82b2ce80ff680351',
+        '10d3aece405a004463941e52caef0c0dbe03871a3391217d06cec329fead4a89',
+        '79824e6538ce8d56b6d48920478f5992c6793d99d3740042844c5d673fdb34b8',
+        '6d0fb1062dc0074ad4cf668952a188600c23632c5e3923d0843802bb796c2bed',
+        '8589abd637b053d81e3b88c90856e35bb1588316d4c019e75861116c0d96e790',
+        '36bedc3f2043eadd33af873b76a51b96e29828473a502028ee592e41a093d2bb',
+        '77e023c26fe57a837b23027e830902f74561943dd33a1df0ba062929b25c5c51',
+        '70b3e9cc368821da4baf39ae0460fa01a7bacc34a4be16fbff2208e26a4ac01b',
+        '102f70fb63729e774b6f1d25ea6bb364f287dc090975cbfddbc97681ea0d446f',
+        '61c471065e6e213c822891fb4305342778c44736299b09e0724acc39998d6007',
+        '0463c2f351d79e8ea4164c708b3c8891a1e42b4f21326c540209a57a6ba215e4',
+        'd2cb3a632f6b7f9679187d227e5941f1d3682d05ecffc84a600d34fe1baf0663',
+        '595b987c4aaedcb8230415c7b19287a76ce1ec5c24bbbbf8e16d9f194ef7bd2e',
+        '7dbbf1ba920cc2d845b0f70b3aab34553f2ce29a9498630496bc3af1f2e712ca',
+        'fef7a2ec47703d99fbab8c07723f4f83384af1be8206e62a80fe126fef560fc9',
+        '70c31d48d5c295734ff25cbdc96af510393cf338b1e696d7d75493c3c69e6541',
+        '4aeb60b10ad8b056fde607fc2745c6cf104986dd7f88850f911405c61e5e3062',
+        'd378b7d825dd1f5fcd85b35ed1c704847ed55667c92986afafd99244b9fc81a8',
+        '0aae7a26037ed11db931835f63dbffbb75c5525f9a0a225fb7657e61fa66b879',
+        '034fdd91b72a5455e13b096d673454efe88523bd59c1cca1987fcae0c35aa4fb',
+        'd531c68e4c03ed0ff3079308222201c9055f566b897acdf4c18c48f38ae0d841',
+        '5b857ea8c34992d6f56756132f90b614fd28bfa1146b2dd2b5a87e47c5ae0f52',
+        '0f2d5665baa650c2466a72df065124aa5cc180c9fdbcdf5823ecfaaaee300b22',
+        'f6f77a84da50f0ff4f079d0796fb745d561742fd07167586258eae3156aebf70',
+        '16882fe847f29ba71f14dc943a40be2c386c6f5988adc6d1c8137d838db154ea',
+        '9f36193adca8fd7320b5a9f4ddc31496b161e257fb92e358631d8b321e379641',
+        '291190355145ec203d9dc67b4aac71f461fe6aa3e76ad9dbb043d230bccfb4ee'
+      ],
+      ch2: [
+        'bd3b4eb7653b1fca5ac9beafb24c0621061eb867014e99b023e2e7b9b7045d05',
+        '605b3eae6229c41b7b9359f683511435437181f0c0e96512507c3d25333248fb',
+        '3e14f1c18896cb45a0d234095195be8189a4ebfa3be045233d69213fab776936',
+        '49a7bfea32b2f5c2be7056f86bf08360107456aa4ce82a30f85289b23f0cdb14',
+        '5a66280f6c20a9de34322f19bdf8ab2f1fb790e5de32b9e8c2b632eb7f033c6b',
+        'df9f74c6f047deb6fde250f0a0be25aec90ecb24cbec3a43dcd80be02a93f8b0',
+        '6b859217b0d9bd1215de2f518ca16c405669934dc9e6d9e9ad89ccebd98ffe34',
+        '3f180e5be00513da16f640b4d9cc159f7f2f24325e954c2a9d336a3229a9776c',
+        '0f3e30235b998825ad1c00a8f837df945c6fdef0e8c444c277270b5c65caca8e',
+        'ccdabe4b4840b8f80f4f4f8d4c31cd4bb3babcd7cb3b38e9ea3ea602c1db078f',
+        '3941f8e2ac7e8b46d319c8ba9269d77b3e0f882b84332f98beda14f8e7f6ca75',
+        'a402875f641548a6a4ba22cae0a633cdf0d772c7e1fe887e38d988f7a239d67b',
+        'ad7947f880b57512d00b2a27aee85493bd4a9f549a75d9134ac59c106a8960d5',
+        '7f5dce1fc4472db61db97347b7399a5f0305a06fa73c709edfddfa875e3dce35',
+        'b918b57dddee4cb9f40c5fa6aaaeefdd42cc70cc09d9860328d084886f400f3c',
+        '89112d356b6167398f5aac7853cb548d63ef88dbe27a41ed60c8d7908d65c3cd',
+        'dcda727af62dbc964d5c222a0b45935b1bd93b986cc3a3471e9e410a3b2080f5',
+        'cdc5d7e2f28bbd06c6b7f30c199aadd245cbd86e253e4ccde9583dec9ff54b6f',
+        'aad8b641fa98f2cc25b9d7dc9c7479a4f67b32e945015a11f9dbae5e681155b5',
+        '05dbcd813c2f2442c24c236c428cc27037370c30a88ea7961eb472881677b276',
+        '37845a747a33378cdabf01544722d154dc742b934968e8d5a493d3aede344f3a',
+        '80b3699495d8e6dd517072b76c4a821348390951b85b0d3fc1de4b74fed3824c',
+        'b60c9d82701eab94eeb2c202880c750b5fc004831fa5140ad09c8f3ca18232ed',
+        'f304d04222ce75b9c4798fa0550b75f93cdb3f9569bb9ba11d0d3bbf9e295e51',
+        'd4210d8250269063dbdfda31d438b81d7dd4ac749261fe4355ca79d93b034b72',
+        'a7ea22d9a132d3ba671963516c1e005406fbfc42165c0a4d5f57b5ba6efc569a',
+        'c31443daf7fa4c8c736e829bc79b3480c37de6c7221796b4c58f153aa5a3999a',
+        '6ebbd9124417e234a24d7067083c5c01b6d16205212c63d4ec7d061057ea56d0',
+        '0cb04d3348672356f2625268d9c59bfa3901d8615a1535037a4d4a4d7dd4edc8',
+        'b50a431698afa020f8c89977c5ae1d14af796ed108e663e747200083c382c770'
+      ],
+      ch3: [
+        '1493450c266a9ef084755e89d9d29b6efd00601dcc3ca97353a777721d52000d',
+        '54b6cd6d732d39c1e2a9c6a56738cdbc3ec3a28a0c9629642a924e5727ccd3fb',
+        '4cf67af57e517257336be8abbdba52595e162b5f3fb7621b67b6f20e33471605',
+        '43a43e1ee22794766e0deff6f888430467f01e83d6e354ac22a8f2a3d60a20b5',
+        '2090714e9766c7a2684079be812875685f06ab54c8557b1dfbe7f183e8fae505',
+        'c34ccd79c3c03b1f194e1a5e229f5186d466535361e200dc70f0037f08c27120',
+        '2c843552cf5a3346497d236486961f56c53900eaa7715cec650a6d4ae17b45bd',
+        '5e60b069db1623c3f60529aa28f1c9fe7f2dee0801afb9f44ddde70a63111c4a',
+        '8ed99cbd6e01084f3296c88b781e164de44c1fabe1c093dede74ed3661c92057',
+        '2f95c2894f70615f542e7e3c64def55bc6a79ba0e91b2a3483a348adb35834c6',
+        'fc9f08a237d2b46ebdfd3928c89a6a1e12712ba9cd4f98c4ded672ed303b79a4',
+        '3bb0f87542fb9a728dc30c670c4c59dbaadb6ee5c4d18ffa6016cd707883963c',
+        'c271724949e3e7082a03518481f61f91d368a7eda51eb5f27806dada68fc5b6d',
+        '4c9d1c2cb4527545b31ef7234573f4ddedf4403231aa474ca804668b7d781343',
+        '4ca2aff3acd2bd2b891f3ca5628b741d09351c5f4e990760544991607559f71c',
+        '345cb5e9ea028214f2c96d5aa04de01aa38f6656703862eae8a64f2fdc86f6f0',
+        '2d67243661d28990efa0063eec5689849de1cf6c54357e80815185e25f71eec9',
+        '68d937d92846f63add53fa2f9c021d21c3ce9f47add85d4f9a2cb1dc0f7c7a80',
+        '0c6a841e43eb89ad080698626c9ed718d4bac0c90861d506f2fabbfcec9f51af',
+        'ccd76e7ece346d69425e10d953464d01cbb0477aa11bcd6cfa197c0fb8747ef5',
+        '0cf51113d56155054fce217744460ba4db3a89129f583d8d2140f7ddb061b291',
+        '052f64b25586375107a0f2775705af3a5c6d14697194523302ae982e8b217b9d',
+        '371c46c41c0a2177d4ed8772f358c81df8c14ab51337e3e4f35a4fc2aee9ef1b',
+        'a320554abfc3df2671f56c74f15cf84578264272114b421d9ae8eb7d3f7bb300',
+        '8f2625ad078c312182b6f16e316bc354bfe4577497ff5fb9411d1b7910dd8615',
+        '026b473979cccdfcd92ea6999110f8cf76b7c4f81c230a7db11f45c86a9f1931',
+        '5c115fbc24130c96be756d25697e8f9f07ba75fd30584fa4ae461b15a23260ef',
+        '55dc8626059a9512fe89363a21f212dd0dd665039c7d2d444ace8c43c2849961',
+        '5d4e2eedf769e2b400497c1bccb77ea040040870dbeffde998ad0aa82184c75e',
+        '70b0223ce923005e4542b7d34ace0b66fae3456d1cda20cace51a1f767a4938f'
+      ],
+      ch4: [
+        'c74219ff5a3374975e12657fdca4afcb2a5dee4b97fa717aefa7bccb71835e36',
+        '9d7a69d9d69353c533e5f02aed0c5b7f1da39c7305ef84cdcb34a85b1b42e616',
+        '495e92be38ff78baef7beb6307e5ecee6407b79b205c47dc5a3f7400cd1d865c',
+        '1dc2aadbf5e33696b5854c0a6fcdff4557a883f11d80c1f2a1749b6028b4b0c2',
+        'd3e2f5d3c5fe3bc248b25af5fed912ec23c7782717d89edaa2991646b5143a99',
+        '8bd32256705f3f9ad267bd6ed9d2ca4a8aa80b088f719f0cf3ab02513e256628',
+        '2b8d31a5cb6a422b9253352fb7cbb66789bf8d1d929060d0c76e1ec2b1fd1f39',
+        '315277acc6ae0cedd0e06d547336d28121e403228fcbb72faeba52213d108ed8',
+        '55ecb1b05277a5006f75f1a402b1852a1e44715d6d66e1a862684214c8dcfdfe',
+        'f6d1cacc8ebaaec902e63dac26b18978b1228f422cde451e9cba1e37f1c395ec',
+        'b94f5b6d75204715febd8d5cad8590ab7a8667cbd1e4ac339e3fda9b04989045',
+        '0d17ca4c28ca2ce7e2940740969326199c8be7701b74be29bf9e80c9d1ba15ca',
+        'e113a30a985628744cd64ea299822d0089c84178c519aca3cc48862584d1fcff',
+        'd4a4d196d9af5252cf4c1679983301151e0759e9e918de030c20fd0278ca436f',
+        '090bce9d9a7842016301586c16c928a398720c6909af9373e9f5c123ce9ec222',
+        '6fed96473c4d7672967a26009ded825dd3d94c08576cf69d524615f62b2734e9',
+        'aa3b4fc74371a9b1b333a54b551441e9e002735adced01e4aaaf9d3203b46aa9',
+        'bea9d5111cb9ff0997fd630f8f032227745f994cd0f0ff03441dbe08db197be4',
+        'e5cdce581c2c9a1837b169b10bd4cbfb4828b40f90125f19b90a007bd6916c87',
+        '7071453a0091a9a150631aa23697c5eddd17ea73abd2c4f938d3214d54cb2260',
+        'd59437513aa8dfce664b05e0d8c2c2d48219f3ca4ab9d62a592831670133e1af',
+        'ff3d7af1b20f32fe8c09ae9abe068fbed89e8629fedc0e2f04046da00445e85b',
+        '0941708a965db46914d2915d833e66c01d177abcec35b1b51f01459ddfc62258',
+        '54a90cc4088e88bff64c8d672a3c9608995e5ccc1491f28a9390f7d104cb5ed2',
+        '6f00e512d5f2f1ef71ff940993b7dd7160f9a4bf79acf738d46b8646ed93eefa',
+        '6ca3194949a894a42e19f8f3897d0017b7deb20897a2f39fd2d3f663a8d78d13',
+        '9ef97b19876f62a8df483ab13577dc29e13975b3403b05c4e5a1bc640e5a9577',
+        '1e0fdc08e5d44ca64121c3f8a65168fd1ba03d995bc04585b156af45f75f0edd',
+        'add2d5cbe123c43f576cdb75287a826f6b54d2d59c240fe551a7971b18bf144a',
+        'bf74b4b038ea084517413744fdd7d6ecbaf1055d056cfc305295debf3745e8b4'
+      ]
+    };
+
+    /* ===== أدوات بناء العناصر ===== */
+    function el(tag, className, text) {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text) node.textContent = text;
+      return node;
+    }
+
+    function makeSummary(className, title, badgeText) {
+      const summary = el('summary');
+      const label = el('span', className, title);
+      if (badgeText) label.appendChild(el('span', 'chapter__soon', badgeText));
+      summary.appendChild(label);
+      summary.appendChild(el('span', 'chapter__arrow'));
+      return summary;
+    }
+
+    /* ===== مشغل الفيديو الداخلي (مشغل واحد بيتغير محتواه) ===== */
+    const ALLOWED_HOSTS = [
+      'youtu.be', 'youtube.com', 'www.youtube.com', 'm.youtube.com',
+      'youtube-nocookie.com', 'www.youtube-nocookie.com'
+    ];
+    const VIDEO_ID_PATTERN = /^[A-Za-z0-9_-]{11}$/;
+
+    function extractVideoId(url) {
+      let parsed;
+      try { parsed = new URL(url); } catch (e) { return null; }
+      if (!ALLOWED_HOSTS.includes(parsed.hostname)) return null;
+
+      const parts = parsed.pathname.split('/').filter(Boolean);
+      let id = null;
+      if (parsed.hostname === 'youtu.be') id = parts[0];
+      else if (['embed', 'shorts', 'live'].includes(parts[0])) id = parts[1];
+      else if (parts[0] === 'watch') id = parsed.searchParams.get('v');
+
+      return id && VIDEO_ID_PATTERN.test(id) ? id : null;
+    }
+
+    function buildEmbedUrl(videoId) {
+      let url = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+      if (location.protocol === 'https:' || location.protocol === 'http:') {
+        url += `&origin=${encodeURIComponent(location.origin)}`;
+      }
+      return url;
+    }
+
+    function createPlayerBox() {
+      const box = el('section', 'ch-player');
+      box.hidden = true;
+      box.setAttribute('aria-live', 'polite');
+
+      const head = el('div', 'ch-player__head');
+      const title = el('h3', 'ch-player__title');
+      const closeBtn = el('button', 'btn btn--outline btn--sm', 'إغلاق المشغل ✕');
+      closeBtn.type = 'button';
+      head.append(title, closeBtn);
+
+      const frame = el('div', 'ch-player__frame');
+      const soon = el('div', 'ch-player__soon', 'الفيديو ده هيتضاف قريباً إن شاء الله');
+      soon.hidden = true;
+      frame.appendChild(soon);
+
+      const note = el('p', 'ch-player__note',
+        location.protocol === 'file:'
+          ? 'الصفحة مفتوحة كملف على الجهاز، وYouTube بيرفض التشغيل كده. شغّلها من الموقع المنشور.'
+          : 'لو الفيديو مش بيشتغل هنا، ممكن يكون التضمين متوقف في إعدادات الفيديو على YouTube.');
+
+      box.append(head, frame, note);
+
+      let iframe = null;
+      let activeItem = null;
+
+      function play(url, videoTitle, item) {
+        const hasLink = Boolean(url);
+        const videoId = hasLink ? extractVideoId(url) : null;
+        if (hasLink && !videoId) return;
+
+        if (!iframe) {
+          iframe = document.createElement('iframe');
+          iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen');
+          iframe.setAttribute('allowfullscreen', '');
+          iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+          iframe.setAttribute('title', 'مشغل فيديو جلال أكاديمي');
+          frame.appendChild(iframe);
+        }
+
+        const isPlaceholder = !hasLink;
+        soon.hidden = !isPlaceholder;
+        iframe.hidden = isPlaceholder;
+        iframe.src = isPlaceholder ? 'about:blank' : buildEmbedUrl(videoId);
+
+        title.textContent = videoTitle;
+        box.hidden = false;
+
+        if (activeItem) activeItem.classList.remove('is-active');
+        activeItem = item;
+        if (item) item.classList.add('is-active');
+
+        box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      function close() {
+        if (iframe) iframe.src = 'about:blank';
+        box.hidden = true;
+        if (activeItem) activeItem.classList.remove('is-active');
+        activeItem = null;
+      }
+
+      closeBtn.addEventListener('click', close);
+      return { box, play };
+    }
+
+    /* ===== بناء الفصول ===== */
+    function makeVideoItem(video, number, player) {
+      const item = el('div', 'video-item');
+      item.appendChild(el('div', 'video-item__num', String(number)));
+
+      const info = el('div', 'video-item__info');
+      info.appendChild(el('h4', 'video-item__title', video.title));
+
+      const clickable = [];
+      if (video.url) {
+        const link = el('a', 'video-item__link', video.url);
+        link.href = video.url;
+        info.appendChild(link);
+        clickable.push(link);
+      } else {
+        info.appendChild(el('span', 'chapter__soon', 'قريباً'));
+      }
+      item.appendChild(info);
+
+      const watch = el('a', 'btn btn--primary btn--sm', 'مشاهدة');
+      watch.href = video.url || '#';
+      item.appendChild(watch);
+      clickable.push(watch);
+
+      // الرابط وزرار «مشاهدة» بيشغّلوا الفيديو جوه الصفحة (من غير تاب جديدة)
+      clickable.forEach((a) => {
+        a.addEventListener('click', (event) => {
+          event.preventDefault();
+          player.play(video.url, video.title, item);
+        });
+      });
+      return item;
+    }
+
+    function makeLecture(lecture, open, player) {
+      const details = el('details', 'lecture');
+      details.open = open;
+      const notReady = lecture.videos.every((video) => !video.url);
+      details.appendChild(makeSummary('lecture__title', lecture.title, notReady ? 'قريباً' : ''));
+
+      const body = el('div', 'lecture__body');
+      if (lecture.intro) body.appendChild(el('p', 'lecture__intro', lecture.intro));
+      lecture.videos.forEach((video, i) => body.appendChild(makeVideoItem(video, i + 1, player)));
+      details.appendChild(body);
+      return details;
+    }
+
+    /* ===== أكواد فتح الفصول ===== */
+    function normalizeCode(value) {
+      return value
+        .replace(/[\u0660-\u0669]/g, (d) => String(d.charCodeAt(0) - 0x0660))
+        .replace(/[\u06F0-\u06F9]/g, (d) => String(d.charCodeAt(0) - 0x06F0))
+        .replace(/\s+/g, '');
+    }
+
+    async function hashCode(code, chapterKey) {
+      const encoder = new TextEncoder();
+      const keyMaterial = await crypto.subtle.importKey('raw', encoder.encode(code), 'PBKDF2', false, ['deriveBits']);
+      const bits = await crypto.subtle.deriveBits(
+        { name: 'PBKDF2', hash: 'SHA-256', salt: encoder.encode(`galal-academy|${chapterKey}`), iterations: CODE_HASH_ITERATIONS },
+        keyMaterial,
+        256
+      );
+      return Array.from(new Uint8Array(bits), (b) => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    const unlockStorageKey = (chapter) => `ga_unlock_${courseId}_${chapter.key}`;
+    const chapterHashes = (chapter) => (chapter.key ? CHAPTER_CODE_HASHES[chapter.key] : null);
+
+    function isChapterUnlocked(chapter) {
+      const hashes = chapterHashes(chapter);
+      if (!hashes) return true;
+      try {
+        return hashes.includes(localStorage.getItem(unlockStorageKey(chapter)) || '');
+      } catch (e) {
+        return false;
+      }
+    }
+
+    function makeLockBox(chapter, onUnlock) {
+      const form = el('form', 'lock-box');
+      form.appendChild(el('p', 'lock-box__text', 'الفصل ده مقفول. اكتب كود الفتح اللي معاك عشان تشوف المحاضرات.'));
+
+      const row = el('div', 'lock-box__row');
+      const input = el('input', 'lock-box__input');
+      input.type = 'text';
+      input.inputMode = 'numeric';
+      input.autocomplete = 'off';
+      input.maxLength = 12;
+      input.placeholder = 'كود الفتح';
+      input.setAttribute('aria-label', 'كود فتح الفصل');
+      const submit = el('button', 'btn btn--primary', 'فتح الفصل');
+      submit.type = 'submit';
+      row.append(input, submit);
+
+      const message = el('p', 'lock-box__msg');
+      message.setAttribute('role', 'alert');
+      form.append(row, message);
+
+      let failedAttempts = 0;
+      let blockedUntil = 0;
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const now = Date.now();
+        if (now < blockedUntil) {
+          message.textContent = `استنى ${Math.ceil((blockedUntil - now) / 1000)} ثانية وجرّب تاني.`;
+          return;
+        }
+
+        const code = normalizeCode(input.value);
+        if (!code) { message.textContent = 'اكتب الكود الأول.'; return; }
+        if (!window.crypto || !crypto.subtle) {
+          message.textContent = 'المتصفح ده مش بيدعم التحقق من الكود. افتح الموقع من رابط https.';
+          return;
+        }
+
+        submit.disabled = true;
+        message.textContent = 'بنتحقق من الكود...';
+        try {
+          const hash = await hashCode(code, chapter.key);
+          if (chapterHashes(chapter).includes(hash)) {
+            try { localStorage.setItem(unlockStorageKey(chapter), hash); } catch (e) { /* التخزين مش متاح */ }
+            onUnlock();
+            return;
+          }
+          failedAttempts += 1;
+          if (failedAttempts >= 5) {
+            failedAttempts = 0;
+            blockedUntil = Date.now() + 30000;
+            message.textContent = 'جربت كذا مرة غلط. استنى 30 ثانية وجرّب تاني.';
+          } else {
+            message.textContent = 'الكود غلط. اتأكد منه وجرّب تاني.';
+          }
+        } catch (e) {
+          message.textContent = 'حصلت مشكلة في التحقق. جرّب تاني.';
+        } finally {
+          submit.disabled = false;
+        }
+      });
+
+      return form;
+    }
+
+    function fillLectures(body, chapter, player) {
+      body.replaceChildren();
+      chapter.lectures.forEach((lecture, i) => body.appendChild(makeLecture(lecture, i === 0, player)));
+    }
+
+    function makeChapter(chapter, open, player) {
+      const locked = !isChapterUnlocked(chapter);
+      const details = el('details', 'chapter');
+      details.open = open;
+      const summary = makeSummary('chapter__title', chapter.title, locked ? '🔒 مقفول' : (chapter.key ? 'مفتوح ✓' : ''));
+      details.appendChild(summary);
+
+      const body = el('div', 'chapter__body');
+      if (locked) {
+        body.appendChild(makeLockBox(chapter, () => {
+          summary.querySelector('.chapter__soon').textContent = 'مفتوح ✓';
+          fillLectures(body, chapter, player);
+        }));
+      } else {
+        fillLectures(body, chapter, player);
+      }
+      details.appendChild(body);
+      return details;
+    }
+
+    function renderChapters(container) {
+      const wrap = el('div', 'chapters-wrap');
+      const player = createPlayerBox();
+      const chapters = el('div', 'chapters');
+      CHAPTERS.forEach((chapter, i) => chapters.appendChild(makeChapter(chapter, i === 0, player)));
+      wrap.append(player.box, chapters);
+      container.appendChild(wrap);
+    }
+
+    /* ===== عرض بيانات الكورس ===== */
+    const params = new URLSearchParams(window.location.search);
+    const courseId = params.get('course');
+    const course = courseId ? getCourseById(courseId) : null;
+
+    const loadingEl = document.getElementById('courseLoading');
+    const notFoundEl = document.getElementById('courseNotFound');
+    const contentEl = document.getElementById('courseContent');
+
+    if (!course) {
+      loadingEl.hidden = true;
+      notFoundEl.hidden = false;
+    } else {
+      loadingEl.hidden = true;
+      contentEl.hidden = false;
+
+      document.title = `${course.titleAr} | جلال أكاديمي`;
+
+      document.getElementById('courseImage').src = course.image;
+      document.getElementById('courseImage').alt = course.titleAr;
+      document.getElementById('courseGradeBadge').textContent = course.grade;
+      document.getElementById('courseTitle').textContent = course.titleAr;
+      document.getElementById('courseSubtitle').textContent = course.subtitleAr || '';
+      document.getElementById('coursePrice').textContent = `${course.price} ${course.currency}`;
+      document.getElementById('courseDescription').textContent = course.description;
+
+      // WhatsApp link with prefilled message
+      const waMessage = encodeURIComponent(
+        `أهلاً، حولت قيمة كورس "${course.titleAr}" وعايز أأكد الدفع.`
+      );
+      document.getElementById('whatsappConfirmLink').href = `https://wa.me/201038639818?text=${waMessage}`;
+
+      const breakdownEl = document.getElementById('courseContentBreakdown');
+
+      if (COURSES_WITH_CHAPTERS.includes(courseId)) {
+        // الكورسات اللي ليها فصول: 4 ليبلات للفصول
+        renderChapters(breakdownEl);
+      } else {
+        // باقي الكورسات: نفس العرض القديم (حصص أو أجزاء)
+        if (course.sessions) {
+          const list = document.createElement('ul');
+          list.className = 'breakdown-list';
+          list.innerHTML = `
+            <li class="breakdown-list__item">
+              <span class="breakdown-list__count">${course.stats.sessionsCount}</span>
+              <span>حصة، كل حصة فيها امتحان، فيديو شرح، فيديو حل، ملف شرح، وملف حل</span>
+            </li>`;
+          breakdownEl.appendChild(list);
+        }
+
+        if (course.parts) {
+          const list = document.createElement('ul');
+          list.className = 'breakdown-list';
+          course.parts.forEach((part) => {
+            const item = document.createElement('li');
+            item.className = 'breakdown-list__item';
+            let countLabel = '';
+            if (part.videosCount) countLabel += `${part.videosCount} فيديو `;
+            if (part.filesCount) countLabel += `+ ${part.filesCount} ملف `;
+            if (part.sessionsCount) countLabel += `${part.sessionsCount} حصة `;
+            item.innerHTML = `
+              <span class="breakdown-list__count">${countLabel.trim()}</span>
+              <span>${part.titleAr}</span>
+            `;
+            list.appendChild(item);
+          });
+          breakdownEl.appendChild(list);
+        }
+      }
+    }
+  </script>
+</body>
+</html>
