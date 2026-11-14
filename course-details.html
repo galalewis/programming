@@ -391,6 +391,18 @@ buildLecture('العاشرة', 'العاشر', EMPTY)
       }
     ];
 
+    // إضافة كويز المحاضرة الثامنة في نهاية محتواها دون تغيير بيانات المحاضرات الأخرى
+    const lectureEight = CHAPTERS
+      .find((chapter) => chapter.key === 'ch3')
+      .lectures
+      .find((lecture) => lecture.title === 'المحاضرة الثامنة');
+
+    lectureEight.videos.push({
+      title: 'كويز المحاضرة التامنة',
+      url: 'https://docs.google.com/forms/d/e/1FAIpQLScnyr8x3OA_0enE5Wm2lK4h7DReW0mbK-5kSWq5YqUJiODIDg/viewform',
+      external: true
+    });
+
     /* أكواد فتح الفصول (30 كود لكل فصل) محفوظة كـ hash مش كأرقام: PBKDF2-SHA256، 100000 دورة، salt = galal-academy|<رقم الفصل> */
     const CODE_HASH_ITERATIONS = 100000;
     const CHAPTER_CODE_HASHES = {
@@ -645,22 +657,42 @@ buildLecture('العاشرة', 'العاشر', EMPTY)
       info.appendChild(el('h4', 'video-item__title', video.title));
 
       const clickable = [];
+      const isExternal = video.external === true;
+
       if (video.url) {
         const link = el('a', 'video-item__link', video.url);
         link.href = video.url;
+
+        if (isExternal) {
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+        } else {
+          clickable.push(link);
+        }
+
         info.appendChild(link);
-        clickable.push(link);
       } else {
         info.appendChild(el('span', 'chapter__soon', 'قريباً'));
       }
       item.appendChild(info);
 
-      const watch = el('a', 'btn btn--primary btn--sm', 'مشاهدة');
+      const watch = el(
+        'a',
+        'btn btn--primary btn--sm',
+        isExternal ? 'دخول الكويز' : 'مشاهدة'
+      );
       watch.href = video.url || '#';
-      item.appendChild(watch);
-      clickable.push(watch);
 
-      // الرابط وزرار «مشاهدة» بيشغّلوا الفيديو جوه الصفحة (من غير تاب جديدة)
+      if (isExternal && video.url) {
+        watch.target = '_blank';
+        watch.rel = 'noopener noreferrer';
+      } else {
+        clickable.push(watch);
+      }
+
+      item.appendChild(watch);
+
+      // روابط الفيديوهات فقط هي التي تعمل من خلال مشغل الموقع الداخلي
       clickable.forEach((a) => {
         a.addEventListener('click', (event) => {
           event.preventDefault();
