@@ -405,7 +405,16 @@ buildLecture('العاشرة', 'العاشر', EMPTY)
       url: 'https://docs.google.com/forms/d/e/1FAIpQLScnyr8x3OA_0enE5Wm2lK4h7DReW0mbK-5kSWq5YqUJiODIDg/viewform',
       external: true
     });
+const lectureNine = CHAPTERS
+  .find((chapter) => chapter.key === 'ch3')
+  .lectures
+  .find((lecture) => lecture.title === 'المحاضرة التاسعة');
 
+lectureNine.videos.push({
+  title: 'كويز المحاضرة التاسعة',
+  url: 'https://forms.gle/RMddZoPKoWJB7CvR7',
+  external: true
+});
     /* أكواد فتح الفصول (30 كود لكل فصل) محفوظة كـ hash مش كأرقام: PBKDF2-SHA256، 100000 دورة، salt = galal-academy|<رقم الفصل> */
     const CODE_HASH_ITERATIONS = 100000;
     const CHAPTER_CODE_HASHES = {
